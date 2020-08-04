@@ -1,10 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Add a Cafe</h3>
 <div class="row">
-    <form  action="" method="POST" class="col s12">
-      <input id="cafe_name" name="cafe_name" type="text" />
-    <input id="cafe_website" name="cafe_website" type="text" />
-    <input id="cafe_address" name="cafe_address" type="text" /> 
+    <form  action="{{url_for('insert_cafe')}}" method="POST" class="col s12">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" />
+    <label for="website">Website</label>
+    <input id="website" name="website" type="text" />
+    <label for="address">Address</label>
+    <input id="address" name="address" type="text" /> 
+    <input type="submit" />
     </form>
 </div>
 {% endblock %}
