@@ -1,0 +1,17 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+    <h1>Brighton Cafe Reviews</h1>
+        <ul>
+        {% for cafe in cafes %}
+        <li>  
+           <h2>{{cafe.name}}</h2>
+            <p>{{cafe.website}}</p>
+            <p>{{cafe.address}}</p>          
+        </li>      
+        {% endfor %}
+        </ul>
+    </body>
+</html>
