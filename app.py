@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId 
 
 app = Flask(__name__)
@@ -15,6 +16,9 @@ mongo = PyMongo(app)
 def get_cafes():
     return render_template("cafes.html", cafes=mongo.db.cafes.find())
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
 
 @app.route('/insert_cafe', methods=["POST"])
 def insert_cafe():
