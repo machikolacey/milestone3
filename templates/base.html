@@ -2,20 +2,55 @@
 <html>
 
 <head>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
 </head>
 
 <body>
-    {% block content %} {% endblock %}
 
+<header>
+ <div class="navbar-fixed">
+     <nav class="nav-extended text-shadow light-blue darken-1">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">My Cafe Memories</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse sudenav-trigger right"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
+        <li><a href="#">Manage Categories</a></li>
+        <li><a href="#">Log Out</a></li>
+        <li><a href="#">Log In</a></li>        
+        <li><a href="#">Register</a></li>   
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+      <li><h4 class="center-align light-blue-text text-darken-4">Task Manager</h4></li>
+        <li><a href="/">Home</a></li>
+          <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
+        <li><a href="#">Manage Categories</a></li>
+        <li><a href="#">Log Out</a></li>
+        <li><a href="#">Log In</a></li>        
+        <li><a href="#">Register</a></li>   
+      </ul>
+    </div>
+  </nav>
+  </div>
+ 
+</header>
+    {% block content %} {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript">
-       /* $(document).ready(function() {
-            $('.collapsible').collapsible();
-        });
 
+    <script type="text/javascript">
+       $(document).ready(function() {
+           $(".button-collapse").sideNav({edge:"right"});
+            //  $('.side-nav').sidenav();
+               $('select').material_select();
+        });
+ /*
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month
             selectYears: 15, // Creates a dropdown of 15 years to control year,

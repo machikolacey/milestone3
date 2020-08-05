@@ -24,8 +24,9 @@ def insert_cafe():
 
 
 @app.route('/add_cafe')
-def add_task():
-    return render_template('addcafe.html')
+def add_cafe():
+    return render_template('addcafe.html',
+           areas=mongo.db.areas.find())
 
 
 if __name__ == '__main__':
