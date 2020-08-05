@@ -1,10 +1,11 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId 
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config["MONGO_DBNAME"] = 'brightonCafes'
 app.config["MONGO_URI"] = "mongodb+srv://root:r00tUser@myfirstcluster.1nsni.mongodb.net/brightonCafes?retryWrites=true&w=majority"
 
@@ -18,6 +19,25 @@ def get_cafes():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+
+    if request.method == "POST":
+        #check if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username":request.form.get("username").lower()}
+        )
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+        register = {
+            "username" : request.form.get("username").lower(),
+            "password" : generate_password_hash(request.form.get("password"))            
+        }    
+ 
+        mongo.db.users.insert_one(register)
+
+        #put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration successful")
     return render_template("register.html")
 
 @app.route('/insert_cafe', methods=["POST"])
