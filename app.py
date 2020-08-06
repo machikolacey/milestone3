@@ -38,7 +38,7 @@ def register():
         #put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration successful")
-    return render_template("register.html")
+    return redirect(url_for("profile", username = session["user"] ))
 
 @app.route('/insert_cafe', methods=["POST"])
 def insert_cafe():
@@ -61,8 +61,10 @@ def login():
         if existing_user:
             #ensure hashed password matches user input
             if check_password_hash(existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+                session["user"] = request.form.get("username")
                 flash("welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
+                        "profile", username=session["user"]))
             else:
             #Invalid password match
                 flash("Incorrect username annd/or password")
@@ -73,6 +75,11 @@ def login():
             return redirect (url_for("login"))
     return render_template("login.html")           
 
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    username = mongo.db.users.find_one(
+        {"username" : session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
