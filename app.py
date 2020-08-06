@@ -53,6 +53,57 @@ def add_cafe():
            areas=mongo.db.areas.find())
 
 
+
+@app.route('/insert_memory', methods=["POST"])
+def insert_memory():
+    cafes = mongo.db.memories
+    cafes.insert_one(request.form.to_dict())
+    return redirect(url_for("get_memories"))
+
+
+@app.route('/add_memory')
+def add_memory():
+    return render_template('addmemory.html',
+           cafes=mongo.db.cafes.find())
+
+@app.route('/')
+@app.route('/get_memories')
+def get_memories():
+    return render_template("memories.html", 
+           memories=mongo.db.memories.find())
+
+
+
+@app.route('/edit_memory/<memory_id>')
+def edit_task(task_id):
+    the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+    all_categories =  mongo.db.categories.find()
+    return render_template('editmemory.html', task=the_task,
+                           categories=all_categories)
+
+
+@app.route('/update_memory/<task_id>', methods=["POST"])
+def update_task(task_id):
+    tasks = mongo.db.tasks
+    tasks.update( {'_id': ObjectId(task_id)},
+    {
+        'cafe_name':request.form.get('cafe_name'),
+        'description':request.form.get('description'),
+        'is_private': request.form.get('is_private'),
+        'date': request.form.get('date')
+    })
+    return redirect(url_for('get_memories'))
+
+
+@app.route('/delete_memory/<memory_id>')
+def delete_task(memory_id):
+    mongo.db.tasks.remove({'_id': ObjectId(memory_id)})
+    return redirect(url_for('get_memories'))
+
+
+
+
+
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method=="POST":

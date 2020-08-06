@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+<html>
+    <head>
+
+    </head>
+    <body>
+ 
+        <ul>
+        {% for memory in memories %}
+        <li>  
+           <h2>{{memory.cafe_name}}</h2>
+            <p>{{memory.description}}</p>
+            <p>{{memory.date}}</p>          
+        </li>      
+        {% endfor %}
+        </ul>
+    </body>
+</html>
+{% endblock %}
