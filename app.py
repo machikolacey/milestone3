@@ -96,8 +96,8 @@ def update_memory(memory_id):
 
 
 @app.route('/delete_memory/<memory_id>')
-def delete_task(memory_id):
-    mongo.db.tasks.remove({'_id': ObjectId(memory_id)})
+def delete_memory(memory_id):
+    mongo.db.memories.remove({'_id': ObjectId(memory_id)})
     return redirect(url_for('get_memories'))
 
 
