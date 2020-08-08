@@ -12,10 +12,7 @@ app.config["MONGO_URI"] = "mongodb+srv://root:r00tUser@myfirstcluster.1nsni.mong
 mongo = PyMongo(app)
 
 
-@app.route('/')
-@app.route('/get_cafes')
-def get_cafes():
-    return render_template("cafes.html", cafes=mongo.db.cafes.find())
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -65,28 +62,30 @@ def insert_memory():
 @app.route('/add_memory')
 def add_memory():
     return render_template('addmemory.html',
-           cafes=mongo.db.cafes.find())
+           cafes=mongo.db.memories.find())
 
 @app.route('/')
-@app.route('/get_memories')
 def get_memories():
-    return render_template("memories.html", 
-           memories=mongo.db.memories.find())
+    return render_template("memories.html", memories=mongo.db.memories.find())
+    
+
+
+
 
 
 
 @app.route('/edit_memory/<memory_id>')
-def edit_task(task_id):
-    the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
-    all_categories =  mongo.db.categories.find()
-    return render_template('editmemory.html', task=the_task,
-                           categories=all_categories)
+def edit_memory(memory_id):
+    the_memory =  mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
+    all_cafes =  mongo.db.cafes.find()
+    return render_template('editmemory.html', memory=the_memory,
+                           cafes=all_cafes)
 
 
-@app.route('/update_memory/<task_id>', methods=["POST"])
-def update_task(task_id):
-    tasks = mongo.db.tasks
-    tasks.update( {'_id': ObjectId(task_id)},
+@app.route('/update_memory/<memory_id>', methods=["POST"])
+def update_memory(memory_id):
+    memories = mongo.db.memories
+    memories.update( {'_id': ObjectId(memory_id)},
     {
         'cafe_name':request.form.get('cafe_name'),
         'description':request.form.get('description'),

@@ -4,13 +4,14 @@
 
     </head>
     <body>
- 
+
         <ul>
         {% for memory in memories %}
         <li>  
            <h2>{{memory.cafe_name}}</h2>
             <p>{{memory.description}}</p>
-            <p>{{memory.date}}</p>          
+            <p>{{memory.date}} {{memory._id}}</p>   
+         <a href="{{url_for('edit_memory', memory_id=memory._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>       
         </li>      
         {% endfor %}
         </ul>

@@ -24,6 +24,7 @@
         <li><a href="{{ url_for('profile', username=session['username']) }}">Profile</a></li>
         <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
         <li><a href="{{ url_for('add_memory') }}">Add Memory</a></li> 
+  
         <li><a href="#">Manage Categories</a></li>
         <li><a href="{{ url_for('logout') }}">Log Out</a></li>   
         {% else %}
@@ -38,6 +39,7 @@
         <li><a href="{{ url_for('profile', username=session['username']) }}">Profile</a></li>
         <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
         <li><a href="{{ url_for('add_memory') }}">Add Memory</a></li> 
+ 
         <li><a href="#">Manage Categories</a></li>
         <li><a href="{{ url_for('logout') }}">Log Out</a></li>   
         {% else %}
