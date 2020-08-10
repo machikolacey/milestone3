@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Add a Cafe</h3>
+<h3>Edit Cafe</h3>
 
 <div class="row">
-    <form action="{{ url_for('insert_cafe') }}" method="POST"  class="col s12">
+    <form action="{{ url_for('update_cafe', cafe_id=cafe._id) }}" method="POST"  class="col s12">
+    
         <div class="row">
 
                 <div class="input-field col s12">
@@ -10,7 +11,11 @@
                     <select id="area" name="area_name">
                   <option value="" disabled selected>Choose Area</option>
                   {% for area in areas %}
-                      <option value="{{area.name}}">{{area.name}}</option>            
+                    {% if cafe.area_name == area.name%}
+                      <option value="{{area.name}}" selected >{{area.name}}</option>
+                      {% else %}
+                       <option value="{{area.name}}">{{area.name}}</option>
+                    {% endif %}          
                   {% endfor %}
                 </select>
                     <label>Area</label>
@@ -18,21 +23,21 @@
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
-                <input id="cafe_name" name="cafe_name" type="text">
+                <input id="cafe_name" name="cafe_name" type="text" value="{{cafe.cafe_name}}">
                 <label for="icon_prefix">Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                 <input id="website" name="website" type="text">
+                 <input id="website" name="website" type="text" value="{{cafe.website}}">
                 <label for="icon_telephone">Website</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                 <input id="address" name="address" type="text">
+                 <input id="address" name="address" type="text" value="{{cafe.address}}">
                 <label for="icon_telephone">address</label>
             </div>
         </div>

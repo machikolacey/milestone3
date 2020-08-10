@@ -38,6 +38,53 @@ def register():
         return redirect(url_for("profile", username = session["user"] ))
     return render_template("register.html")
 
+
+
+@app.route('/get_cafes')
+def get_cafes():
+    return render_template('cafes.html',
+         cafes=mongo.db.cafes.find())
+
+@app.route('/add_cafe')
+def add_cafe():
+    return render_template('addcafe.html',
+           areas=mongo.db.areas.find())
+
+
+
+@app.route('/edit_cafe/<cafe_id>')
+def edit_cafe(cafe_id):
+    the_cafe =  mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
+    all_areas =  mongo.db.areas.find()
+    return render_template('editcafe.html', cafe=the_cafe,
+                           areas=all_areas)
+
+
+
+
+
+
+@app.route('/update_cafe/<cafe_id>', methods=['POST'])
+def update_cafe(cafe_id):
+    cafes = mongo.db.cafes
+    cafes.update( {'_id':ObjectId(cafe_id)},
+    {
+        'cafe_name':request.form.get('cafe_name'),
+        'website':request.form.get('website'),
+        'address': request.form.get('address'),
+        'area_name': request.form.get('area_name')
+        
+    })
+    return redirect(url_for('get_cafes'))
+
+@app.route('/delete_cafe/<cafe_id>')
+def delete_cafe(cafe_id):
+    mongo.db.cafes.remove({'_id': ObjectId(cafe_id)})
+    return redirect(url_for('get_cafes'))
+
+
+
+
 @app.route('/insert_cafe', methods=["POST"])
 def insert_cafe():
     cafes = mongo.db.cafes
@@ -45,10 +92,7 @@ def insert_cafe():
     return redirect(url_for("get_cafes"))
 
 
-@app.route('/add_cafe')
-def add_cafe():
-    return render_template('addcafe.html',
-           areas=mongo.db.areas.find())
+
 
 
 
