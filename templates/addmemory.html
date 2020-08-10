@@ -2,7 +2,9 @@
 <h3>Add Your Cafe Memory</h3>
 
 <div class="row">
-    <form action="{{ url_for('insert_memory') }}" method="POST"  class="col s12">
+    <form action="{{ url_for('insert_memory') }}" method="POST"  class="col s12" enctype="multipart/form-data">
+
+<input type="file" name="file" accept="image/*" multiple > 
         <div class="row">
 
                 <div class="input-field col s12">

@@ -5,13 +5,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId 
 
 app = Flask(__name__)
+
+
+
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config["MONGO_DBNAME"] = 'brightonCafes'
 app.config["MONGO_URI"] = "mongodb+srv://root:r00tUser@myfirstcluster.1nsni.mongodb.net/brightonCafes?retryWrites=true&w=majority"
 
 mongo = PyMongo(app)
 
-
+APP_ROOT = os.path.dirname(os.path.abspath(__file__)) 
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -98,8 +101,23 @@ def insert_cafe():
 
 @app.route('/insert_memory', methods=["POST"])
 def insert_memory():
-    cafes = mongo.db.memories
-    cafes.insert_one(request.form.to_dict())
+    target = os.path.join(APP_ROOT, 'uploads/')
+    print(target)
+
+    if not os.path.isdir(target):
+        os.mkdir(target)
+
+    for file in request.files.getlist("file"):
+        print(file)
+        filename =  file.filename
+        filepath = "/".join([target, filename])
+        print(filepath)
+        file.save(filepath)
+
+    memory = request.form.to_dict()
+    memory['photo'] = filepath
+    memories = mongo.db.memories
+    memories.insert_one(memory)
     return redirect(url_for("get_memories"))
 
 
