@@ -3,8 +3,8 @@
 
 <div class="row">
     <form action="{{ url_for('insert_memory') }}" method="POST"  class="col s12" enctype="multipart/form-data">
+<input type="text" class="searchcafe" value="">
 
-<input type="file" name="file" accept="image/*" multiple > 
         <div class="row">
 
                 <div class="input-field col s12">
@@ -27,7 +27,13 @@
                 <label for="icon_telephone">Description</label>
             </div>
         </div>
-    
+           <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">subject</i>
+                 <input type="text" name="photo"  alt="photo"  />
+                <label for="icon_telephone">Photo</label>
+            </div>
+        </div> 
            <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>

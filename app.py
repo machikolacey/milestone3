@@ -17,6 +17,7 @@ mongo = PyMongo(app)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__)) 
 
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
 
@@ -101,21 +102,8 @@ def insert_cafe():
 
 @app.route('/insert_memory', methods=["POST"])
 def insert_memory():
-    target = os.path.join(APP_ROOT, 'uploads/')
-    print(target)
-
-    if not os.path.isdir(target):
-        os.mkdir(target)
-
-    for file in request.files.getlist("file"):
-        print(file)
-        filename =  file.filename
-        filepath = "/".join([target, filename])
-        print(filepath)
-        file.save(filepath)
-
+ 
     memory = request.form.to_dict()
-    memory['photo'] = filepath
     memories = mongo.db.memories
     memories.insert_one(memory)
     return redirect(url_for("get_memories"))
@@ -131,7 +119,11 @@ def get_memories():
     return render_template("memories.html", memories=mongo.db.memories.find())
     
 
-
+@app.route('/cafe_autocomplete/<query>')
+def cafe_autocomplete():
+    cafes = cafes=mongo.db.memories.find()
+    print(cafes)
+    return  cafes
 
 
 
@@ -206,6 +198,13 @@ def profile(username):
          return render_template("profile.html", username=username)
     
          return redirect(url_for('login'))
+
+
+def cafe_autocomplete(request, **kwargs):
+    term = request.GET.__getitem__('query')
+    cafes = [str(cafe) for cafe in    cafe.objects.filter(Q(title__icontains=q) | Q(description__icontains=q))] 
+    return  HttpResponse(json.dumps(cafes))   
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
