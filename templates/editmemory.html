@@ -31,6 +31,10 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
                  <input type="text" name="photo"  alt="photo" value="{{memory.photo}}" />
+
+                {% if memory.photo %}
+                    <img src="{{memory.photo}}" alt="">
+                {% endif %}
                 <label for="icon_telephone">Photo</label>
             </div>
         </div> 

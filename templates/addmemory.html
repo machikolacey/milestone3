@@ -10,6 +10,23 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">poll</i>
                     <select id="cafe_name" name="cafe_name">
+                  <option value="" disabled selected>Choose Area</option>
+                  {% for area in areas %}
+                      <option value="{{area.name}}">{{area.name}}</option>            
+                  {% endfor %}
+                </select>
+                    <label>Area</label>
+                </div>
+         </div>
+
+
+
+
+        <div class="row">
+
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="cafe_name" name="cafe_name">
                   <option value="" disabled selected>Choose Cafe</option>
                   {% for cafe in cafes %}
                       <option value="{{cafe.cafe_name}}">{{cafe.cafe_name}}</option>            
@@ -17,7 +34,7 @@
                 </select>
                     <label>Cafe</label>
                 </div>
-            </div>
+         </div>
 
   
         <div class="row">

@@ -112,7 +112,7 @@ def insert_memory():
 @app.route('/add_memory')
 def add_memory():
     return render_template('addmemory.html',
-           cafes=mongo.db.memories.find())
+           cafes=mongo.db.cafes.find(), areas=mongo.db.areas.find())
 
 @app.route('/')
 def get_memories():
@@ -143,6 +143,7 @@ def update_memory(memory_id):
     {
         'cafe_name':request.form.get('cafe_name'),
         'description':request.form.get('description'),
+        'photo':request.form.get('photo'),
         'is_private': request.form.get('is_private'),
         'date': request.form.get('date')
     })
