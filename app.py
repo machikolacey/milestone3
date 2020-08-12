@@ -1,8 +1,9 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, flash, session
+from flask import Flask, render_template, redirect, request, url_for, flash, session, jsonify
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId 
+from bson import json_util
 
 app = Flask(__name__)
 
@@ -113,6 +114,16 @@ def insert_memory():
 def add_memory():
     return render_template('addmemory.html',
            cafes=mongo.db.cafes.find(), areas=mongo.db.areas.find())
+
+@app.route('/filter_cafe',  methods=['POST', 'GET'])
+def filter_cafe():
+    x   = []
+    cafes=mongo.db.cafes.find()
+    aa = ["apple", "lemon"]
+    for cafe in cafes:
+     x.append(cafe)
+
+     return jsonify(x)
 
 @app.route('/')
 def get_memories():

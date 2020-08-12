@@ -10,7 +10,7 @@
      <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -72,7 +72,7 @@
     {% block content %} {% endblock %}
 </section>    
 </div> <!-- /-container -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <script type="text/javascript">
@@ -107,7 +107,36 @@
         $('.datepicker').on('mousedown',function(event){
             event.preventDefault();
         });
-    </script>
+
+$(document).ready(function() {
+
+ if($('#area_name').length){
+
+        $("#area_name").change(function(){
+
+            console.log('changed');
+
+        $.post("/filter_cafe",
+        {
+            area_name: $(this).val()
+        },
+        function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+        });
+
+
+ 
+
+ }
+
+
+});
+
+
+
+</script>
+
 </body>
 
 </html>
