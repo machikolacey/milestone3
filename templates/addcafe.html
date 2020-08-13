@@ -10,7 +10,7 @@
                     <select id="area" name="area_name">
                   <option value="" disabled selected>Choose Area</option>
                   {% for area in areas %}
-                      <option value="{{area.name}}">{{area.name}}</option>            
+                      <option value="{{area._id}}">{{area.name}}</option>            
                   {% endfor %}
                 </select>
                     <label>Area</label>
@@ -46,4 +46,8 @@
     </form>
 </div>
 
+
+
 {% endblock %}
+
+
