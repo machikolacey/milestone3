@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId 
 from bson import json_util
 import json
-
+from bson.json_util import dumps
 app = Flask(__name__)
 
 
@@ -53,8 +53,10 @@ def get_cafes():
 
 @app.route('/add_cafe')
 def add_cafe():
+    areanames=mongo.db.areas.find()
+    areanamesjson = dumps(areanames)
     return render_template('addcafe.html',
-           areas=mongo.db.areas.find())
+           areas=mongo.db.areas.find(), areanames=areanamesjson)
 
 
 
@@ -113,8 +115,11 @@ def insert_memory():
 
 @app.route('/add_memory')
 def add_memory():
+    cafes=mongo.db.cafes.find()
+    cafenames=mongo.db.cafes.find({}, {"cafe_name":1, "area":1})
+    cafenamesjson = dumps(cafenames)
     return render_template('addmemory.html',
-           cafes=mongo.db.cafes.find(), areas=mongo.db.areas.find())
+           cafes=cafes, areas=mongo.db.areas.find(), cafenames= cafenamesjson)
 
 @app.route('/filter_cafe',  methods=['POST', 'GET'])
 def filter_cafe():

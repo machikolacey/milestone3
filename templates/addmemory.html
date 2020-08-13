@@ -1,40 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Add Your Cafe Memory</h3>
 
-<div class="row">
-        <div class="input-field col s12">
-            <i class="material-icons prefix">poll</i>
-                   
-                <select id="area_name" name="area_name">
-                        <option value="" disabled selected>Choose Area</option>
-                        {% for area in areas %}
-                            <option value="{{area.name}}"   >{{area.name}}</option>            
-                        {% endfor %}
-                </select>
-         
-            <label>Area</label>
 
-        </div>
-</div>
 
 <div class="row">
-    <form action="{{ url_for('insert_memory') }}" method="POST"  class="col s12" enctype="multipart/form-data">
-        <div class="row">
-
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">poll</i>
-
-                    <input type="text" id="searchcafe">
-                    <select id="cafe_name" name="cafe_name">
-                  <option value="" disabled selected>Choose Cafe</option>
-                  {% for cafe in cafes %}
-                      <option value="{{cafe.cafe_name}}" area_name="{{cafe.area_name}}">{{cafe.cafe_name}}</option>            
-                  {% endfor %}
-                </select>
-                    <label>Cafe</label>
+    <form action="{{ url_for('insert_memory') }}" method="POST"  class="col s12" >
+            <div class="row">
+                <div class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix">textsms</i>
+                    <input type="text" id="cafe_name" class="autocomplete" name="cafe_name" autocomplete="off" >
+                    <label for="autocomplete-input">Cafe Name</label>
+                    </div>
                 </div>
-         </div>
-
+                </div>
+            </div>
+        <p>Can't find the cafe? Add it <a href="{{ url_for('add_cafe') }}">here</a></p>
   
         <div class="row">
             <div class="input-field col s12">
@@ -74,37 +56,26 @@
     </form>
 </div>
 
- <div class="row">
-    <div class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">textsms</i>
-          <input type="text" id="autocomplete-input" class="autocomplete">
-          <label for="autocomplete-input">Autocomplete</label>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+ 
+
 <script>
 
 
-  // Or with jQuery
+
 
   $(document).ready(function(){
+    let cafenames = JSON.parse({{ cafenames|tojson|safe }}); 
+    let data = {};
+    cafenames.forEach(function (cafename) {
+        console.log(cafename.cafe_name)
+       data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
+    });
 
- var cafes = {{ test|tojson|safe }}; 
-console.log(cafes);
 
 
 
     $('input.autocomplete').autocomplete({
-      data: {
-        "Apple": null,
-        "Microsoft": null,
-        "Google": 'https://placehold.it/250x250'
-      },
+      data: data
     });
   });
 
