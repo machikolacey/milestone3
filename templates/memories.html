@@ -5,19 +5,24 @@
     </head>
     <body>
 <div class="row">
+ {% for memory in memories %}
+    {% if not  memory.is_private  %}
+        <div class="col-sm-4 ">
+                <img src="{{memory.photo}}" alt="" class="memory_photo">
+                <h2>{{memory.cafe_name}}</h2>
+                    <p>{{memory.description}}</p>
+                    <p>{{memory.date}} </p>  
+                    <p>Rating:{{memory.rating}} </p>  
+                    {% if  memory.user == session.user %}   
+                     <p>your own post</p>
+                    {% else %} 
+                      <p>{{memory.user}}</p>
+                    
+                    {% endif %} 
 
-
-
-        {% for memory in memories %}
-<div class="col-sm-4 ">
-        <img src="{{memory.photo}}" alt="" class="memory_photo">
-           <h2>{{memory.cafe_name}}</h2>
-            <p>{{memory.description}}</p>
-            <p>{{memory.date}} {{memory._id}}</p>   
-         <a href="{{url_for('edit_memory', memory_id=memory._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>       
-        <a href="{{url_for('delete_memory', memory_id=memory._id)}}" class="waves-effect waves-light btn btn_small">Delete</a>
-</div>     
-        {% endfor %}
+        </div>  
+    {% endif %} 
+{% endfor %}
 </div>    
     </body>
 </html>

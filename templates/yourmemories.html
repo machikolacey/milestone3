@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<html>
+    <head>
+
+    </head>
+    <body>
+    <h1>Your Cafe Memories</h1>
+<div class="row">
+ {% for memory in memories %}
+    {% if  memory.user == username %}
+       <div class="col-sm-4 ">
+                <img src="{{memory.photo}}" alt="" class="memory_photo">
+                <h2>{{memory.cafe_name}}</h2>
+                    <p>{{memory.description}}</p>
+                    <p>{{memory.date}} </p>
+                    <p>{{memory.is_private}}</p> 
+                        <p>Rating:{{memory.rating}} </p>    
+                <a href="{{url_for('edit_memory', memory_id=memory._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>       
+                <a href="{{url_for('delete_memory', memory_id=memory._id)}}" class="waves-effect waves-light btn btn_small">Delete</a>
+        </div> 
+   {% endif %} 
+{% endfor %}
+</div>    
+    </body>
+</html>
+{% endblock %}

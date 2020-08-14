@@ -136,6 +136,11 @@ def get_memories():
     return render_template("memories.html", memories=mongo.db.memories.find())
     
 
+@app.route('/your_memories')
+def your_memories():
+    return render_template("yourmemories.html", memories=mongo.db.memories.find(), username = session["user"])
+
+
 @app.route('/cafe_autocomplete/<query>')
 def cafe_autocomplete():
     cafes = cafes=mongo.db.memories.find()
