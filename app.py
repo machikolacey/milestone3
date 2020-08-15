@@ -53,8 +53,11 @@ def get_cafes():
 
 @app.route('/add_cafe')
 def add_cafe():
+    if  session.get('logged_in') != True:
+       return redirect("/login")   
     areanames=mongo.db.areas.find()
     areanamesjson = dumps(areanames)
+    
     return render_template('addcafe.html',
            areas=mongo.db.areas.find(), areanames=areanamesjson)
 
@@ -62,10 +65,11 @@ def add_cafe():
 
 @app.route('/edit_cafe/<cafe_id>')
 def edit_cafe(cafe_id):
+    if  session.get('logged_in') != True:
+      return redirect("/login")   
     the_cafe =  mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
     all_areas =  mongo.db.areas.find()
-    return render_template('editcafe.html', cafe=the_cafe,
-                           areas=all_areas)
+    return render_template('editcafe.html', cafe=the_cafe, areas=all_areas)
 
 
 
@@ -115,6 +119,8 @@ def insert_memory():
 
 @app.route('/add_memory')
 def add_memory():
+    if  session.get('logged_in') != True:
+      return redirect("/login")   
     cafes=mongo.db.cafes.find()
     cafenames=mongo.db.cafes.find({}, {"cafe_name":1, "area":1})
     cafenamesjson = dumps(cafenames)
@@ -133,11 +139,21 @@ def filter_cafe():
 
 @app.route('/')
 def get_memories():
-    return render_template("memories.html", memories=mongo.db.memories.find())
+    memories=mongo.db.memories.find()
+    users=mongo.db.users.find()
+    mems = []
+   
+    for memory in memories:
+            user = mongo.db.users.find_one({"username":memory["user"]})            
+            memory["userphoto"] = user["photo"]
+            mems.append(memory)
+    return render_template("memories.html", memories=mems)
     
 
 @app.route('/your_memories')
 def your_memories():
+    if  session.get('logged_in') != True:
+      return redirect("/login")   
     return render_template("yourmemories.html", memories=mongo.db.memories.find(), username = session["user"])
 
 
@@ -157,6 +173,21 @@ def edit_memory(memory_id):
     return render_template('editmemory.html', memory=the_memory,
                            cafes=all_cafes)
 
+
+@app.route('/edit_user/<user_id>')
+def edit_user(user_id):
+    the_user =  mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template('edituser.html', user=the_user)
+
+@app.route('/update_user/<user_id>', methods=["POST"])
+def update_user(user_id):
+    users = mongo.db.users
+    users.update( {'_id': ObjectId(user_id)},
+    {
+        'username':request.form.get('username'),
+        'photo':request.form.get('photo')
+    })
+    return redirect(url_for('profile', username=session['user']))
 
 @app.route('/update_memory/<memory_id>', methods=["POST"])
 def update_memory(memory_id):
@@ -191,6 +222,7 @@ def login():
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username")
                 flash("welcome, {}".format(request.form.get("username")))
+                session['logged_in'] = True
                 return redirect(url_for(
                         "profile", username=session["user"]))
             else:
@@ -207,18 +239,14 @@ def login():
 def logout():
     flash('You have been logged out')
     session.pop("user")
+    session.pop('logged_in', None)
     return redirect(url_for("login"))
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    
-
-      username = mongo.db.users.find_one(
-        {"username" : session["user"]})["username"]
-
-
+      user = mongo.db.users.find_one({"username" : session["user"]})
       if session["user"]:
-         return render_template("profile.html", username=username)
+         return render_template("profile.html", user=user)
     
          return redirect(url_for('login'))
 

@@ -4,6 +4,7 @@
 
     </head>
     <body>
+
 <div class="row">
  {% for memory in memories %}
     {% if not  memory.is_private  %}
@@ -15,9 +16,11 @@
                     <p>Rating:{{memory.rating}} </p>  
                     {% if  memory.user == session.user %}   
                      <p>your own post</p>
+                         <img src="{{ memory.userphoto }}" class="user_photo" alt="">
                     {% else %} 
                       <p>{{memory.user}}</p>
-                    
+                        <img src="{{ memory.userphoto }}" class="user_photo" alt="">
+
                     {% endif %} 
 
         </div>  

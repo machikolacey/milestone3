@@ -1,10 +1,14 @@
  {% extends 'base.html' %} {% block content %}
  <div class="row">
     <div class="col s12 m8 offset-m2" >
-      <div class="card-panel">
+      <div class="card-panel text-center">
       <h3 class="center-align light-blue-text text-darken-4">
-      {{ username }}'s Profile
+      {{ user.username }}
       </h3>
+
+      <img src="{{ user.photo }}" alt="{{ user.username }} photo" class="profile-photo" />
+    <br />
+      <a href="{{url_for('edit_user', user_id=user._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>  
         </div>
     
     </div>
