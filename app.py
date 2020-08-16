@@ -189,10 +189,10 @@ def edit_user(user_id):
 def update_user(user_id):
     users = mongo.db.users
     users.update( {'_id': ObjectId(user_id)},
-    {
+    {"$set": {
         'username':request.form.get('username'),
         'photo':request.form.get('photo')
-    })
+    }})
     return redirect(url_for('profile', username=session['user']))
 
 @app.route('/update_memory/<memory_id>', methods=["POST"])
