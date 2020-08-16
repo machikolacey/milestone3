@@ -32,13 +32,14 @@
                 <label for="icon_telephone">Photo</label>
             </div>
         </div> 
-           <div class="row">
+        <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
-                <input id="due_date" name="due_date" type="text" class="datepicker">
+                <input id="date" name="date" type="text" class="datepicker">
                 <label for="icon_prefix">Date</label>
             </div>
         </div>
+             <input type="hidden" name="user" value="{{ username }}"    />
         <div class="row">
             <div class="switch">
                 <label>
@@ -70,8 +71,6 @@
         console.log(cafename.cafe_name)
        data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
     });
-
-
 
 
     $('input.autocomplete').autocomplete({

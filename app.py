@@ -41,6 +41,7 @@ def register():
         #put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration successful")
+        session['logged_in'] = True
         return redirect(url_for("profile", username = session["user"] ))
     return render_template("register.html")
 
@@ -59,7 +60,7 @@ def add_cafe():
     areanamesjson = dumps(areanames)
     
     return render_template('addcafe.html',
-           areas=mongo.db.areas.find(), areanames=areanamesjson)
+           areas=mongo.db.areas.find(), areanames=areanamesjson,  username = session["user"])
 
 
 
@@ -112,6 +113,11 @@ def insert_cafe():
 def insert_memory():
  
     memory = request.form.to_dict()
+
+    print(memory["cafe_name"])
+    cafe_id = mongo.db.cafes.find_one({"cafe_name":memory["cafe_name"]})["_id"]
+    
+    memory["cafe_id"] = cafe_id
     memories = mongo.db.memories
     memories.insert_one(memory)
     return redirect(url_for("get_memories"))
@@ -125,13 +131,13 @@ def add_memory():
     cafenames=mongo.db.cafes.find({}, {"cafe_name":1, "area":1})
     cafenamesjson = dumps(cafenames)
     return render_template('addmemory.html',
-           cafes=cafes, areas=mongo.db.areas.find(), cafenames= cafenamesjson)
+           cafes=cafes, areas=mongo.db.areas.find(), cafenames= cafenamesjson, username = session.get('user') )
 
 @app.route('/filter_cafe',  methods=['POST', 'GET'])
 def filter_cafe():
     x   = []
     cafes=mongo.db.cafes.find()
-    aa = ["apple", "lemon"]
+  
     for cafe in cafes:
      x.append(cafe)
 
@@ -154,7 +160,7 @@ def get_memories():
 def your_memories():
     if  session.get('logged_in') != True:
       return redirect("/login")   
-    return render_template("yourmemories.html", memories=mongo.db.memories.find(), username = session["user"])
+    return render_template("yourmemories.html", memories=mongo.db.memories.find())
 
 
 @app.route('/cafe_autocomplete/<query>')
