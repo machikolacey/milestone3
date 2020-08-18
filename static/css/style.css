@@ -88,3 +88,7 @@ input[type=submit] {
   -webkit-box-orient: vertical;  
   overflow: hidden;
 }
+
+.user_photo{
+    border-radius:45%;
+}
