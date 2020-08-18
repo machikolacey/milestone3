@@ -8,20 +8,38 @@
 <div class="row">
  {% for memory in memories %}
     {% if not  memory.is_private  %}
-        <div class="col-sm-4 ">
-                <img src="{{memory.photo}}" alt="" class="memory_photo">
-                <h2>{{memory.cafe_name}}</h2>
-                    <p>{{memory.description}}</p>
-                    <p>{{memory.date}} </p>  
-                    <p>Rating:{{memory.rating}} </p>  
+        <div class="col-sm-12">
+        <div class="row">
+           <div class="col-sm-4 text-center">
+                 <div class="memory-photo-wrapper">
+                   <img src="{{memory.photo}}" alt="" class=" memory-photo">
+                 </div> 
+                    <h2>{{memory.cafe_name}}</h2>
+                       <p>{{memory.date}} </p>  
+           </div>
+      
+   
+          <div class="col-sm-8"> 
+          
+           <div class="cafe-description"><p>{{memory.description}}</p></div> 
+          
+        
+            
                     {% if  memory.user == session.user %}   
-                     <p>your own post</p>
-                         <img src="{{ memory.userphoto }}" class="user_photo" alt="">
+                     <p class="yourself d-inline">{{memory.user}}</p>
+                    <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="">
                     {% else %} 
-                      <p>{{memory.user}}</p>
-                        <img src="{{ memory.userphoto }}" class="user_photo" alt="">
+                      <p class="d-inline">{{memory.user}}</p>
+                    <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="">
 
                     {% endif %} 
+          
+          
+          
+           </div>           
+              </div>      
+                
+                   
 
         </div>  
     {% endif %} 

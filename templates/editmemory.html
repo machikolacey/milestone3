@@ -2,23 +2,18 @@
 
 <h3>Edit Your Cafe Memory</h3>
 <div class="row">
-    <form action="{{ url_for('update_memory', memory_id=memory._id) }}" method="POST" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">poll</i>
-                <select id="cafe" name="cafe_name">
-                  <option value="" disabled selected>Cafe</option>
-                  {% for cafe in cafes %}
-                      {% if memory.cafe_name == cafe.cafe_name%}
-                      <option value="{{cafe.cafe_name}}" selected >{{cafe.cafe_name}}</option>
-                      {% else %}
-                       <option value="{{cafe.cafe_name}}">{{cafe.cafe_name}}</option>
-                    {% endif %}
-                  {% endfor %}
-                </select>
-                <label>Cafe</label>
+    <form action="{{ url_for('update_memory', memory_id=memory._id, page=page) }}" method="POST" class="col s12">
+             <div class="row">
+                <div class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix">textsms</i>
+                    <input type="text" id="cafe_name" class="autocomplete" name="cafe_name"  value="{{memory.cafe_name}}"  autocomplete="off" >
+                    <label for="autocomplete-input">Cafe Name</label>
+                    </div>
+                </div>
+                </div>
             </div>
-        </div>
   
         <div class="row">
             <div class="input-field col s12">
@@ -33,7 +28,10 @@
                  <input type="text" name="photo"  alt="photo" value="{{memory.photo}}" />
 
                 {% if memory.photo %}
-                    <img src="{{memory.photo}}" alt="">
+                   <div class="memory-photo-wrapper">
+                   <img src="{{memory.photo}}" alt="" class=" memory-photo">
+                 </div>   
+   
                 {% endif %}
                 <label for="icon_telephone">Photo</label>
             </div>
@@ -45,6 +43,8 @@
                 <label for="icon_prefix">Due Date</label>
             </div>
         </div>
+   
+       
         <div class="row">
             <div class="switch">
                 <label>
@@ -66,12 +66,24 @@
     </form>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         due_date = Date.parse('{{memory.date}}');
         $('#due_date').pickadate('picker').set('select', due_date, { format: 'dd/mm/yyyy' }).trigger('change');
+ 
+    let cafenames = JSON.parse({{ cafenames|tojson|safe }}); 
+    let data = {};
+    cafenames.forEach(function (cafename) {
+        console.log(cafename.cafe_name)
+       data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
     });
-</script>
 
+
+    $('input.autocomplete').autocomplete({
+      data: data
+    });
+  });
+
+</script>
 {% endblock %}

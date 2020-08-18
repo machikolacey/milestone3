@@ -8,6 +8,17 @@
     max-width:250px;
 }
 
+.memory-photo-wrapper{
+    background:#eee;
+    width:350px;
+    padding:1rem;
+}
+.memory-photo{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
 .main-content{
     padding:20px 0;
 }
@@ -70,4 +81,10 @@ input[type=submit] {
 .user_photo{
     width:50px;
     height:50px;
+}
+.cafe-description{
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }

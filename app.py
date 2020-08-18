@@ -100,8 +100,13 @@ def delete_cafe(cafe_id):
 
 @app.route('/insert_cafe', methods=["POST"])
 def insert_cafe():
+
+    area_id = mongo.db.areas.find_one({"name":request.form.get('area_name')})["_id"]
+    cafe = request.form.to_dict()
+    cafe["area_id"] = area_id
+   
     cafes = mongo.db.cafes
-    cafes.insert_one(request.form.to_dict())
+    cafes.insert_one(cafe)
     return redirect(url_for("get_cafes"))
 
 
@@ -118,6 +123,7 @@ def insert_memory():
     cafe_id = mongo.db.cafes.find_one({"cafe_name":memory["cafe_name"]})["_id"]
     
     memory["cafe_id"] = cafe_id
+    memory["user_id"] = ObjectId(request.form.get("user_id"))
     memories = mongo.db.memories
     memories.insert_one(memory)
     return redirect(url_for("get_memories"))
@@ -129,9 +135,11 @@ def add_memory():
       return redirect("/login")   
     cafes=mongo.db.cafes.find()
     cafenames=mongo.db.cafes.find({}, {"cafe_name":1, "area":1})
+    user = mongo.db.users.find_one({"username":session.get("user")})
+
     cafenamesjson = dumps(cafenames)
     return render_template('addmemory.html',
-           cafes=cafes, areas=mongo.db.areas.find(), cafenames= cafenamesjson, username = session.get('user') )
+           cafes=cafes, areas=mongo.db.areas.find(), cafenames= cafenamesjson, username = session.get('user'), user=user )
 
 @app.route('/filter_cafe',  methods=['POST', 'GET'])
 def filter_cafe():
@@ -150,6 +158,7 @@ def get_memories():
     mems = []
    
     for memory in memories:
+
             user = mongo.db.users.find_one({"username":memory["user"]})            
             memory["userphoto"] = user["photo"]
             mems.append(memory)
@@ -160,7 +169,8 @@ def get_memories():
 def your_memories():
     if  session.get('logged_in') != True:
       return redirect("/login")   
-    return render_template("yourmemories.html", memories=mongo.db.memories.find())
+    return render_template("yourmemories.html", memories=mongo.db.memories.find(), 
+                                  username = session.get('user') )
 
 
 @app.route('/cafe_autocomplete/<query>')
@@ -172,12 +182,14 @@ def cafe_autocomplete():
 
 
 
-@app.route('/edit_memory/<memory_id>')
-def edit_memory(memory_id):
+@app.route('/edit_memory/<memory_id>/<page>')
+def edit_memory(memory_id, page):
     the_memory =  mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
     all_cafes =  mongo.db.cafes.find()
+    cafenames=mongo.db.cafes.find({}, {"cafe_name":1, "area":1})
+    cafenamesjson = dumps(cafenames)
     return render_template('editmemory.html', memory=the_memory,
-                           cafes=all_cafes)
+                           cafes=all_cafes, page = page, cafenames=cafenamesjson)
 
 
 @app.route('/edit_user/<user_id>')
@@ -195,23 +207,27 @@ def update_user(user_id):
     }})
     return redirect(url_for('profile', username=session['user']))
 
-@app.route('/update_memory/<memory_id>', methods=["POST"])
-def update_memory(memory_id):
+@app.route('/update_memory/<memory_id>/<page>', methods=["POST"])
+def update_memory(memory_id, page=''):
     memories = mongo.db.memories
     memories.update( {'_id': ObjectId(memory_id)},
-    {
+    {"$set": {
         'cafe_name':request.form.get('cafe_name'),
         'description':request.form.get('description'),
         'photo':request.form.get('photo'),
         'is_private': request.form.get('is_private'),
         'date': request.form.get('date')
-    })
+    }})
+    if(page == "yourmemories"):
+           return redirect(url_for('your_memories'))
     return redirect(url_for('get_memories'))
 
 
-@app.route('/delete_memory/<memory_id>')
-def delete_memory(memory_id):
+@app.route('/delete_memory/<memory_id>/<page>')
+def delete_memory(memory_id, page):
     mongo.db.memories.remove({'_id': ObjectId(memory_id)})
+    if (page == 'yourmemories'):
+          return redirect(url_for('your_memories'))
     return redirect(url_for('get_memories'))
 
 
@@ -226,7 +242,8 @@ def login():
         if existing_user:
             #ensure hashed password matches user input
             if check_password_hash(existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username")
+                session["user"]    = request.form.get("username")
+              
                 flash("welcome, {}".format(request.form.get("username")))
                 session['logged_in'] = True
                 return redirect(url_for(
