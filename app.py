@@ -6,6 +6,7 @@ from bson.objectid import ObjectId
 from bson import json_util
 import json
 from bson.json_util import dumps
+from IPython.display import HTML, IFrame 
 app = Flask(__name__)
 
 
@@ -85,8 +86,10 @@ def update_cafe(cafe_id):
         'cafe_name':request.form.get('cafe_name'),
         'website':request.form.get('website'),
         'address': request.form.get('address'),
-        'area_name': request.form.get('area_name')
-        
+        'postcode': request.form.get('postcode'),
+        'area_name': request.form.get('area_name'),
+        'photo': request.form.get('photo'),
+        'youtube': request.form.get('youtube')
     })
     return redirect(url_for('get_cafes'))
 
@@ -258,6 +261,27 @@ def login():
             return redirect (url_for("login"))
     return render_template("login.html")           
 
+
+@app.route("/cafe/<cafe_id>", methods=["GET", "POST"])
+def cafe(cafe_id):
+    mems = []
+    youtube = ""
+    cafe = mongo.db.cafes.find_one({"_id" :  ObjectId(cafe_id)})
+    memories = mongo.db.memories.find({"cafe_id" :  ObjectId(cafe_id)})
+    
+    try:
+     if cafe['youtube']:
+       youtube = cafe['youtube'].replace("watch?v=", "/embed/")
+    except KeyError:
+       print("The key does not exist!")
+
+    for memory in memories:
+        user = mongo.db.users.find_one({"username":memory["user"]})            
+        memory["userphoto"] = user["photo"]
+        mems.append(memory)
+    return render_template("cafe.html", cafe=cafe, youtube=youtube, memories=mems)
+    
+
 @app.route('/logout')
 def logout():
     flash('You have been logged out')
@@ -272,7 +296,6 @@ def profile(username):
          return render_template("profile.html", user=user)
     
          return redirect(url_for('login'))
-
 
 def cafe_autocomplete(request, **kwargs):
     term = request.GET.__getitem__('query')
