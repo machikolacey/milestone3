@@ -96,3 +96,18 @@ input[type=submit] {
 .user_photo{
     border-radius:45%;
 }
+
+nav {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+.pagination li a {
+    display: block;
+}
+.page-item.active .page-link {
+    background-color: #039be5;
+    border-color: #039be5;
+}
+.page-link {
+    border: none;
+}
