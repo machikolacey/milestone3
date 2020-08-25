@@ -6,7 +6,7 @@ from bson.objectid import ObjectId
 from bson import json_util
 import json
 from bson.json_util import dumps
-from IPython.display import HTML, IFrame 
+
 app = Flask(__name__)
 
 
