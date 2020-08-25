@@ -6,6 +6,7 @@ from bson.objectid import ObjectId
 from bson import json_util
 import json
 from bson.json_util import dumps
+from flask_paginate import Pagination, get_page_args
 
 app = Flask(__name__)
 
@@ -154,6 +155,9 @@ def filter_cafe():
 
      return jsonify(x)
 
+
+
+
 @app.route('/')
 def get_memories():
     memories=mongo.db.memories.find()
@@ -165,7 +169,24 @@ def get_memories():
             user = mongo.db.users.find_one({"username":memory["user"]})            
             memory["userphoto"] = user["photo"]
             mems.append(memory)
-    return render_template("memories.html", memories=mems)
+ 
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    per_page = 5                                       
+    print(offset)
+ 
+    print(page)
+    total = len(mems)
+
+    offset = ((page-1) * 5)
+
+
+    pagination_mems =  mems[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap4')
+
+
+
+    return render_template("memories.html", memories=pagination_mems, pagination=pagination)
     
 
 @app.route('/your_memories')
