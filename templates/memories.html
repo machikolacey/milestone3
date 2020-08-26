@@ -5,9 +5,10 @@
     </head>
     <body>
 <h3>This is a social network site to share your cafe memories.</h3>
-
+<div class="row">
  {% for memory in memories %}
     {% if not  memory.is_private  %}
+    <div class="col-sm-6">
         <div class="memory-card">
         <div class="date text-center">
            {{memory.date}} 
@@ -15,19 +16,20 @@
         <div class="row">
       
 
-           <div class="col-sm-4 text-center">
+           <div class="col-sm-6 text-center">
      
                  <div class="memory-photo-wrapper">
                  <a href="{{url_for('cafe', cafe_id = memory.cafe_id)}}">
                    <img src="{{memory.photo}}" alt="" class=" memory-photo">
                   </a> 
-                 </div> 
                     <h2>{{memory.cafe_name}}</h2>
+                 </div> 
+                  
                      
            </div>
       
    
-          <div class="col-sm-8"> 
+          <div class="col-sm-6"> 
           
            <div class="cafe-description"><p>{{memory.description}}</p></div> 
           
@@ -50,8 +52,12 @@
                    
 
         </div>  
-    {% endif %} 
+    </div>    
+   {% endif %} 
 {% endfor %}
+
+</div>
+
 
  {{ pagination.links }}
     </body>

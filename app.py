@@ -172,13 +172,13 @@ def get_memories():
  
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
-    per_page = 5                                       
+    per_page = 6                                       
     print(offset)
  
     print(page)
     total = len(mems)
 
-    offset = ((page-1) * 5)
+    offset = ((page-1) * per_page)
 
 
     pagination_mems =  mems[offset: offset + per_page]

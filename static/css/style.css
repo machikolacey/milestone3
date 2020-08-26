@@ -31,7 +31,6 @@ img {
 
 .memory-photo-wrapper{
     background:#edb5bf;
-    width:350px;
     padding:1rem;
 }
 .memory-photo{
@@ -104,10 +103,12 @@ input[type=submit] {
     height:50px;
 }
 .cafe-description{
-  display: -webkit-box;
+  /*  */display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;  
   overflow: hidden;
+
+   padding: 10px;
 }
 
 .user_photo{
@@ -120,11 +121,30 @@ nav {
 }
 .pagination li a {
     display: block;
+    background: #4d6d9a;
+    color: #fff;
 }
 .page-item.active .page-link {
     background-color: #039be5;
     border-color: #039be5;
 }
+.page-item.disabled .page-link {
+    color: #fff;
+ 
+    background-color: #6c757d;
+    /* border-color: #dee2e6; */
+}
+.pagination li {
+    overflow: hidden;
+}
+
+
+.page-link:hover {
+
+    background-color: #4d6d9a;
+    border-color: #dee2e6;
+}
+
 .page-link {
     border: none;
 }
