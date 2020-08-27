@@ -10,7 +10,7 @@ from flask_paginate import Pagination, get_page_args
 
 app = Flask(__name__)
 
-
+per_page = 8   
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config["MONGO_DBNAME"] = 'brightonCafes'
@@ -172,7 +172,7 @@ def get_memories():
  
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
-    per_page = 6                                       
+                                   
     print(offset)
  
     print(page)
@@ -282,6 +282,10 @@ def login():
             return redirect (url_for("login"))
     return render_template("login.html")           
 
+def sort_memories(request):
+    sort = request.GET._getitem_('sort')
+    print(sort)
+    return  HttpResponse(json.dumps(sort))  
 
 @app.route("/cafe/<cafe_id>", methods=["GET", "POST"])
 def cafe(cafe_id):

@@ -23,7 +23,7 @@
  <div class="navbar-fixed">
      <nav class="nav-extended text-shadow light-blue darken-1">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">My Cafe Memories</a>
+      <a href="#!" class="brand-logo"><i class="fas fa-birthday-cake"></i>My Cafe Memories</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse sudenav-trigger right"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/">Home</a></li>
@@ -89,7 +89,7 @@
 
         $('.searchcafe').keyup(function(event) {
         return $.getJSON(
-            '/cafe_autocomplete/'+$('.searchcafe').val(), 
+            '/cafe_autocomplete/'+$('.searchcafe').attr('sortvalue'), 
              function (data) {
                 console.log(data) ; 
                 return process(data);
@@ -114,11 +114,19 @@
 
 
 
+        $('.sort').click(function(event) {
+        return $.getJSON(
+            '/sort_memories/'+$(this).val(), 
+             function (data) {
+                console.log(data) ; 
+                return process(data);
+             });
+        });  
 
 
 
 </script>
-
+<script src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -5,6 +5,16 @@
     </head>
     <body>
 <h3>This is a social network site to share your cafe memories.</h3>
+<p>You can just see everyone's cafe memories to find a nice cafe in your area, or you can join to add your memories.
+You can set up private memories as well, so you can keep your special memories safe.</p>
+
+<h2>Sort by</h2>
+<ul>
+<li><a class="sort"  sortvalue="date" href="">Date</a></li>
+<li><a  sortvalue="cafe"  href="">Cafe</a></li>
+<li><a  sortvalue="area"  href="">Area</a></li>
+</ul>
+
 <div class="row">
  {% for memory in memories %}
     {% if not  memory.is_private  %}
