@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 
 <h3>Edit Your Cafe Memory</h3>
-<div class="row">
+<div class="row edit-memory">
     <form action="{{ url_for('update_memory', memory_id=memory._id, page=page) }}" method="POST" class="col s12">
              <div class="row">
                 <div class="col s12">
@@ -24,7 +24,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
+                <i class="material-icons prefix">camera_alt</i>
                  <input type="text" name="photo"  alt="photo" value="{{memory.photo}}" />
 
                 {% if memory.photo %}
@@ -39,8 +39,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
-                <input id="due_date" name="due_date" type="text" class="datepicker">
-                <label for="icon_prefix">Due Date</label>
+                <input id="date" name="date" type="text" class="datepicker">
+                <label for="icon_prefix">Date</label>
             </div>
         </div>
    

@@ -10,7 +10,7 @@ from flask_paginate import Pagination, get_page_args
 
 app = Flask(__name__)
 
-per_page = 8   
+per_page = 4   
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config["MONGO_DBNAME"] = 'brightonCafes'
@@ -169,22 +169,13 @@ def get_memories():
             user = mongo.db.users.find_one({"username":memory["user"]})            
             memory["userphoto"] = user["photo"]
             mems.append(memory)
- 
-    page, per_page, offset = get_page_args(page_parameter='page',
-                                           per_page_parameter='per_page')
-                                   
-    print(offset)
- 
-    print(page)
-    total = len(mems)
 
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
+    per_page = 4
     offset = ((page-1) * per_page)
-
-
+    total = len(mems)
     pagination_mems =  mems[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap4')
-
-
 
     return render_template("memories.html", memories=pagination_mems, pagination=pagination)
     
@@ -193,15 +184,28 @@ def get_memories():
 def your_memories():
     if  session.get('logged_in') != True:
       return redirect("/login")   
-    return render_template("yourmemories.html", memories=mongo.db.memories.find(), 
-                                  username = session.get('user') )
+
+    memories=mongo.db.memories.find({"user":session.get("user")})
+  
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
+    per_page = 4
+    offset = ((page-1) * per_page)
+    total = memories.count()
+    print(total)
+    pagination_mems =  memories[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap4')
 
 
-@app.route('/cafe_autocomplete/<query>')
-def cafe_autocomplete():
-    cafes = cafes=mongo.db.memories.find()
-    print(cafes)
-    return  cafes
+
+    return render_template("yourmemories.html", memories=pagination_mems, 
+                                              username = session.get('user'), pagination=pagination)
+
+
+    @app.route('/cafe_autocomplete/<query>')
+    def cafe_autocomplete():
+        cafes = cafes=mongo.db.memories.find()
+        print(cafes)
+        return  cafes
 
 
 

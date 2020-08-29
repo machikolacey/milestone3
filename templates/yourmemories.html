@@ -8,23 +8,50 @@
     <h1>Your Cafe Memories </h1>
     
 <div class="row">
- {% for memory in memories %}
-    {% if  memory.user == username %}
-       <div class="col-sm-4 ">
-       <div class="memory-photo-wrapper">
-                <img src="{{memory.photo}}" alt="" class=" memory-photo">
-       </div>         
-                <h2>{{memory.cafe_name}}</h2>
-                    <p>{{memory.description}}</p>
-                    <p>{{memory.date}} </p>
-                    <p>{{memory.is_private}}</p> 
-                        <p>Rating:{{memory.rating}} </p>    
-                <a href="{{url_for('edit_memory', memory_id=memory._id, page='yourmemories')}}" class="waves-effect waves-light btn btn_small blue">Edit</a>       
+    {% for memory in memories %}
+   
+       <div class="col-sm-6 ">
+ 
+              
+      
+      <div class="memory-card">
+        <div class="date text-center">
+           {{memory.date}}     
+           
+            {% if memory.is_private=="on" %}
+                  <span class="private float-right"><i class="fas fa-user-lock"></i>Private</span>
+                {% endif %}
+        </div>
+        <div class="row">
+           <div class="col-sm-6 text-center">
+                 <div class="memory-photo-wrapper">
+                 <a href="{{url_for('cafe', cafe_id = memory.cafe_id)}}">
+                   <img src="{{memory.photo}}" alt="" class=" memory-photo">
+                  </a> 
+                    <h2>{{memory.cafe_name}}</h2>
+         
+                 </div> 
+           </div>
+          <div class="col-sm-6"> 
+           <div class="cafe-description"><p>{{memory.description}}</p></div> 
+
+           
+                    <br />
+                 <a href="{{url_for('edit_memory', memory_id=memory._id, page='yourmemories')}}" class="waves-effect waves-light btn btn_small ">Edit</a>       
                 <a href="{{url_for('delete_memory', memory_id=memory._id, page='yourmemories')}}" class="waves-effect waves-light btn btn_small">Delete</a>
+      
+           </div>           
+          </div>      
+        </div>  
+      
         </div> 
-   {% endif %} 
+ 
 {% endfor %}
-</div>    
+</div>  
+
+
+ {{ pagination.links }}
+
     </body>
 </html>
 {% endblock %}

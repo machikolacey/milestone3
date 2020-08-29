@@ -13,6 +13,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7d3e8', end
 .h2, h2 {
     font-size: 1rem;
     text-transform: uppercase;
+    margin: 10px 0;
 }
 
 img {
@@ -37,6 +38,14 @@ img {
     width:100%;
     height:150px;
     object-fit:cover;
+}
+
+.edit-memory .memory-photo{
+    width:450px;
+    height:350px;
+}
+.edit-memory .memory-photo-wrapper{
+    max-width:470px;
 }
 
 .main-content{
@@ -103,12 +112,10 @@ input[type=submit] {
     height:50px;
 }
 .cafe-description{
-  /*  */display: -webkit-box;
+  display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;  
   overflow: hidden;
-
-   padding: 10px;
 }
 
 .user_photo{
@@ -154,12 +161,15 @@ nav {
     border: 1px solid #eee;
     margin: 0 0 20px 0;
     padding: 0 0 10px 0;
+        border-radius: 8px;
 }
 .memory-card .date{
     background:#86b3d1;
-    padding:10px 0;
+    padding:10px 8px;
     color: #fff;
-
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
 }
 
 
