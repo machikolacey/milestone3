@@ -16,6 +16,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7d3e8', end
     margin: 10px 0;
 }
 
+ul.inlineblock li{
+ display:inline-block;
+}
+
+
 img {
     max-width: 100%;
 }

@@ -75,10 +75,6 @@ def edit_cafe(cafe_id):
     return render_template('editcafe.html', cafe=the_cafe, areas=all_areas)
 
 
-
-
-
-
 @app.route('/update_cafe/<cafe_id>', methods=['POST'])
 def update_cafe(cafe_id):
     cafes = mongo.db.cafes
@@ -112,10 +108,6 @@ def insert_cafe():
     cafes = mongo.db.cafes
     cafes.insert_one(cafe)
     return redirect(url_for("get_cafes"))
-
-
-
-
 
 
 @app.route('/insert_memory', methods=["POST"])
@@ -156,11 +148,18 @@ def filter_cafe():
      return jsonify(x)
 
 
-
-
 @app.route('/')
-def get_memories():
-    memories=mongo.db.memories.find()
+def home():
+ return redirect("/memories/date/asc")  
+
+@app.route('/memories/<sort>/<order>')
+def get_memories(sort, order):
+    if order=="asc":
+        ord = 1
+    else:
+        ord = -1    
+    
+    memories=mongo.db.memories.find().sort(sort,ord)
     users=mongo.db.users.find()
     mems = []
    
@@ -171,7 +170,7 @@ def get_memories():
             mems.append(memory)
 
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
-    per_page = 4
+    per_page = 8
     offset = ((page-1) * per_page)
     total = len(mems)
     pagination_mems =  mems[offset: offset + per_page]
