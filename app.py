@@ -122,7 +122,7 @@ def insert_memory():
     memory["user_id"] = ObjectId(request.form.get("user_id"))
     memories = mongo.db.memories
     memories.insert_one(memory)
-    return redirect(url_for("get_memories"))
+    return redirect(url_for('get_memories', sort = 'date', order='asc'))
 
 
 @app.route('/add_memory')
@@ -247,7 +247,7 @@ def update_memory(memory_id, page=''):
     }})
     if(page == "yourmemories"):
            return redirect(url_for('your_memories'))
-    return redirect(url_for('get_memories'))
+           return redirect(url_for('get_memories', sort = 'date', order='asc'))
 
 
 @app.route('/delete_memory/<memory_id>/<page>')
@@ -255,7 +255,7 @@ def delete_memory(memory_id, page):
     mongo.db.memories.remove({'_id': ObjectId(memory_id)})
     if (page == 'yourmemories'):
           return redirect(url_for('your_memories'))
-    return redirect(url_for('get_memories'))
+    return redirect(url_for('get_memories', sort = 'date', order='asc'))
 
 
 
