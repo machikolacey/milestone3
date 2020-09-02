@@ -121,8 +121,12 @@ input[type=submit] {
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;  
   overflow: hidden;
+   padding: 10px 0 0 0;
 }
 
+.ratings, .user{
+   padding: 10px 0 0 0;
+}
 .user_photo{
     border-radius:45%;
 }

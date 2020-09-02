@@ -12,10 +12,10 @@ You can set up private memories as well, so you can keep your special memories s
 <div class="col-sm-2"><h2>Sort by</h2></div>
 <div class="col-sm-10">
 <ul class="inlineblock">
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='asc')}}">Date ASC</a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Date DESC</a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='asc')}}">Cafe ASC</a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='desc')}}">Cafe DESC</a></li>
+<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='asc')}}">Oldest  <i class="tiny material-icons">arrow_upward</i></a></li>
+<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Recent <i class="tiny material-icons">arrow_downward</i></a></li>
+<li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='asc')}}">Cafe A-Z <i class="tiny material-icons">arrow_upward</i></a></li>
+<li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='desc')}}">Cafe Z-A<i class="tiny material-icons">arrow_downward</i></a></li>
 </ul>
 </div>
 </div>
@@ -40,18 +40,48 @@ You can set up private memories as well, so you can keep your special memories s
                  <a href="{{url_for('cafe', cafe_id = memory.cafe_id)}}">
                    <img src="{{memory.photo}}" alt="" class=" memory-photo">
                   </a> 
-                    <h2>{{memory.cafe_name}}</h2>
+                    <h2><i class="tiny material-icons">local_cafe</i>{{memory.cafe_name}}</h2>
+                    <p> 
+
+         
+     
+
+                      </p>
                  </div> 
            </div>
           <div class="col-sm-6"> 
+
+       {% if memory.ratings %} 
+             <div class="ratings">
+                {% if memory.ratings == "5" %} 
+                   <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                {% elif memory.ratings == "4" %}
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                  {% elif memory.ratings == "3" %}
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                  {% elif memory.ratings == "2" %}
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                  {% elif memory.ratings == "1" %}
+                   <i class="material-icons">star</i>
+                {% endif %}
+                </div>
+            {% endif %}
+
            <div class="cafe-description"><p>{{memory.description}}</p></div> 
                     {% if  memory.user == session.user %}   
-                     <p class="yourself d-inline">{{memory.user}}</p>
-                    <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="">
-                    {% else %} 
-                      <p class="d-inline">Posted by:{{memory.user}}</p>
-                    <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="">
-
+                    <div class="user">
+                        <p class="yourself d-inline">{{memory.user}}</p>
+                        <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="{{memory.user}} Photo" />
+                      </div>
+                        {% else %} 
+                      <div class="user"> 
+                        <p class="d-inline">Posted by:{{memory.user}}</p>
+                        <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="{{memory.user}}" />
+                     </div>
                     {% endif %} 
           
            </div>           
