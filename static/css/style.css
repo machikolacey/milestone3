@@ -17,12 +17,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7d3e8', end
 }
 
 ul.inlineblock li{
- display:inline-block;
+    display: inline-block;
+    border-right: 1px solid #666;
+    padding: 0 20px;
+}
+
+ul.inlineblock li a {
+    color: #848688;
+    font-weight: 700;
+}
+img {
+    max-width: 100%;
 }
 
 
-img {
-    max-width: 100%;
+.ratings .material-icons{
+ 
+     color: #bdb44a;
 }
 
 .text-shadow{
@@ -39,6 +50,17 @@ img {
     background:#edb5bf;
     padding:1rem;
 }
+
+
+.memory-photo-wrapper h2{
+        color: #463636;
+}
+
+
+.memory-photo-wrapper h2 i{
+    margin-right:10px;
+}
+
 .memory-photo{
     width:100%;
     height:150px;

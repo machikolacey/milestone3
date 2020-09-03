@@ -9,13 +9,13 @@
 You can set up private memories as well, so you can keep your special memories safe.</p>
 
 <div class="row">
-<div class="col-sm-2"><h2>Sort by</h2></div>
-<div class="col-sm-10">
+<div class="col-sm-12">
 <ul class="inlineblock">
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='asc')}}">Oldest  <i class="tiny material-icons">arrow_upward</i></a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Recent <i class="tiny material-icons">arrow_downward</i></a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='asc')}}">Cafe A-Z <i class="tiny material-icons">arrow_upward</i></a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='desc')}}">Cafe Z-A<i class="tiny material-icons">arrow_downward</i></a></li>
+<li>Sort by</li>
+<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='asc')}}">Oldest first</a></li>
+<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Recent first</a></li>
+<li><a class="sort"  href="{{url_for('get_memories', sort = 'ratings', order='desc')}}">Best rated</a></li>
+<li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='asc')}}">Cafe name A-Z</a></li>
 </ul>
 </div>
 </div>
