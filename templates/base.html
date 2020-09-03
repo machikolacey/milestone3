@@ -29,11 +29,11 @@
         <li><a href="/">Home</a></li>
         {% if session.user %}
         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-        <li><a href="{{ url_for('your_memories',sort='ratings', order='asc', username=session['user']) }}">Your Memories</a></li>
+        <li><a href="{{ url_for('your_memories', sort='ratings', order='asc', username=session['user']) }}">Your Memories</a></li>
         <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
         <li><a href="{{ url_for('add_memory') }}">Add Memory</a></li> 
   
-        <li><a href="{{ url_for('get_cafes') }}">Manage Cafes</a></li>
+        <li><a href="{{ url_for('get_cafes' , sort='cafe_name', order='asc') }}">Manage Cafes</a></li>
         <li><a href="{{ url_for('logout') }}">Log Out</a></li>   
         {% else %}
         <li><a href="{{ url_for('login') }}">Log In</a></li>        

@@ -49,10 +49,25 @@ def register():
 
 
 
-@app.route('/get_cafes')
-def get_cafes():
-    return render_template('cafes.html',
-         cafes=mongo.db.cafes.find())
+@app.route('/get_cafes/<sort>/<order>')
+def get_cafes(sort, order):
+
+    if order=="asc":
+            ord = 1
+    else:
+            ord = -1    
+    
+    cafes=mongo.db.cafes.find().sort(sort,ord)
+
+    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
+    per_page = 8
+    offset = ((page-1) * per_page)
+    total = cafes.count()
+    pagination_cafes =  cafes[offset: offset + per_page]
+    pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap4')
+
+    return render_template("cafes.html", cafes=pagination_cafes, pagination=pagination)
+
 
 @app.route('/add_cafe')
 def add_cafe():
