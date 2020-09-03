@@ -24,7 +24,8 @@
         <div class="col-sm-6">
                 <div class="memory-card">
                         <div class="date text-center">
-                        28 August, 2020 
+                            <p class="d-inline">{{ cafe.cafe_name }}</p>
+                            <p class="d-inline float-right">{{cafe.area_name}}</p>
                         </div>
                         <div class="row">
                         <div class="col-sm-6 text-center">
@@ -32,17 +33,21 @@
                                 <a href="{{url_for('cafe', cafe_id=cafe._id)}}" class="">
                                 <img src="{{ cafe.photo }}" alt="" class=" memory-photo">
                                 </a> 
-                                    <h2><i class="tiny material-icons">local_cafe</i>{{ cafe.cafe_name }}</h2>
-                    <p>{{cafe.area_name}}</p>
+                         
+                
                     </div> 
             </div>
             <div class="col-sm-6"> 
-            <div class="cafe-description"><p>{{ cafe.address }}</p></div> 
-                    <a href="{{url_for('edit_cafe', cafe_id=cafe._id)}}" class="waves-effect waves-light btn btn_small blue">Edit</a>  
+            <div class="cafe-description">
+            <p>{{ cafe.address }}</p>
+             <p>{{ cafe.postcode }}</p>
+            <p><a href="{{ cafe.website }}" target="_blank">{{ cafe.website }}</a> </p>
+            </div> 
+                    <a href="{{url_for('edit_cafe', cafe_id=cafe._id)}}" class="waves-effect waves-light btn btn_small ">Edit</a>  
                     <a href="{{url_for('delete_cafe', cafe_id=cafe._id)}}" class="waves-effect waves-light btn btn_small">Delete</a>
             </div>           
           </div>      
-                 </div>
+       </div>
 
         </div>    
         {% endfor %}

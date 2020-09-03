@@ -5,13 +5,18 @@
  <div class="col 12  form-wrapper">
     <form action="{{ url_for('update_user', user_id=user._id) }}" method="POST" class="col s12">
      
-  
         <div class="row">
             <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
-                {{ user.username }}
-                <label for="icon_telephone">username</label>
-                 <input type="hidden" name="username"  alt="username" value="{{ user.username }}" />
+              
+
+                <i class="material-icons prefix">face</i>
+                 <input type="text" name="username"  alt="username" value="{{user.username}}" />
+
+    
+                <label for="username">username</label>
+
+
+
             </div>
         </div>
         <div class="row">
@@ -22,7 +27,7 @@
                 {% if user.photo %}
                     <img src="{{user.photo}}" alt="" class="profile-photo">
                 {% endif %}
-                <label for="icon_telephone">Photo</label>
+                <label for="photo">Photo</label>
             </div>
         </div> 
               <div class="row">

@@ -24,46 +24,74 @@
       <p> {{ cafe.postcode }}</p> 
     </div>
   </div>
-  
+  <div class="row">
 
 {% for memory in memories %}
     {% if not  memory.is_private  %}
-        <div class="col-sm-12">
+
+<div class="col-sm-6">
+   <div class="memory-card">
+        <div class="date text-center">
+           {{memory.date}} 
+        </div>
         <div class="row">
-           <div class="col-sm-4 text-center">
+           <div class="col-sm-6 text-center">
                  <div class="memory-photo-wrapper">
                  <a href="{{url_for('cafe', cafe_id = memory.cafe_id)}}">
                    <img src="{{memory.photo}}" alt="" class=" memory-photo">
                   </a> 
+                    <h2><i class="tiny material-icons">local_cafe</i>{{memory.cafe_name}}</h2>
+                    <p> 
+
+         
+     
+
+                      </p>
                  </div> 
-    
-          
            </div>
-      
-   
-          <div class="col-sm-8"> 
-          
+          <div class="col-sm-6"> 
+
+       {% if memory.ratings %} 
+             <div class="ratings">
+                {% if memory.ratings == "5" %} 
+                   <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                {% elif memory.ratings == "4" %}
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                  {% elif memory.ratings == "3" %}
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                  {% elif memory.ratings == "2" %}
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                  {% elif memory.ratings == "1" %}
+                   <i class="material-icons">star</i>
+                {% endif %}
+                </div>
+            {% endif %}
+
            <div class="cafe-description"><p>{{memory.description}}</p></div> 
-          
-                          {% if  memory.user == session.user %}   
-                     <p class="yourself d-inline">{{memory.user}}</p>
-                    <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="">
-                    {% else %} 
-                      <p class="d-inline">Posted by:{{memory.user}}</p>
-                    <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="">
-
+                    {% if  memory.user == session.user %}   
+                    <div class="user">
+                        <p class="yourself d-inline">{{memory.user}}</p>
+                        <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="{{memory.user}} Photo" />
+                      </div>
+                        {% else %} 
+                      <div class="user"> 
+                        <p class="d-inline">Posted by:{{memory.user}}</p>
+                        <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="{{memory.user}}" />
+                     </div>
                     {% endif %} 
-            
-
-          
           
            </div>           
-              </div>      
-                
-                   
+          </div>      
+        </div> 
+</div>
 
-        </div>  
+
+ 
     {% endif %} 
 {% endfor %}
-
+</div>
 {% endblock %}
