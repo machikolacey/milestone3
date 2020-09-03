@@ -2,12 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Baloo+Tamma+2:wght@400;700&family=Lora:wght@400;700&family=Quicksand:wght@300;500;700&family=Roboto:ital,wght@0,100;0,300;0,700;1,700&display=swap');
 body, html {
 font-family: 'Quicksand', sans-serif !important;
-background: #edb5bf;
-background: -moz-linear-gradient(top,  rgba(231,211,232,1) 0%, rgba(232,171,234,0.18) 64%, rgba(232,168,234,0.18) 69%, rgba(232,168,234,0.18) 98%, rgba(232,168,234,0.18) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(231,211,232,1) 0%,rgba(232,171,234,0.18) 64%,rgba(232,168,234,0.18) 69%,rgba(232,168,234,0.18) 98%,rgba(232,168,234,0.18) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(231,211,232,1) 0%,rgba(232,171,234,0.18) 64%,rgba(232,168,234,0.18) 69%,rgba(232,168,234,0.18) 98%,rgba(232,168,234,0.18) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7d3e8', endColorstr='#2ee8a8ea',GradientType=0 ); /* IE6-9 */
+background: rgb(244,191,201);
+background: linear-gradient(90deg, rgba(244,191,201,1) 12%, rgba(237,216,219,0.8211659663865546) 37%, rgba(255,225,235,1) 78%);
 
+}
+
+
+.form-wrapper {
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
 }
 
 .h2, h2 {
@@ -23,7 +27,7 @@ ul.inlineblock li{
 }
 
 ul.inlineblock li a {
-    color: #848688;
+    color: #633f32;
     font-weight: 700;
 }
 img {

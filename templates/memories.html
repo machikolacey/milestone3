@@ -8,16 +8,18 @@
 <p>You can just see everyone's cafe memories to find a nice cafe in your area, or you can join to add your memories.
 You can set up private memories as well, so you can keep your special memories safe.</p>
 
-<div class="row">
-<div class="col-sm-12">
-<ul class="inlineblock">
-<li>Sort by</li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='asc')}}">Oldest first</a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Recent first</a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'ratings', order='desc')}}">Best rated</a></li>
-<li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='asc')}}">Cafe name A-Z</a></li>
-</ul>
-</div>
+<div class="sorter">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="inlineblock">
+            <li>Sort by</li>
+            <li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='asc')}}">Oldest first</a></li>
+            <li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Recent first</a></li>
+            <li><a class="sort"  href="{{url_for('get_memories', sort = 'ratings', order='desc')}}">Best rated</a></li>
+            <li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='asc')}}">Cafe name A-Z</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 

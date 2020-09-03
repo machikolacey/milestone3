@@ -6,6 +6,7 @@ Hello, {{user.username}}
 
 
 <div class="row">
+ <div class="col s12 form-wrapper">
     <form action="{{ url_for('insert_memory') }}" method="POST"  class="col s12" >
             <div class="row">
                 <div class="col s12">
@@ -13,8 +14,9 @@ Hello, {{user.username}}
                     <div class="input-field col s12">
                     <i class="material-icons prefix">local_cafe</i>
                     <input type="text" id="cafe_name" class="autocomplete" name="cafe_name" autocomplete="off" >
-                    <label for="autocomplete-input">Cafe Name</label>
-                            <p>Can't find the cafe? Add it <a href="{{ url_for('add_cafe') }}">here</a></p>
+                    <label for="autocomplete-input">Cafe : Please start typing to find your cafe</label>
+                  
+                    <p>Can't find the cafe? Add it <a href="{{ url_for('add_cafe') }}">here</a></p>
                     </div>
                 </div>
                 </div>
@@ -41,39 +43,38 @@ Hello, {{user.username}}
 
             <div class="row">
             <div class="col s12">
-            <i class="material-icons prefix">rate_review</i>
-            <input id="ratings5" name="ratings" type="radio" value="5" checked/>   
-            <label for="ratings5">  
-            <i class="material-icons">star</i><i class="material-icons">star</i>
-            <i class="material-icons">star</i><i class="material-icons">star</i>
-            <i class="material-icons">star</i>
-            </label>
+                <i class="material-icons prefix">rate_review</i>
+                <input id="ratings5" name="ratings" type="radio" value="5" checked/>   
+                <label for="ratings5">  
+                <i class="material-icons">star</i><i class="material-icons">star</i>
+                <i class="material-icons">star</i><i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                </label>
 
-            <input id="ratings4" name="ratings" type="radio" value="4" />   
-            <label for="ratings4">
-            <i class="material-icons">star</i><i class="material-icons">star</i>
-            <i class="material-icons">star</i><i class="material-icons">star</i>
-            </label>
+                <input id="ratings4" name="ratings" type="radio" value="4" />   
+                <label for="ratings4">
+                <i class="material-icons">star</i><i class="material-icons">star</i>
+                <i class="material-icons">star</i><i class="material-icons">star</i>
+                </label>
 
-            <input id="ratings3" name="ratings" type="radio" value="3" />   
-            <label for="ratings3">
-            <i class="material-icons">star</i><i class="material-icons">star</i>
-            <i class="material-icons">star</i>
-            </label>
+                <input id="ratings3" name="ratings" type="radio" value="3" />   
+                <label for="ratings3">
+                <i class="material-icons">star</i><i class="material-icons">star</i>
+                <i class="material-icons">star</i>
+                </label>
 
-            <input id="ratings2" name="ratings" type="radio" value="2" />   
-            <label for="ratings2">
-            <i class="material-icons">star</i><i class="material-icons">star</i>
-            </label>
+                <input id="ratings2" name="ratings" type="radio" value="2" />   
+                <label for="ratings2">
+                <i class="material-icons">star</i><i class="material-icons">star</i>
+                </label>
 
-            <input id="ratings1" name="ratings" type="radio" value="1" />   
-            <label for="ratings1">
-            <i class="material-icons">star</i>
-            </label>
-
-            </div>
+                <input id="ratings1" name="ratings" type="radio" value="1" />   
+                <label for="ratings1">
+                <i class="material-icons">star</i>
+                </label>
 
             </div>
+        </div>
  
         <div class="row">
             <div class="input-field col s12">
@@ -104,6 +105,7 @@ Hello, {{user.username}}
                </div>
         </div>
     </form>
+    </div>
 </div>
 
  

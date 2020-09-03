@@ -7,20 +7,27 @@
     <p>Hello, {{username}}!!</p>
     <h1>Your Cafe Memories </h1>
     
+<div class="sorter">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="inlineblock">
+            <li>Sort by</li>
+            <li><a class="sort"  href="{{url_for('your_memories', sort = 'date', order='asc')}}">Oldest first</a></li>
+            <li><a class="sort"  href="{{url_for('your_memories', sort = 'date', order='desc')}}">Recent first</a></li>
+            <li><a class="sort"  href="{{url_for('your_memories', sort = 'ratings', order='desc')}}">Best rated</a></li>
+            <li><a class="sort"  href="{{url_for('your_memories', sort = 'cafe_name', order='asc')}}">Cafe name A-Z</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div class="row">
     {% for memory in memories %}
    
        <div class="col-sm-6 ">
  
-              
-      
-      <div class="memory-card">
+               <div class="memory-card">
         <div class="date text-center">
-           {{memory.date}}     
-           
-            {% if memory.is_private=="on" %}
-                  <span class="private float-right"><i class="fas fa-user-lock"></i>Private</span>
-                {% endif %}
+           {{memory.date}} 
         </div>
         <div class="row">
            <div class="col-sm-6 text-center">
@@ -28,21 +35,42 @@
                  <a href="{{url_for('cafe', cafe_id = memory.cafe_id)}}">
                    <img src="{{memory.photo}}" alt="" class=" memory-photo">
                   </a> 
-                    <h2>{{memory.cafe_name}}</h2>
-         
+                    <h2><i class="tiny material-icons">local_cafe</i>{{memory.cafe_name}}</h2>
+    
                  </div> 
            </div>
           <div class="col-sm-6"> 
+
+       {% if memory.ratings %} 
+             <div class="ratings">
+                {% if memory.ratings == "5" %} 
+                   <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                {% elif memory.ratings == "4" %}
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                  {% elif memory.ratings == "3" %}
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                  {% elif memory.ratings == "2" %}
+                      <i class="material-icons">star</i><i class="material-icons">star</i>
+                  {% elif memory.ratings == "1" %}
+                   <i class="material-icons">star</i>
+                {% endif %}
+                </div>
+            {% endif %}
+
            <div class="cafe-description"><p>{{memory.description}}</p></div> 
 
-           
-                    <br />
-                 <a href="{{url_for('edit_memory', memory_id=memory._id, page='yourmemories')}}" class="waves-effect waves-light btn btn_small ">Edit</a>       
+                <a href="{{url_for('edit_memory', memory_id=memory._id, page='yourmemories')}}" class="waves-effect waves-light btn btn_small ">Edit</a>       
                 <a href="{{url_for('delete_memory', memory_id=memory._id, page='yourmemories')}}" class="waves-effect waves-light btn btn_small">Delete</a>
-      
+       
            </div>           
           </div>      
-        </div>  
+        </div>        
+      
+ 
       
         </div> 
  

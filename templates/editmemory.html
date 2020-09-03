@@ -2,68 +2,103 @@
 
 <h3>Edit Your Cafe Memory</h3>
 <div class="row edit-memory">
-    <form action="{{ url_for('update_memory', memory_id=memory._id, page=page) }}" method="POST" class="col s12">
-             <div class="row">
-                <div class="col s12">
+    <div class="col 12  form-wrapper">
+        <form action="{{ url_for('update_memory', memory_id=memory._id, page=page) }}" method="POST" class="col s12">
                 <div class="row">
-                    <div class="input-field col s12">
-                    <i class="material-icons prefix">textsms</i>
-                    <input type="text" id="cafe_name" class="autocomplete" name="cafe_name"  value="{{memory.cafe_name}}"  autocomplete="off" >
-                    <label for="autocomplete-input">Cafe Name</label>
+                    <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                        <i class="material-icons prefix">local_cafe</i>
+                        <input type="text" id="cafe_name" class="autocomplete" name="cafe_name"  value="{{memory.cafe_name}}"  autocomplete="off" >
+                        <label for="autocomplete-input">Cafe Name</label>
+                        </div>
+                    </div>
                     </div>
                 </div>
+    
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">subject</i>
+                    <textarea name="description" id="description" class="materialize-textarea">{{memory.description}}</textarea>
+                    <label for="icon_telephone">memory Description</label>
                 </div>
             </div>
-  
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
-                <textarea name="description" id="description" class="materialize-textarea">{{memory.description}}</textarea>
-                <label for="icon_telephone">memory Description</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">camera_alt</i>
-                 <input type="text" name="photo"  alt="photo" value="{{memory.photo}}" />
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">camera_alt</i>
+                    <input type="text" name="photo"  alt="photo" value="{{memory.photo}}" />
 
-                {% if memory.photo %}
-                   <div class="memory-photo-wrapper">
-                   <img src="{{memory.photo}}" alt="" class=" memory-photo">
-                 </div>   
-   
-                {% endif %}
-                <label for="icon_telephone">Photo</label>
+                    {% if memory.photo %}
+                    <div class="memory-photo-wrapper">
+                    <img src="{{memory.photo}}" alt="" class=" memory-photo">
+                    </div>   
+    
+                    {% endif %}
+                    <label for="icon_telephone">Photo</label>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">today</i>
+                    <input id="date" name="date" type="text" class="datepicker" value = "{{ memory.date }}">
+                    <label for="icon_prefix">Date</label>
+                </div>
             </div>
-        </div> 
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">today</i>
-                <input id="date" name="date" type="text" class="datepicker">
-                <label for="icon_prefix">Date</label>
+    
+                    <div class="row">
+                <div class="col s12">
+                    <i class="material-icons prefix">rate_review</i>
+                    <input id="ratings5" name="ratings" type="radio" value="5"  {% if memory.ratings == "5" %}  checked {% endif %}   />   
+                    <label for="ratings5">  
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    </label>
+
+                    <input id="ratings4" name="ratings" type="radio" value="4"  {% if memory.ratings == "4" %}  checked {% endif %}/>   
+                    <label for="ratings4">
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    </label>
+
+                    <input id="ratings3" name="ratings" type="radio" value="3"  {% if memory.ratings == "3" %}  checked {% endif %}/>   
+                    <label for="ratings3">
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    </label>
+
+                    <input id="ratings2" name="ratings" type="radio" value="2"  {% if memory.ratings == "2" %}  checked {% endif %} />   
+                    <label for="ratings2">
+                    <i class="material-icons">star</i><i class="material-icons">star</i>
+                    </label>
+
+                    <input id="ratings1" name="ratings" type="radio" value="1"  {% if memory.ratings == "1" %}  checked {% endif %} />   
+                    <label for="ratings1">
+                    <i class="material-icons">star</i>
+                    </label>
+
+                </div>
             </div>
-        </div>
-   
-       
-        <div class="row">
-            <div class="switch">
-                <label>
-                    {% if memory.is_private %}
-                          <input id="is_private" name="is_private" type="checkbox" checked>
-                    {% else %}
-                         <input id="is_private" name="is_private" type="checkbox">
-                    {% endif%}
-                  <span class="lever"></span>
-                  Is Private
-                </label>
+            <div class="row">
+                <div class="switch">
+                    <label>
+                        {% if memory.is_private %}
+                            <input id="is_private" name="is_private" type="checkbox" checked>
+                        {% else %}
+                            <input id="is_private" name="is_private" type="checkbox">
+                        {% endif%}
+                    <span class="lever"></span>
+                    Is Private
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Save
-                <i class="material-icons right">playlist_add</i>
-             </button>
-        </div>
-    </form>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Save
+                    <i class="material-icons right">playlist_add</i>
+                </button>
+            </div>
+        </form>
+    </div>   
 </div>
 
 

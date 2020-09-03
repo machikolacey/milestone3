@@ -179,12 +179,20 @@ def get_memories(sort, order):
     return render_template("memories.html", memories=pagination_mems, pagination=pagination)
     
 
-@app.route('/your_memories')
-def your_memories():
+@app.route('/your_memories/<sort>/<order>')
+def your_memories(sort, order):
+
+    if order=="asc":
+        ord = 1
+    else:
+        ord = -1    
+
+
+
     if  session.get('logged_in') != True:
       return redirect("/login")   
 
-    memories=mongo.db.memories.find({"user":session.get("user")})
+    memories=mongo.db.memories.find({"user":session.get("user")}).sort(sort,ord)
   
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     per_page = 4
