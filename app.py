@@ -108,8 +108,7 @@ def update_cafe(cafe_id):
 @app.route('/delete_cafe/<cafe_id>')
 def delete_cafe(cafe_id):
     mongo.db.cafes.remove({'_id': ObjectId(cafe_id)})
-    return redirect(url_for('get_cafes'))
-
+    return redirect(url_for('get_cafes' , sort='cafe_name', order='asc'))
 
 
 
@@ -122,7 +121,7 @@ def insert_cafe():
    
     cafes = mongo.db.cafes
     cafes.insert_one(cafe)
-    return redirect(url_for("get_cafes"))
+    return redirect(url_for('get_cafes' , sort='cafe_name', order='asc'))
 
 
 @app.route('/insert_memory', methods=["POST"])

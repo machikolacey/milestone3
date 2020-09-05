@@ -15,6 +15,11 @@ nav .brand-logo{
     padding: 0 20px;
 }
 
+.cafe-view-photo{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
 
 .btn{
     background-color: #cec88a;
@@ -24,6 +29,12 @@ nav .brand-logo{
     padding:40px 15px !important;
     border-radius:10px;
 }
+
+.card-panel {
+
+    background-color: rgba(255,255,255,0.6);
+}
+
 
 .h2, h2 {
     font-size: 1rem;
@@ -192,13 +203,27 @@ nav {
     background: transparent;
     color: #7b6157;
 }
+.pagination li.active {
+    background-color: transparent;
+}
+
+.page-link:hover {
+    background-color: transparent;
+    border-color: #506982;
+}
+
+.page-link {
+    padding: .3rem .75rem;
+}
+
+
 .page-item.active .page-link {
     background: transparent;
     color: #7b6157;
 }
 .page-item.disabled .page-link {
     background: transparent;
-    color: #7b6157;
+    color: #ab2727;
 }
 .page-link:hover {
     background-color: none;
