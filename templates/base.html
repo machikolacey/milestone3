@@ -81,7 +81,7 @@
 
     <script type="text/javascript">
        $(document).ready(function() {
-               // alert(checkCookie("popup"));
+        
          {% if not session.user %}
             
          $('.modal').modal({
@@ -89,11 +89,15 @@
             complete: function() { 
               setCookie("popup", true, 240);
                 
-              //    alert(checkCookie("popup"));
+           
              } 
             }
         );
-             $('#modal1').modal('open'); 
+
+        if(checkCookie("popup") == false ){
+
+                    $('#modal1').modal('open');
+        }          
          {% endif %}
            $(".button-collapse").sideNav({edge:"right"});
             //  $('.side-nav').sidenav();
