@@ -81,7 +81,7 @@
 
     <script type="text/javascript">
        $(document).ready(function() {
-                alert(checkCookie("popup"));
+               // alert(checkCookie("popup"));
          {% if not session.user %}
             
          $('.modal').modal({
@@ -89,7 +89,7 @@
             complete: function() { 
               setCookie("popup", true, 240);
                 
-                  alert(checkCookie("popup"));
+              //    alert(checkCookie("popup"));
              } 
             }
         );
