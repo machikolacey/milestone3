@@ -103,7 +103,7 @@ def update_cafe(cafe_id):
         'photo': request.form.get('photo'),
         'youtube': request.form.get('youtube')
     })
-    return redirect(url_for('get_cafes'))
+    return redirect(url_for('get_cafes' , sort='cafe_name', order='asc'))
 
 @app.route('/delete_cafe/<cafe_id>')
 def delete_cafe(cafe_id):
@@ -268,7 +268,7 @@ def update_memory(memory_id, page=''):
         'date': request.form.get('date')
     }})
     if(page == "yourmemories"):
-           return redirect(url_for('your_memories'))
+           return redirect(url_for('your_memories', sort = 'date', order='asc'))
            return redirect(url_for('get_memories', sort = 'date', order='asc'))
 
 

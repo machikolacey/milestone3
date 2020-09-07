@@ -12,7 +12,9 @@
             <ul class="inlineblock">
             <li>Sort by</li>
             <li><a class="sort"  href="{{url_for('get_cafes', sort = 'cafe_name', order='asc')}}">Cafe name A-Z</a></li>
+            <li><a class="sort"  href="{{url_for('get_cafes', sort = 'cafe_name', order='desc')}}">Cafe name Z-A</a></li>
             <li><a class="sort"  href="{{url_for('get_cafes', sort = 'area', order='asc')}}">Area name A-Z</a></li>
+             <li><a class="sort"  href="{{url_for('get_cafes', sort = 'area', order='desc')}}">Area name Z-A</a></li>
             </ul>
         </div>
     </div>
