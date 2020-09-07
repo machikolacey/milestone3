@@ -19,6 +19,11 @@ header .nav-wrapper a:hover {
 ]
 }
 
+
+.memory-card-container{
+    padding:10px;
+}
+
 .cafe-view-photo{
     width: 100%;
     height: 150px;
@@ -267,10 +272,19 @@ nav {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
-}
 
 
 .light-blue.darken-1 {
     background-color: #4d6d9a!important;
     padding:0 15px;
+}
+
+
+.modal {
+  
+    max-width:550px;
+        max-height: 320px;
+}
+.modal .modal-content {
+    padding: 8px;
 }

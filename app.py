@@ -222,6 +222,7 @@ def your_memories(sort, order):
                                               username = session.get('user'), pagination=pagination)
 
 
+
     @app.route('/cafe_autocomplete/<query>')
     def cafe_autocomplete():
         cafes = cafes=mongo.db.memories.find()
@@ -276,7 +277,7 @@ def update_memory(memory_id, page=''):
 def delete_memory(memory_id, page):
     mongo.db.memories.remove({'_id': ObjectId(memory_id)})
     if (page == 'yourmemories'):
-          return redirect(url_for('your_memories'))
+          return redirect(url_for('your_memories', sort = 'date', order='asc'))
     return redirect(url_for('get_memories', sort = 'date', order='asc'))
 
 
@@ -334,10 +335,9 @@ def cafe(cafe_id):
 
 @app.route('/logout')
 def logout():
-    flash('You have been logged out')
     session.pop("user")
     session.pop('logged_in', None)
-    return redirect(url_for("login"))
+    return redirect(url_for('get_memories', sort = 'date', order='asc'))
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
