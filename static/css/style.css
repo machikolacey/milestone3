@@ -1,13 +1,19 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Baloo+Tamma+2:wght@400;700&family=Lora:wght@400;700&family=Quicksand:wght@300;500;700&family=Roboto:ital,wght@0,100;0,300;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Merriweather:wght@300;400;700&family=Quicksand:wght@300;500;700&family=Raleway:wght@200;300;400;500;600;700&family=Syne:wght@400;500;615;700&display=swap');
+
 body, html {
-font-family: 'Quicksand', sans-serif !important;
+font-family: 'Syne', sans-serif;
 background: rgb(244,191,201);
 background: linear-gradient(90deg, rgba(244,191,201,1) 12%, rgba(237,216,219,0.8211659663865546) 37%, rgba(255,225,235,1) 78%);
 
 }
+h1, h2, h3, h4, h5, h6{
+    font-family:'Merriweather', sans-serif;
+    font-weight:700;
+}
 nav .brand-logo{
     position:relative;
+    font-family:'Merriweather', sans-serif;
 }
 header .nav-wrapper a:hover {
     color: #fff;
@@ -16,9 +22,13 @@ header .nav-wrapper a:hover {
 .navbar-fixed nav {
     position: fixed;
     padding: 0 20px;
-]
 }
 
+.cafe-image{
+    width: 100%;  
+    height: 100%;
+    object-fit: cover;
+}
 
 .memory-card-container{
     padding:10px;
@@ -30,7 +40,7 @@ header .nav-wrapper a:hover {
     object-fit: cover;
 }
 
-.btn{
+.btn, .btn-flat{
     background-color: #cec88a;
 }
 .form-wrapper {
@@ -279,12 +289,17 @@ nav {
     padding:0 15px;
 }
 
-
 .modal {
-  
-    max-width:550px;
-        max-height: 320px;
+    max-width: 550px;
+    max-height: 410px;
+
 }
 .modal .modal-content {
     padding: 8px;
+    background: rgb(244,191,201);
+    background: linear-gradient(90deg, rgba(244,191,201,1) 12%, rgba(237,216,219,0.8211659663865546) 37%, rgba(255,225,235,1) 78%);
+}
+
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content {
+    padding: 0 0 0 8px;
 }

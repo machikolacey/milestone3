@@ -118,7 +118,6 @@ def insert_cafe():
     area_id = mongo.db.areas.find_one({"name":request.form.get('area_name')})["_id"]
     cafe = request.form.to_dict()
     cafe["area_id"] = area_id
-   
     cafes = mongo.db.cafes
     cafes.insert_one(cafe)
     return redirect(url_for('get_cafes' , sort='cafe_name', order='asc'))
@@ -136,7 +135,7 @@ def insert_memory():
     memory["user_id"] = ObjectId(request.form.get("user_id"))
     memories = mongo.db.memories
     memories.insert_one(memory)
-    return redirect(url_for('get_memories', sort = 'date', order='asc'))
+    return redirect(url_for('your_memories', sort = 'date', order='asc'))
 
 
 @app.route('/add_memory')
@@ -209,7 +208,7 @@ def your_memories(sort, order):
     memories=mongo.db.memories.find({"user":session.get("user")}).sort(sort,ord)
   
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
-    per_page = 4
+    per_page = 8
     offset = ((page-1) * per_page)
     total = memories.count()
     print(total)
