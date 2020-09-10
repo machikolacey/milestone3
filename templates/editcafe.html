@@ -9,8 +9,8 @@
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">poll</i>
-                    <select id="area" name="area_name">
-                  <option value="" disabled selected>Choose Area</option>
+                <select id="area" name="area_name"    class="validate"  required="" aria-required="true"   >
+                  <option value="" disabled selected  >Choose Area</option>
                   {% for area in areas %}
                     {% if cafe.area_name == area.name%}
                       <option value="{{area.name}}" selected >{{area.name}}</option>
@@ -24,8 +24,11 @@
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
-                <input id="cafe_name" name="cafe_name" type="text" value="{{cafe.cafe_name}}">
-                <label for="icon_prefix">Name</label>
+                <input id="cafe_name" name="cafe_name" type="text" value="{{cafe.cafe_name}}"
+                    class="validate"  required="" aria-required="true"
+                    oninvalid="this.setCustomValidity('Please enter a cafe name.')"
+                    oninput="this.setCustomValidity('')">
+                <label for="icon_prefix">Cafe name</label>
             </div>
        
         <div class="row">
@@ -38,21 +41,30 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                 <input id="address" name="address" type="text" value="{{cafe.address}}">
+                 <input id="address" name="address" type="text" value="{{cafe.address}}"
+                    class="validate"  required="" aria-required="true"
+                    oninvalid="this.setCustomValidity('Please enter an address.')"
+                    oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">address</label>
             </div>
         </div>
    <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                 <input id="postcode" name="postcode" type="text" value="{{cafe.postcode}}">
+                 <input id="postcode" name="postcode" type="text" value="{{cafe.postcode}}"
+                    class="validate"  required="" aria-required="true"
+                    oninvalid="this.setCustomValidity('Please enter a postcode.')"
+                    oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">postcode</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                 <input id="photo" name="photo" type="text" value="{{cafe.photo}}">
+                 <input id="photo" name="photo" type="text" value="{{cafe.photo}}"
+                    class="validate"  required="" aria-required="true"
+                    oninvalid="this.setCustomValidity('Please enter link to the photo.')"
+                    oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">photo</label>
             </div>
         </div>

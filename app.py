@@ -293,10 +293,10 @@ def login():
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"]    = request.form.get("username")
               
-                flash("welcome, {}".format(request.form.get("username")))
+  
                 session['logged_in'] = True
-                return redirect(url_for(
-                        "profile", username=session["user"]))
+                return redirect(url_for('your_memories', sort = 'date', order='asc'))
+             
             else:
             #Invalid password match
                 flash("Incorrect username annd/or password")

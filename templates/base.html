@@ -118,25 +118,26 @@
 
         });
 
+    let date = new Date();
+    
         $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            selectMonths: true, 
+            selectYears: 15, 
+            max: date,
             today: 'Today',
             clear: 'Clear',
             close: 'Ok',
-            closeOnSelect: false // Close upon selecting a date,
+            closeOnSelect: false 
         });
+
         $('.datepicker').on('mousedown',function(event){
             event.preventDefault();
         });
-
-
 
         $('.sort').click(function(event) {
         return $.getJSON(
             '/sort_memories/'+$(this).val(), 
              function (data) {
-                console.log(data) ; 
                 return process(data);
              });
         });  

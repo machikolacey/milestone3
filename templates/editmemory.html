@@ -9,7 +9,12 @@
                     <div class="row">
                         <div class="input-field col s12">
                         <i class="material-icons prefix">local_cafe</i>
-                        <input type="text" id="cafe_name" class="autocomplete" name="cafe_name"  value="{{memory.cafe_name}}"  autocomplete="off" >
+                        <input type="text" id="cafe_name" class="autocomplete validate" name="cafe_name" 
+                         value="{{memory.cafe_name}}"  autocomplete="off" 
+                         required="" aria-required="true"
+                        oninvalid="this.setCustomValidity('Please enter a date.')"
+                        oninput="this.setCustomValidity('')"
+                         >
                         <label for="autocomplete-input">Cafe Name</label>
                         </div>
                     </div>
@@ -19,14 +24,22 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">subject</i>
-                    <textarea name="description" id="description" class="materialize-textarea">{{memory.description}}</textarea>
+                    <textarea name="description" id="description"
+                     class="materialize-textarea validate"
+                    required="" aria-required="true"
+                    oninvalid="this.setCustomValidity('Please enter a description.')"
+                    oninput="this.setCustomValidity('')">
+                    {{memory.description}}</textarea>
                     <label for="icon_telephone">memory Description</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">camera_alt</i>
-                    <input type="text" name="photo"  alt="photo" value="{{memory.photo}}" />
+                    <input type="text" name="photo"  alt="photo" value="{{memory.photo}}"
+                    class="validate"  required="" aria-required="true"
+                    oninvalid="this.setCustomValidity('Please enter link to the photo.')"
+                    oninput="this.setCustomValidity('')" />
 
                     {% if memory.photo %}
                     <div class="memory-photo-wrapper">
@@ -40,7 +53,11 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">today</i>
-                    <input id="date" name="date" type="text" class="datepicker" value = "{{ memory.date }}">
+                    <input id="date" name="date" type="text" class="datepicker" value = "{{ memory.date }}"
+                    class="validate"  required="" aria-required="true"
+                    oninvalid="this.setCustomValidity('Please enter a date.')"
+                    oninput="this.setCustomValidity('')" 
+                    >
                     <label for="icon_prefix">Date</label>
                 </div>
             </div>

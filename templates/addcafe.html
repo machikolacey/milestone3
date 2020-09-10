@@ -11,54 +11,67 @@
                 <div class="row">
                     <div class="input-field col s12">
                     <i class="material-icons prefix">map</i>
-                    <input type="text" id="area_name" class="autocomplete" name="area_name" autocomplete="off" >
+                    <input type="text" id="area_name" class="autocomplete validate" name="area_name" autocomplete="off" 
+                         required="" aria-required="true" 
+                        oninvalid="this.setCustomValidity('Please enter an area name.')"
+                　       oninput="this.setCustomValidity('')"
+                        >
                     <label for="autocomplete-input">Area Name : Start typing a name to find area</label>
                     </div>
                 </div>
                 </div>
             </div>
-
-
-  
             <div class="input-field col s12">
                 <i class="material-icons prefix">local_cafe</i>
-                <input id="cafe_name"    name="cafe_name" type="text" class="validate"  required="" aria-required="true">
-                       <label for="example" data-error="wrong" data-success="right">Field</label>
-                <label for="icon_prefix">Name</label>
+                <input id="cafe_name"    name="cafe_name" type="text" class="validate" 
+                 required="" aria-required="true"
+                 oninvalid="this.setCustomValidity('Please enter a cafe name.')"
+                　oninput="this.setCustomValidity('')">
+                <label for="icon_prefix">Cafe name</label>
             </div>
-
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">web</i>
-                 <input id="website"  name="website" type="text" class="validate"  required="" aria-required="true">
+                 <input id="website"  name="website" type="text" 
+                　oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">Website</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">location_city</i>
-                 <input id="address" name="address" type="text" class="validate"  required="" aria-required="true">
+                 <input id="address" name="address" type="text" class="validate" 
+                  required="" aria-required="true"
+                  oninvalid="this.setCustomValidity('Please enter an address.')"
+                　oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">address</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">local_post_office</i>
-                 <input id="postcode" name="postcode" type="text" class="validate"  required="" aria-required="true">
+                 <input id="postcode" name="postcode" type="text" class="validate" 
+                  required="" aria-required="true"
+                  oninvalid="this.setCustomValidity('Please enter a postcode.')"
+                　oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">postcode</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">monochrome_photos</i>
-                 <input id="photo" name="photo" type="text" class="validate"  required="" aria-required="true">
+                 <input id="photo" name="photo" type="text" 
+                  class="validate"  required="" aria-required="true"
+                  oninvalid="this.setCustomValidity('Please enter link to the photo.')"
+                  oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">photo</label>
             </div>
         </div>
+
          <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">movie</i>
-                 <input id="youtube" name="youtube" type="text">
+                 <input id="youtube" name="youtube" type="text" >
                 <label for="icon_telephone">Youtube Link</label>
             </div>
         </div>
