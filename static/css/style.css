@@ -7,6 +7,10 @@ background: rgb(244,191,201);
 background: linear-gradient(90deg, rgba(244,191,201,1) 12%, rgba(237,216,219,0.8211659663865546) 37%, rgba(255,225,235,1) 78%);
 
 }
+a {
+    color: #7b6176;
+    font-weight:700;
+}
 h1, h2, h3, h4, h5, h6{
     font-family:'Merriweather', sans-serif;
     font-weight:700;
@@ -273,8 +277,8 @@ nav {
     background: #b8cedc;
     border: 1px solid #eee;
     margin: 0 0 20px 0;
-    padding: 0 0 10px 0;
-        border-radius: 8px;
+    padding: 0 ;
+    border-radius: 8px;
 }
 .memory-card > .row{
     margin-bottom:0;

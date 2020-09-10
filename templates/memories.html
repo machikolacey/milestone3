@@ -61,7 +61,7 @@
 
 
 
-
+ {{ pagination.links }}
 <div class="row">
  {% for memory in memories %}
     {% if not  memory.is_private  %}
@@ -71,7 +71,7 @@
 
         <div class="memory-card">
         <div class="date text-center">
-           {{memory.date}} 
+           {{memory.date}}   {{ memory.area }}
         </div>
         <div class="row">
            <div class="col-sm-6 text-center">

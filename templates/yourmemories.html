@@ -14,6 +14,7 @@
 No memories
 
 {% else %}
+
 <div class="sorter">
     <div class="row">
         <div class="col-sm-12">
@@ -27,6 +28,9 @@ No memories
         </div>
     </div>
 </div>
+
+
+ {{ pagination.links }}
    {% for memory in memories %}
    
        <div class="col-sm-6 ">

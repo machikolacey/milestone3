@@ -1,54 +1,76 @@
-$("#formValidate").validate({
-  rules: {
-    description: {
-        required: true,
-        minlength: 2
-    },
-    photo: {
-        required: true,
-        minlength: 2
-    },
-    mobile_num: {
-        required: true,
-        minlength: 10,
-        maxlength: 10
-    },
-    email: {
-        required: true,
-        email:true
-    },
-    pass: {
-        required: true,
-        minlength: 5
-    },
-    confirm_pass: {
-        required: true,
-        minlength: 5,
-        equalTo: "#pass"
-    }
-},
-//For custom messages
-messages: {
-    description: {
-        required: "Please enter your first name.",
-        minlength: "You sure you're named with one letter?"
-    },
-    photo: {
-        required: "Please enter your last name.",
-        minlength: "You sure you're named with one letter?"
-    },
-    email: {
-        required: "Please enter your email address.",
-        email: "Please enter a valid email address."
-    },
-    pass: {
-        required: "Please enter a password.",
-        minlength: "Password must be atleast 5 characters."
-    },
-    confirm_pass: {
-        required: "Please confirm your password.",
-        minlength: "Password must be atleast 5 characters.",
-        equalTo: "Password does not match."
-    }
+   $(document).ready(function() {
+        
+  
+           $(".button-collapse").sideNav({edge:"right"});
+            //  $('.side-nav').sidenav();
+               $('select').material_select();
+
+
+
+        $('.searchcafe').keyup(function(event) {
+        return $.getJSON(
+            '/cafe_autocomplete/'+$('.searchcafe').attr('sortvalue'), 
+             function (data) {
+                console.log(data) ; 
+                return process(data);
+             });
+        });  
+
+
+
+        });
+
+    let date = new Date();
+    
+        $('.datepicker').pickadate({
+            selectMonths: true, 
+            selectYears: 15, 
+            max: date,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false 
+        });
+
+        $('.datepicker').on('mousedown',function(event){
+            event.preventDefault();
+        });
+
+        $('.sort').click(function(event) {
+        return $.getJSON(
+            '/sort_memories/'+$(this).val(), 
+             function (data) {
+                return process(data);
+             });
+        });  
+
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-});
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+ function checkCookie(cname) {
+  var val=getCookie(cname);
+  if (val != "") {
+   return true;
+  } else {
+   return false;
+  }
+}

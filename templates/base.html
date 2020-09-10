@@ -11,10 +11,11 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
      <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}?v=1565156" type="text/css"/>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript"  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxC5b3wNV-jG0q82g355HOZ3ucc8q9igw&sensor=false"></script>
+
 </head>
 
 <body>
@@ -76,105 +77,12 @@
     {% block content %} {% endblock %}
 </section>    
 </div> <!-- /-container -->
-  
 
-
-    <script type="text/javascript">
-       $(document).ready(function() {
-        
-         {% if not session.user %}
-            
-         $('.modal').modal({
-            dismissible: true, 
-            complete: function() { 
-              setCookie("popup", true, 240);
-                
-           
-             } 
-            }
-        );
-
-        if(checkCookie("popup") == false ){
-
-                    $('#modal1').modal('open');
-        }          
-         {% endif %}
-           $(".button-collapse").sideNav({edge:"right"});
-            //  $('.side-nav').sidenav();
-               $('select').material_select();
-
-
-
-        $('.searchcafe').keyup(function(event) {
-        return $.getJSON(
-            '/cafe_autocomplete/'+$('.searchcafe').attr('sortvalue'), 
-             function (data) {
-                console.log(data) ; 
-                return process(data);
-             });
-        });  
-
-
-
-        });
-
-    let date = new Date();
-    
-        $('.datepicker').pickadate({
-            selectMonths: true, 
-            selectYears: 15, 
-            max: date,
-            today: 'Today',
-            clear: 'Clear',
-            close: 'Ok',
-            closeOnSelect: false 
-        });
-
-        $('.datepicker').on('mousedown',function(event){
-            event.preventDefault();
-        });
-
-        $('.sort').click(function(event) {
-        return $.getJSON(
-            '/sort_memories/'+$(this).val(), 
-             function (data) {
-                return process(data);
-             });
-        });  
-
-
-function setCookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  var expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
- function checkCookie(cname) {
-  var val=getCookie(cname);
-  if (val != "") {
-   return true;
-  } else {
-   return false;
-  }
-}
-
-</script>
-<script src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
+<script  type="text/javascript" src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
+<script  type="text/javascript" src="/static/js/custom.js" ></script>         
+{% if not session.user %}            
+<script  type="text/javascript" src="/static/js/custom-nouser.js" ></script>
+{% endif %}
 </body>
 
 </html>

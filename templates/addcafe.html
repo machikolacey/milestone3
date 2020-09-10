@@ -84,8 +84,9 @@
 </div>
 </div>
 <script>
+
   $(document).ready(function(){
-    let areanames = JSON.parse({{ areanames |tojson|safe }}); 
+    let areanames = JSON.parse({{ areanames | tojson | safe }}); 
     let data = {};
     areanames.forEach(function (areaname) {
         console.log(areaname.name)
@@ -96,7 +97,6 @@
       data: data
     });
   });
-
 
 </script>
 
