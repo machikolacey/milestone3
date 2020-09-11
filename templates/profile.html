@@ -10,7 +10,11 @@
     <div class="row">
         <div class="col-sm-6 text-center">
             <div class="memory-photo-wrapper">
+            {% if user.photo %}
             <img src="{{ user.photo }}" alt="{{ user.username }} photo" class="profile-photo" />
+            {% else %}
+            <img src="https://res.cloudinary.com/machikolacey/image/upload/v1599862901/milestone3/no-image_f3sttx.png" alt="">
+            {% endif %}
             </div> 
         </div>
         <div class="col-sm-6"> 

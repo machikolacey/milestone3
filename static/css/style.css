@@ -299,9 +299,9 @@ nav {
 
 .modal {
     max-width: 550px;
-    max-height: 410px;
-
+    max-height: 450px;
 }
+
 .modal .modal-content {
     padding: 8px;
     background: rgb(244,191,201);

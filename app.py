@@ -174,14 +174,20 @@ def get_memories(sort, order):
     
     memories=mongo.db.memories.find().sort(sort,ord)
     users=mongo.db.users.find()
+
     mems = []
    
     for memory in memories:
 
             user = mongo.db.users.find_one({"username":memory["user"]})            
             memory["userphoto"] = user["photo"]
-            mems.append(memory)
 
+            cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
+
+            print(memory["_id"])
+            print(cafe['area_name'])
+            memory["area_name"] = cafe["area_name"]
+            mems.append(memory)           
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     per_page = 8
     offset = ((page-1) * per_page)

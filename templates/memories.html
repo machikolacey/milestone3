@@ -27,14 +27,13 @@
 
             <h2>Do you want to add your cafe memories?</h2>
             <h3>You will have to register.</h3>
-            <a href="{{ url_for('register') }}">
-                <button class="waves-effect waves-green btn-flat d-inline">Get Started!</button>
-          
-            </a>
-            <button class="modal-close waves-effect waves-green btn-flat d-inline">Not Now!</button>
+                <a href="{{ url_for('register') }}">
+                    <button class="waves-effect waves-green btn-flat d-inline">Get Started!</button>
             
-            
-            
+                </a>
+                <button class="modal-close waves-effect waves-green btn-flat d-inline">Not Now!</button>
+            <hr />
+           <p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
             </div>
             </div>
            
@@ -68,7 +67,7 @@
     <div class="col-lg-6 col-sm-12">
         <div class="memory-card">
         <div class="date text-center">
-           {{memory.date}}   {{ memory.area }}
+          <p class="d-inline"> {{memory.date}}</p> <p class="d-inline float-right">{{ memory.area_name }}</p> 
         </div>
         <div class="row">
            <div class="col-sm-6 text-center">
@@ -111,11 +110,16 @@
                     {% if  memory.user == session.user %}   
                     <div class="user">
                         <p class="yourself d-inline">{{memory.user}}</p>
-                        <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="{{memory.user}} Photo" />
+                                  {% if memory.userphoto  %}
+                                    <img src="{{ memory.userphoto  }}" class="user_photo d-inline" alt="{{memory.user}} Photo" />
+                                    {% else %}
+                                    <img src="https://res.cloudinary.com/machikolacey/image/upload/v1599862901/milestone3/no-image_f3sttx.png"  class="user_photo d-inline" alt="{{memory.user}} Photo" >
+                                    {% endif %}
+    
                       </div>
                         {% else %} 
                       <div class="user"> 
-                        <p class="d-inline">Posted by:{{memory.user}}</p>
+                        <p class="d-inline">Posted by:{{memory.user}}</p>s
                         <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="{{memory.user}}" />
                      </div>
                     {% endif %} 
