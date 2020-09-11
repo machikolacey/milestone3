@@ -183,10 +183,8 @@ def get_memories(sort, order):
             memory["userphoto"] = user["photo"]
 
             cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
-
-            print(memory["_id"])
-            print(cafe['area_name'])
             memory["area_name"] = cafe["area_name"]
+
             mems.append(memory)           
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     per_page = 8
@@ -212,16 +210,25 @@ def your_memories(sort, order):
       return redirect("/login")   
 
     memories=mongo.db.memories.find({"user":session.get("user")}).sort(sort,ord)
-  
+    users=mongo.db.users.find()
+
+    mems = []
+   
+    for memory in memories:
+
+            user = mongo.db.users.find_one({"username":memory["user"]})            
+            memory["userphoto"] = user["photo"]
+
+            cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
+            memory["area_name"] = cafe["area_name"]
+
+            mems.append(memory)           
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     per_page = 8
     offset = ((page-1) * per_page)
-    total = memories.count()
-    print(total)
-    pagination_mems =  memories[offset: offset + per_page]
+    total = len(mems)
+    pagination_mems =  mems[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap4')
-
-
 
     return render_template("yourmemories.html", memories=pagination_mems, 
                                               username = session.get('user'), pagination=pagination)

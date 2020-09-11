@@ -10,7 +10,7 @@
 
 <div class="row">
 
-{% if memories.count() == 0 %}
+{% if memories.len == 0 %}
 No memories
 
 {% else %}
@@ -37,7 +37,7 @@ No memories
  
                <div class="memory-card">
         <div class="date text-center">
-           {{memory.date}} 
+            <p class="d-inline"> {{memory.date}}</p> <p class="d-inline float-right">{{ memory.area_name }}</p> 
         </div>
         <div class="row">
            <div class="col-sm-6 text-center">
