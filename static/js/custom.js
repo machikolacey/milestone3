@@ -20,16 +20,16 @@
 
         });
 
-    let date = new Date();
-    
+
         $('.datepicker').pickadate({
+            selectMonths: true,
+            selectYears: 10, 
+            max: new Date(),
             selectMonths: true, 
-            selectYears: 15, 
-            max: date,
+            close: 'Ok',
             today: 'Today',
             clear: 'Clear',
-            close: 'Ok',
-            closeOnSelect: false 
+            format: 'dd/mm/yyyy'
         });
 
         $('.datepicker').on('mousedown',function(event){
