@@ -49,10 +49,12 @@
         <div class="col-sm-12">
             <ul class="inlineblock">
             <li>Sort by</li>
-            <li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='asc')}}">Oldest first</a></li>
-            <li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Recent first</a></li>
             <li><a class="sort"  href="{{url_for('get_memories', sort = 'ratings', order='desc')}}">Best rated</a></li>
             <li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='asc')}}">Cafe name A-Z</a></li>
+            <li><a class="sort"  href="{{url_for('get_memories', sort = 'cafe_name', order='desc')}}">Cafe name Z-A</a></li>            
+             <li><a class="sort"  href="{{url_for('get_memories', sort = 'area_name', order='asc')}}">Area name A-Z</a></li>
+            <li><a class="sort"  href="{{url_for('get_memories', sort = 'area_name', order='desc')}}">Area name Z-A</a></li> 
+            <li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Recent first</a></li>
             </ul>
         </div>
     </div>

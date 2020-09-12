@@ -167,12 +167,8 @@ def home():
 
 @app.route('/memories/<sort>/<order>')
 def get_memories(sort, order):
-    if order=="asc":
-        ord = 1
-    else:
-        ord = -1    
-    
-    memories=mongo.db.memories.find().sort(sort,ord)
+     
+    memories=mongo.db.memories.find()
     users=mongo.db.users.find()
 
     mems = []
@@ -185,7 +181,13 @@ def get_memories(sort, order):
             cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
             memory["area_name"] = cafe["area_name"]
 
-            mems.append(memory)           
+            mems.append(memory)        
+
+    if(order=="desc"):
+        mems = sorted(mems, key=lambda x: x[sort], reverse=True)
+    else:
+        mems = sorted(mems, key=lambda x: x[sort], reverse=False)        
+
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     per_page = 8
     offset = ((page-1) * per_page)
@@ -199,30 +201,28 @@ def get_memories(sort, order):
 @app.route('/your_memories/<sort>/<order>')
 def your_memories(sort, order):
 
-    if order=="asc":
-        ord = 1
-    else:
-        ord = -1    
-
-
-
     if  session.get('logged_in') != True:
       return redirect("/login")   
 
-    memories=mongo.db.memories.find({"user":session.get("user")}).sort(sort,ord)
+    memories=mongo.db.memories.find({"user":session.get("user")})
     users=mongo.db.users.find()
 
     mems = []
    
     for memory in memories:
 
-            user = mongo.db.users.find_one({"username":memory["user"]})            
-            memory["userphoto"] = user["photo"]
-
             cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
             memory["area_name"] = cafe["area_name"]
 
-            mems.append(memory)           
+            mems.append(memory)    
+
+
+    if(order=="desc"):
+        mems = sorted(mems, key=lambda x: x[sort], reverse=True)
+    else:
+        mems = sorted(mems, key=lambda x: x[sort], reverse=False)
+
+
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     per_page = 8
     offset = ((page-1) * per_page)
