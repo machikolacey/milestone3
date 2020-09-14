@@ -1,20 +1,23 @@
 # My Cafe Memories
 
-This is aiming to make a walking tour plan easy utilising Google Map API.
-On a Map, they can click on a marker to see the descriptions, a photo or an Youtube video to see what's there.
-They can easily filter the markers by clicking on a category, on the bottom of the map.
+This is a social network site for users to share memories of their cafes.
 
-By clicking on "Add to Your Tour" button, they can add the destination to their tour, and display the place on the list of destinations in "Your Tour" box.
+A non-user can browse this website to see everyone's cafe memories.
 
-They can easily change orders of the destination by clicking on "Move Up" or "Move Down" buttons next to the destination.
+If they become an user, they will be able to add their cafe memories.
+They can add their memories from "Add memory" page. 
 
-They can delete the destination by clicking on "Delete" button next to the destination.
+They can search the cafe names by auto complete. 
 
-By Clicking on "Check Distance" button, they can see total duration, total distance in KM, and total calories consumed below "Your Tour" box.
+They can add cafe name(auto-complete), description, photo link, rating(1 to 5), Date(datepicker).
 
-The purpose of this web page is for an user to plan an appropriate walking tour plan for the day. They can see the details of each destination and choose them to include in their tour, and when they click on "Check Distance" button they can see how long it will take, how long they will walk,  and how much calories will be burned.
+If they are unable to find the cafe, they can add a cafe from "Add cafe" page.
 
-This site is for educational purposes only.
+On "Add cafe" page, they can add area name(auto-complete), cafe name, website, postal address, postcode, photo link, and youtube link(optional).
+
+They can also browse and edit/ delete cafes from "Manage cafes" page.
+
+
 
 ## Wireframe
 
