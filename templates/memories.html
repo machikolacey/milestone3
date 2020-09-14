@@ -55,6 +55,7 @@
              <li><a class="sort"  href="{{url_for('get_memories', sort = 'area_name', order='asc')}}">Area name A-Z</a></li>
             <li><a class="sort"  href="{{url_for('get_memories', sort = 'area_name', order='desc')}}">Area name Z-A</a></li> 
             <li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='desc')}}">Recent first</a></li>
+            <li><a class="sort"  href="{{url_for('get_memories', sort = 'date', order='asc')}}">Oldest first</a></li>
             </ul>
         </div>
     </div>
@@ -69,7 +70,7 @@
     <div class="col-lg-6 col-sm-12">
         <div class="memory-card">
         <div class="date text-center">
-          <p class="d-inline"> {{memory.date}}</p> <p class="d-inline float-right">{{ memory.area_name }}</p> 
+          <p class="d-inline"> {{memory.ukdate}}</p> <p class="d-inline float-right">{{ memory.area_name }}</p> 
         </div>
         <div class="row">
            <div class="col-sm-6 text-center">

@@ -7,6 +7,7 @@ from bson import json_util
 import json
 from bson.json_util import dumps
 from flask_paginate import Pagination, get_page_args
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -128,7 +129,9 @@ def insert_memory():
  
     memory = request.form.to_dict()
 
-    print(memory["cafe_name"])
+    date_object = datetime.strptime(memory["date"], '%d/%m/%Y')
+    memory["date"] = date_object
+ 
     cafe_id = mongo.db.cafes.find_one({"cafe_name":memory["cafe_name"]})["_id"]
     
     memory["cafe_id"] = cafe_id
@@ -180,7 +183,7 @@ def get_memories(sort, order):
 
             cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
             memory["area_name"] = cafe["area_name"]
-
+            memory["ukdate"] = memory["date"].strftime('%d/%m/%Y')
             mems.append(memory)        
 
     if(order=="desc"):
@@ -213,7 +216,7 @@ def your_memories(sort, order):
 
             cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
             memory["area_name"] = cafe["area_name"]
-
+            memory["ukdate"] = memory["date"].strftime('%d/%m/%Y')
             mems.append(memory)    
 
 
@@ -272,13 +275,16 @@ def update_user(user_id):
 @app.route('/update_memory/<memory_id>/<page>', methods=["POST"])
 def update_memory(memory_id, page=''):
     memories = mongo.db.memories
+
+    date_object = datetime.strptime(request.form.get('date'), '%d/%m/%Y')
+
     memories.update( {'_id': ObjectId(memory_id)},
     {"$set": {
         'cafe_name':request.form.get('cafe_name'),
         'description':request.form.get('description'),
         'photo':request.form.get('photo'),
         'is_private': request.form.get('is_private'),
-        'date': request.form.get('date')
+        'date': date_object
     }})
     if(page == "yourmemories"):
            return redirect(url_for('your_memories', sort = 'date', order='asc'))

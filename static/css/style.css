@@ -69,7 +69,7 @@ header .nav-wrapper a:hover {
 ul.inlineblock li{
     display: inline-block;
     border-right: 1px solid #666;
-    padding: 0 20px;
+    padding: 0 8px;
 }
 
 ul.inlineblock li a {
