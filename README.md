@@ -1,4 +1,4 @@
-# My Cafe Memories
+## My Cafe Memories
 
 This is a social network site for users to share memories of their cafes.
 
@@ -17,6 +17,9 @@ On "Add cafe" page, they can add area name(auto-complete), cafe name, website, p
 
 They can also browse and edit/ delete cafes from "Manage cafes" page.
 
+
+## Deployed page is available here
+http://milestone3-data-centric-mlk.herokuapp.com/memories/date/asc
 
 
 ## Wireframe
