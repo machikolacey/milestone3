@@ -19,12 +19,12 @@ They can also browse and edit/ delete cafes from "Manage cafes" page.
 
 
 ## Deployed page is available here
-http://milestone3-data-centric-mlk.herokuapp.com/memories/date/asc
+http://milestone3-data-centric-mlk.herokuapp.com/
 
 
 ## Wireframe
 
-https://machikolacey.github.io/milestone2/assets/wireframe/ms2_wireframe.pdf
+https://machikolacey.github.io/milestone3/pdf/wireframe-ny-cafe-memories.pdf
 
 
 ## UX
