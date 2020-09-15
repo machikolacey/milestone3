@@ -29,24 +29,36 @@ https://github.com/machikolacey/milestone3/blob/master/pdf/wireframe-ny-cafe-mem
 
 ## UX
 
-This page starts with a Google map with location markers. An user can click on each marker to see the details on a popup modal. They can see either photo or an Youtube video, also a short description.
+If they haven't visited the website (detected by cookie), the homepage displays a modal popup to describe what this website for.
+This navigates an user to either registration page or login page, or if they decide not to register, just closes the popup.
 
-After adding 2 or more locations, then they can check distance by clicking on "Check Distance" button.
+
 
 The steps:
  
+ If register:
+
 <ol>
-<li>A Google Map with markers on destinations are shown.</li>
-<li>An user can choose a category by clicking on a category button to filter markers</li>
-<li>When an user clicks on a marker, a popup is shown to display the information of the destination</li>
-<li>The dialog has two buttons - "Add to your tour" and "Close"</li>
-<li>When an user clicks on "Add to your tour", it will add the destination to the tour plan and display the name of the destination in "Your Tour" box.</li>
-<li>When an user clicks on "Close" button, it closes the dialog</li>
-<li>In "Your Tour", an user can click the "delete" button to delete the destination from the tour</li>
-<li>In "Your Tour", an user can click the "Move up" button to replace the order of the place with the one before.</li>
-<li>In "Your Tour", an user can click the "Move up" button to replace the order of the place with the one next.</li>
-<li>When an user clicks on the "Check Distance" button, it will display the tour map on the map, also calculates total KM, total duration, and calories consumed.</li>
+<li>The user can add username and password to register their account</li>
+<li>It will navigate the user to "Edit your profile" page</li>
+<li>If they want to add their image, they can click on "Edit" button to go to "Edit your profile" page</li>
+<li>The user can add their image by adding link to their image</li>
+<li>Click on "Save" to go to "Everyone's memories" page</li>
 </ol>
+
+
+ If login:
+
+<ol>
+<li>An user can fill in the form to go to "Your cafe memories" page</li>
+<li>It will navigate the user to "Edit your profile" page</li>
+<li>On the page, they can click on "Add your memory" button to fo to "Add your cafe memory" page</li>
+<li>On the page, they can add the cafe name, description, photo link, ratings, and date. Also they can choose if this memory is private(display to the user only)</li>
+<li>By clicking on "Save", go to "Your cafe memories" page</li>
+<li>The user can see their memory is added on the page</li>
+<li>The user can edit or delete the memory by clicking on the buttons</li>
+</ol>
+
 
 
 ## Features
