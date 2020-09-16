@@ -45,7 +45,7 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Registration successful")
         session['logged_in'] = True
-        return redirect(url_for("profile", username = session["user"] ))
+        return redirect(url_for("your_account", username = session["user"] ))
     return render_template("register.html")
 
 
@@ -257,10 +257,10 @@ def edit_memory(memory_id, page):
                            cafes=all_cafes, page = page, cafenames=cafenamesjson)
 
 
-@app.route('/edit_user/<user_id>')
-def edit_user(user_id):
+@app.route('/edit_account/<user_id>')
+def edit_account(user_id):
     the_user =  mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    return render_template('edituser.html', user=the_user)
+    return render_template('editaccount.html', user=the_user)
 
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
@@ -270,7 +270,7 @@ def update_user(user_id):
         'username':request.form.get('username'),
         'photo':request.form.get('photo')
     }})
-    return redirect(url_for('profile', username=session['user']))
+    return redirect(url_for('your_account', username=session['user']))
 
 @app.route('/update_memory/<memory_id>/<page>', methods=["POST"])
 def update_memory(memory_id, page=''):
@@ -357,11 +357,11 @@ def logout():
     session.pop('logged_in', None)
     return redirect(url_for('get_memories', sort = 'date', order='asc'))
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/your_account/<username>", methods=["GET", "POST"])
+def your_account(username):
       user = mongo.db.users.find_one({"username" : session["user"]})
       if session["user"]:
-         return render_template("profile.html", user=user)
+         return render_template("youraccount.html", user=user)
     
          return redirect(url_for('login'))
 
