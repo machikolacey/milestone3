@@ -68,9 +68,21 @@ The steps:
 ## Features
 
 
-Existing Features
-Feature 1 - allows users X to achieve Y, by having them fill out Z
-...
+### Existing Features
+
+<ul>
+<li>Feature 1 - allows users browsing all the posted memories, by visiting home "Everyone's memories" page</li>
+<li>Feature 2 - allows users reading cafe information by clicking the image and name of the cafe </li>
+<li>Feature 3 - allows users adding & editing cafe information, cafe memory by filling in the forms</li>
+<li>Feature 3 - allows users adding & editing their cafe memory by filling 'Add memory' form</li>
+<li>Feature 4 - Auto complete - allows users to search for the area & cafe name by inserting text in the input</li>
+<li>Feature 5 - Photos - they can add their photos by adding a link from a photo cloud (such as https://cloudinary.com/)</li>
+<li>Feature 6 - Sort - users can sort by date, cafe name, and rating</li>
+<li>Feature 7 - Pagination - users can browse cafe memories and cafe informations using pagination, so they can easily navigate through the list</li>
+<li></li>
+</ul>
+
+
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
 
 In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
