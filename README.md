@@ -2,20 +2,25 @@
 
 This is a social network site for users to share memories of their cafes.
 
-A non-user can browse this website to see everyone's cafe memories.
 
-If they become an user, they will be able to add their cafe memories.
-They can add their memories from "Add memory" page. 
+The goal for the user is to share their cafe memories with other like-minded people, who would like to explore and find an ideal cafe for themselves.
+Also, they can look at their cafe memories, go back to their memories, and it's good to see good memories of their cafes.
+They can choose either private or public for each memory, so they don't have to be worried about showing all the images they want to store for themselves.
 
-They can search the cafe names by auto complete. 
+In the future, this will give me an opportunity to ask cafe owners to provide their information by themselves, and also coupon code for their customers.
 
-They can add cafe name(auto-complete), description, photo link, rating(1 to 5), Date(datepicker).
 
-If they are unable to find the cafe, they can add a cafe from "Add cafe" page.
-
-On "Add cafe" page, they can add area name(auto-complete), cafe name, website, postal address, postcode, photo link, and youtube link(optional).
-
-They can also browse and edit/ delete cafes from "Manage cafes" page.
+<ul>
+<li>A non-user can browse this website to see everyone's cafe memories.</li>
+<li>If they become an user, they will be able to add their cafe memories.</li>
+<li>They can add their memories from "Add memory" page. </li>
+<li>They can search the cafe names by auto complete. </li>
+<li>They can add cafe name(auto-complete), description, photo link, rating(1 to 5), Date(datepicker).</li>
+<li>If they are unable to find the cafe, they can add a cafe from "Add cafe" page.</li>
+<li>On "Add cafe" page, they can add area name(auto-complete), cafe name, website, postal address, postcode, photo link, and youtube link(optional).
+</li>
+<li>They can also browse and edit/ delete cafes from "Manage cafes" page.</li>
+</ul>
 
 
 ## Deployed page is available here
@@ -31,8 +36,6 @@ https://github.com/machikolacey/milestone3/blob/master/pdf/wireframe-ny-cafe-mem
 
 If they haven't visited the website (detected by cookie), the homepage displays a modal popup to describe what this website for.
 This navigates an user to either registration page or login page, or if they decide not to register, just closes the popup.
-
-
 
 The steps:
  
@@ -57,24 +60,20 @@ The steps:
 <li>By clicking on "Save", go to "Your cafe memories" page</li>
 <li>The user can see their memory is added on the page</li>
 <li>The user can edit or delete the memory by clicking on the buttons</li>
+<li>The user can add or edit cafe information</li>
 </ol>
 
 
 
 ## Features
 
-The Marker has my original animation, so an end user can easily identify the icon for each category.
 
-This is using a json file for the data, so we can easily add more data or import data from another website etc.
+Existing Features
+Feature 1 - allows users X to achieve Y, by having them fill out Z
+...
+For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
 
-We can add more data using the json file
- 
-### Existing Features
-
-Marker Buttons - enable an user to see the destination details with a video or a photo.
-
-"Check Distance" button - enables an user to see the distance and also calories they will consume by this tour, so they can plan their walking tour accurately.
-
+In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
 - I would like to add more categories
