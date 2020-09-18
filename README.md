@@ -94,19 +94,19 @@ The steps:
 
 ###  Back-end 
 <ul>
-<li>Python</li>
-<li>Flask</li>
-<li>Dnspython</li>
-<li>Heroku</li>
+<li><a href="https://www.python.org/" rel="nofollow">Python</a></li>
+<li><a href="https://flask.palletsprojects.com/en/1.1.x/" rel="nofollow">Flask</a> - For pagination, etc</li>
+<li><a href="https://pypi.org/project/dnspython/" rel="nofollow">Dnspython</a></li>
+<li><a href="https://www.heroku.com" rel="nofollow">Heroku</a> </li>
 <li><a href="https://www.mongodb.com/cloud/atlas" rel="nofollow">Mongo DB Atlas</a> - non relational, NO-SQL Database</li>
 </ul>
 
 
 ###  Front-end 
 <ul>
-<li>Javascript</li>
-<li>Jquery</li>
-<li>Bootstrap</li>
+<li><a href="https://www.javascript.com/" rel="nofollow">Javascript</a></li>
+<li><a href="https://jquery.com/" rel="nofollow">Jquery</a></li>
+<li><a href="https://getbootstrap.com/" rel="nofollow">Bootstrap</a></li>
 <li><a href="https://materializecss.com/" rel="nofollow">Materialize</a> - for clean front-end design</li>
 </ul>
 
