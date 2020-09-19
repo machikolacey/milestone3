@@ -9,13 +9,18 @@ from bson.json_util import dumps
 from flask_paginate import Pagination, get_page_args
 from datetime import datetime
 
+if os.path.exists("env.py"):
+    import env
+
+
+
 app = Flask(__name__)
 
 per_page = 4   
 
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config["MONGO_DBNAME"] = 'brightonCafes'
-app.config["MONGO_URI"] = "mongodb+srv://root:r00tUser@myfirstcluster.1nsni.mongodb.net/brightonCafes?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
