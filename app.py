@@ -12,21 +12,12 @@ from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
-
-
 app = Flask(__name__)
-
-per_page = 4   
-
 app.config["MONGO_DBNAME"] = 'brightonCafes'
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-
 mongo = PyMongo(app)
-
 APP_ROOT = os.path.dirname(os.path.abspath(__file__)) 
-
-
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -52,8 +43,6 @@ def register():
         session['logged_in'] = True
         return redirect(url_for("your_account", username = session["user"] ))
     return render_template("register.html")
-
-
 
 @app.route('/get_cafes/<sort>/<order>')
 def get_cafes(sort, order):
@@ -84,8 +73,6 @@ def add_cafe():
     
     return render_template('addcafe.html',
            areas=mongo.db.areas.find(), areanames=areanamesjson,  username = session["user"])
-
-
 
 @app.route('/edit_cafe/<cafe_id>')
 def edit_cafe(cafe_id):
@@ -248,8 +235,6 @@ def your_memories(sort, order):
         cafes = cafes=mongo.db.memories.find()
         print(cafes)
         return  cafes
-
-
 
 
 @app.route('/edit_memory/<memory_id>/<page>')

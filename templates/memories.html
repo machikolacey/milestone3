@@ -78,13 +78,9 @@
                  <a href="{{url_for('cafe', cafe_id = memory.cafe_id)}}">
                    <img src="{{memory.photo}}" alt="" class=" memory-photo">
                   </a> 
+                   <a href="{{url_for('cafe', cafe_id = memory.cafe_id)}}">
                     <h2><i class="tiny material-icons">local_cafe</i>{{memory.cafe_name}}</h2>
-                    <p> 
-
-         
-     
-
-                      </p>
+                    </a> 
                  </div> 
            </div>
           <div class="col-sm-6"> 
@@ -122,7 +118,7 @@
                       </div>
                         {% else %} 
                       <div class="user"> 
-                        <p class="d-inline">Posted by:{{memory.user}}</p>s
+                        <p class="d-inline">Posted by:{{memory.user}}</p>
                         <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="{{memory.user}}" />
                      </div>
                     {% endif %} 
