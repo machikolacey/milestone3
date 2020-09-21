@@ -16,6 +16,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'brightonCafes'
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+
 mongo = PyMongo(app)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__)) 
 
@@ -130,7 +131,7 @@ def insert_memory():
     memory["user_id"] = ObjectId(request.form.get("user_id"))
     memories = mongo.db.memories
     memories.insert_one(memory)
-    return redirect(url_for('your_memories', sort = 'date', order='asc'))
+    return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='yes'))
 
 
 @app.route('/add_memory')
@@ -158,13 +159,18 @@ def filter_cafe():
 
 @app.route('/')
 def home():
- return redirect("/memories/date/asc")  
+ return redirect("/memories/date/asc/no")  
 
-@app.route('/memories/<sort>/<order>')
-def get_memories(sort, order):
+@app.route('/memories/<sort>/<order>/<is_yours>')
+def get_memories(sort, order, is_yours):
      
-    memories=mongo.db.memories.find()
-    users=mongo.db.users.find()
+
+    if is_yours == 'yes':
+        memories=mongo.db.memories.find({"user":session.get("user")})
+        users=mongo.db.users.find()
+    else:
+        memories=mongo.db.memories.find()
+        users=mongo.db.users.find()
 
     mems = []
    
@@ -189,60 +195,24 @@ def get_memories(sort, order):
     total = len(mems)
     pagination_mems =  mems[offset: offset + per_page]
     pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap4')
-
-    return render_template("memories.html", memories=pagination_mems, pagination=pagination)
     
-
-@app.route('/your_memories/<sort>/<order>')
-def your_memories(sort, order):
-
-    if  session.get('logged_in') != True:
-      return redirect("/login")   
-
-    memories=mongo.db.memories.find({"user":session.get("user")})
-    users=mongo.db.users.find()
-
-    mems = []
-   
-    for memory in memories:
-
-            cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
-            memory["area_name"] = cafe["area_name"]
-            memory["ukdate"] = memory["date"].strftime('%d/%m/%Y')
-            mems.append(memory)    
-
-
-    if(order=="desc"):
-        mems = sorted(mems, key=lambda x: x[sort], reverse=True)
+    if is_yours == 'yes':
+        return render_template("yourmemories.html", memories=pagination_mems, pagination=pagination)
     else:
-        mems = sorted(mems, key=lambda x: x[sort], reverse=False)
+        return render_template("memories.html", memories=pagination_mems, pagination=pagination)
 
-
-    page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
-    per_page = 8
-    offset = ((page-1) * per_page)
-    total = len(mems)
-    pagination_mems =  mems[offset: offset + per_page]
-    pagination = Pagination(page=page, per_page=per_page, total=total,css_framework='bootstrap4')
-
-    return render_template("yourmemories.html", memories=pagination_mems, 
-                                              username = session.get('user'), pagination=pagination)
-
-
-
-    @app.route('/cafe_autocomplete/<query>')
-    def cafe_autocomplete():
-        cafes = cafes=mongo.db.memories.find()
-        print(cafes)
-        return  cafes
 
 
 @app.route('/edit_memory/<memory_id>/<page>')
 def edit_memory(memory_id, page):
     the_memory =  mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
+
+    the_memory["ukdate"] = the_memory["date"].strftime('%d/%m/%Y')
+
     all_cafes =  mongo.db.cafes.find()
     cafenames=mongo.db.cafes.find({}, {"cafe_name":1, "area":1})
     cafenamesjson = dumps(cafenames)
+
     return render_template('editmemory.html', memory=the_memory,
                            cafes=all_cafes, page = page, cafenames=cafenamesjson)
 
@@ -266,6 +236,7 @@ def update_user(user_id):
 def update_memory(memory_id, page=''):
     memories = mongo.db.memories
 
+
     date_object = datetime.strptime(request.form.get('date'), '%d/%m/%Y')
 
     memories.update( {'_id': ObjectId(memory_id)},
@@ -277,16 +248,16 @@ def update_memory(memory_id, page=''):
         'date': date_object
     }})
     if(page == "yourmemories"):
-           return redirect(url_for('your_memories', sort = 'date', order='asc'))
-           return redirect(url_for('get_memories', sort = 'date', order='asc'))
+           return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='yes'))
+           return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='no'))
 
 
 @app.route('/delete_memory/<memory_id>/<page>')
 def delete_memory(memory_id, page):
     mongo.db.memories.remove({'_id': ObjectId(memory_id)})
     if (page == 'yourmemories'):
-          return redirect(url_for('your_memories', sort = 'date', order='asc'))
-    return redirect(url_for('get_memories', sort = 'date', order='asc'))
+          return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='yes'))
+    return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='no'))
 
 
 
@@ -304,7 +275,7 @@ def login():
               
   
                 session['logged_in'] = True
-                return redirect(url_for('your_memories', sort = 'date', order='asc'))
+                return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='yes'))
              
             else:
             #Invalid password match
@@ -345,7 +316,7 @@ def cafe(cafe_id):
 def logout():
     session.pop("user")
     session.pop('logged_in', None)
-    return redirect(url_for('get_memories', sort = 'date', order='asc'))
+    return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='no'))
 
 @app.route("/your_account/<username>", methods=["GET", "POST"])
 def your_account(username):
@@ -364,4 +335,4 @@ def cafe_autocomplete(request, **kwargs):
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)

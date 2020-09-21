@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript"  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxC5b3wNV-jG0q82g355HOZ3ucc8q9igw&sensor=false"></script>
-
+ 
 </head>
 
 <body>
@@ -30,7 +30,7 @@
         <li><a href="/">Home</a></li>
         {% if session.user %}
         <li><a href="{{ url_for('your_account', username=session['user']) }}">Account</a></li>
-        <li><a href="{{ url_for('your_memories', sort='ratings', order='asc', username=session['user']) }}">Your Memories</a></li>
+        <li><a href="{{ url_for('get_memories', sort='ratings', order='asc', is_yours='yes') }}">Your Memories</a></li>
         <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
         <li><a href="{{ url_for('add_memory') }}">Add Memory</a></li> 
   
@@ -79,7 +79,7 @@
 </div> <!-- /-container -->
 
 <script  type="text/javascript" src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
-<script  type="text/javascript" src="/static/js/custom.js" ></script>         
+ <script  type="text/javascript" src="/static/js/custom.js" ></script>  
 {% if not session.user %}            
 <script  type="text/javascript" src="/static/js/custom-nouser.js" ></script>
 {% endif %}

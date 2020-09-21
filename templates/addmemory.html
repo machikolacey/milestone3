@@ -38,41 +38,23 @@
             </div>
            </div> 
 
-            <div class="row">
-            <div class="col s12 ">
-                <i class="material-icons prefix">rate_review</i>
-                <input id="ratings5" name="ratings" type="radio" value="5" checked/>  
-   
-                <label for="ratings5">  
-                <i class="material-icons">star</i><i class="material-icons">star</i>
-                <i class="material-icons">star</i><i class="material-icons">star</i>
-                <i class="material-icons">star</i>
-                </label>
 
-                <input id="ratings4" name="ratings" type="radio" value="4" />   
-                <label for="ratings4">
-                <i class="material-icons">star</i><i class="material-icons">star</i>
-                <i class="material-icons">star</i><i class="material-icons">star</i>
-                </label>
-
-                <input id="ratings3" name="ratings" type="radio" value="3" />   
-                <label for="ratings3">
-                <i class="material-icons">star</i><i class="material-icons">star</i>
-                <i class="material-icons">star</i>
-                </label>
-
-                <input id="ratings2" name="ratings" type="radio" value="2" />   
-                <label for="ratings2">
-                <i class="material-icons">star</i><i class="material-icons">star</i>
-                </label>
-
-                <input id="ratings1" name="ratings" type="radio" value="1" />   
-                <label for="ratings1">
-                <i class="material-icons">star</i>
-                </label>
-
-            </div>
+  <div class="row">
+        <div class="col s12 ">
+            <i class="material-icons prefix">rate_review</i>
+                {% for i in range(5) %}
+                {% set count = i+1 %}
+                    <input id="ratings{{ count }}" name="ratings" type="radio" value="{{ count }}"  
+                    {% if  count == 5  %} checked {% endif %}     />  
+                    <label for="ratings{{ count }}">  
+                        {% for i in range( count ) %}
+                            <i class="material-icons">star</i> 
+                            {% endfor %}
+                    </label>
+                {% endfor %}
         </div>
+</div>
+   
  
         <div class="row">
             <div class="input-field col s12">
@@ -109,21 +91,11 @@
     </form>
     </div>
 </div>
-<script>
-  $(document).ready(function(){
+<script type="text/javascript">
+    $(document).ready(function() {
+    // I left this code as this is includins Jinja code, which is generating json code.
     let cafenames = JSON.parse({{ cafenames|tojson|safe }}); 
-    let data = {};
-    cafenames.forEach(function (cafename) {
-        console.log(cafename.cafe_name)
-       data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
-    });
-
-
-    $('input.autocomplete').autocomplete({
-      data: data
-    });
+     autoCompleteCafe (cafenames);
   });
-
 </script>
-
 {% endblock %}

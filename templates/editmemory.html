@@ -28,8 +28,7 @@
                      class="materialize-textarea validate"
                     required="" aria-required="true"
                     oninvalid="this.setCustomValidity('Please enter a description.')"
-                    oninput="this.setCustomValidity('')">
-                    {{memory.description}}</textarea>
+                    oninput="this.setCustomValidity('')">{{memory.description}}</textarea>
                     <label for="icon_telephone">memory Description</label>
                 </div>
             </div>
@@ -53,7 +52,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">today</i>
-                    <input id="date" name="date" type="text" class="datepicker" value = "{{ memory.date }}"
+                    <input id="date" name="date" type="text" class="datepicker" value = "{{ memory.ukdate }}"
                     class="validate"  required="" aria-required="true"
                     oninvalid="this.setCustomValidity('Please enter a date.')"
                     oninput="this.setCustomValidity('')" 
@@ -62,40 +61,19 @@
                 </div>
             </div>
     
-                    <div class="row">
-                <div class="col s12">
-                    <i class="material-icons prefix">rate_review</i>
-                    <input id="ratings5" name="ratings" type="radio" value="5"  {% if memory.ratings == "5" %}  checked {% endif %}   />   
-                    <label for="ratings5">  
-                    <i class="material-icons">star</i><i class="material-icons">star</i>
-                    <i class="material-icons">star</i><i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
+          <div class="col s12 ">
+            <i class="material-icons prefix">rate_review</i>
+                {% for i in range(5) %}
+                {% set count = i+1 %}
+                    <input id="ratings{{ count }}" name="ratings" type="radio" value="{{ count }}"  
+                    {% if  count == 5  %} checked {% endif %}     />  
+                    <label for="ratings{{ count }}">  
+                        {% for i in range( count ) %}
+                            <i class="material-icons">star</i> 
+                            {% endfor %}
                     </label>
-
-                    <input id="ratings4" name="ratings" type="radio" value="4"  {% if memory.ratings == "4" %}  checked {% endif %}/>   
-                    <label for="ratings4">
-                    <i class="material-icons">star</i><i class="material-icons">star</i>
-                    <i class="material-icons">star</i><i class="material-icons">star</i>
-                    </label>
-
-                    <input id="ratings3" name="ratings" type="radio" value="3"  {% if memory.ratings == "3" %}  checked {% endif %}/>   
-                    <label for="ratings3">
-                    <i class="material-icons">star</i><i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    </label>
-
-                    <input id="ratings2" name="ratings" type="radio" value="2"  {% if memory.ratings == "2" %}  checked {% endif %} />   
-                    <label for="ratings2">
-                    <i class="material-icons">star</i><i class="material-icons">star</i>
-                    </label>
-
-                    <input id="ratings1" name="ratings" type="radio" value="1"  {% if memory.ratings == "1" %}  checked {% endif %} />   
-                    <label for="ratings1">
-                    <i class="material-icons">star</i>
-                    </label>
-
-                </div>
-            </div>
+                {% endfor %}
+        </div>
             <div class="row">
                 <div class="switch">
                     <label>
@@ -121,20 +99,9 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        due_date = Date.parse('{{memory.date}}');
-        $('#due_date').pickadate('picker').set('select', due_date, { format: 'dd/mm/yyyy' }).trigger('change');
- 
+    // I left this code as this is includins Jinja code, which is generating json code.
     let cafenames = JSON.parse({{ cafenames|tojson|safe }}); 
-    let data = {};
-    cafenames.forEach(function (cafename) {
-        console.log(cafename.cafe_name)
-       data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
-    });
-
-
-    $('input.autocomplete').autocomplete({
-      data: data
-    });
+     autoCompleteCafe (cafenames);
   });
 
 </script>
