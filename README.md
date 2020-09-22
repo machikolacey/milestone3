@@ -2,6 +2,7 @@
 
 This is a social network site for users to share memories of their cafes.
 
+<img src="https://res.cloudinary.com/machikolacey/image/upload/v1600814653/milestone3/my-cafe-memories_r3zfyz.jpg" style="width:100%;"/>
 
 The goal for the user is to share their cafe memories with other like-minded people, who would like to explore and find an ideal cafe for themselves.
 Also, they can look at their cafe memories, go back to their memories, and it's good to see good memories of their cafes.
@@ -110,10 +111,38 @@ The steps:
 <li><a href="https://materializecss.com/" rel="nofollow">Materialize</a> - for clean front-end design</li>
 </ul>
 
-
        
 ## Testing
-This code was tested by using PC, tablet, and android phone, also using Google Chrome's Responsive Tester. This repository was tested by peer code review channel on Code Institute's community on Slack.
+
+### PC
+I have tested on these browsers:
+
+<ol>
+<li>Google Chrome</li>
+<li>Firefox</li>
+<li>Internet Explorer Edge</li>
+</ol>
+
+### Tablet
+<ol>
+<li>Kindle Fire 8 plus</li>
+</ol>
+
+### Mobile 
+<ol>
+<li>Samsung A21</li>
+</ol>
+
+
+I have asked on Code Institute's peer review community to test this website and received feedbacks:
+
+### Issues 
+<ol>
+<li> </li>
+<li> </li>
+<li> </li>
+</ol>
+
 
 Also, this was run through these validators.
 
@@ -123,9 +152,8 @@ Also, this was run through these validators.
 <li><a href="https://jshint.com/" target="_blank">JS Hint</a></li>
 </ul>
 
-<h3>User Stories</h3>
+<h3>Testing Steps</h3>
 If register:
-
 <ol>
 <li>The user can add username and password to register their account</li>
 <li>It will navigate the user to "Edit your profile" page</li>
