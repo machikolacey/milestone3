@@ -17,6 +17,11 @@ app.config["MONGO_DBNAME"] = 'brightonCafes'
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+
+
+
+
+
 mongo = PyMongo(app)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__)) 
 

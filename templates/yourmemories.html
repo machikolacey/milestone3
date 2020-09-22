@@ -5,11 +5,17 @@
 <body>
 <h1 class="d-inline">Your Cafe Memories  </h1>
 <button class="float-right d-inline">
-<a href="{{url_for('get_memories', sort = 'date', order='desc', is_yours='no')}}">Everyone's Memories</a>
+<a href="{{url_for('get_memories', sort = 'date', order='desc', is_yours='no')}}">Everyone's Memories<i class="tiny material-icons">arrow_forward</i></a>
 </button> 
 <div class="row">
-{% if memories.len == 0 %}
-No memories
+{% if memories|length == 0 %}
+<div class="sorter">
+    <div class="row">
+        <div class="col-sm-12">
+            You have no memories posted yet. To do it, please <a href="{{ url_for('add_memory') }}">click here</a>.
+        </div>
+</div>
+</div>
 {% else %}
 <div class="sorter">
     <div class="row">
