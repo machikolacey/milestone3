@@ -97,7 +97,7 @@
             {% endif %}
             <div class="cafe-description"><p>{{memory.description}}</p></div> 
                 {% if  memory.user == session.user %}   
-                <div class="user">
+                <div class="user text-right">
                         <p class="yourself d-inline">{{memory.user}}</p>
                                 {% if memory.userphoto  %}
                                 <img src="{{ memory.userphoto  }}" class="user_photo d-inline" alt="{{memory.user}} Photo" />
@@ -106,7 +106,7 @@
                                 {% endif %}
                         </div>
                     {% else %} 
-                        <div class="user"> 
+                        <div class="user text-right"> 
                         <p class="d-inline">Posted by:{{memory.user}}</p>
                         <img src="{{ memory.userphoto }}" class="user_photo d-inline" alt="{{memory.user}}" />
                         </div>
