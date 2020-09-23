@@ -19,7 +19,9 @@ h1, h2, h3, h4, h5, h6{
 nav .brand-logo{
     position:relative;
     font-family:'Merriweather', sans-serif;
+    font-size: 1.4rem;
 }
+
 header .nav-wrapper a:hover {
     color: #fff;
 
@@ -311,14 +313,34 @@ nav {
 }
 
 .modal {
-    max-width: 550px;
-    max-height: 450px;
+    width: 80%;
+    height: 90%;
+    overflow-y: scroll;
+    background: #ffe1eb;
 }
-
+.modal h1, .modal h2, .modal h3, .modal h4 {
+    margin-top: 0;
+    margin-bottom: 13px;
+}
 .modal .modal-content {
-    padding: 8px;
-    background: rgb(244,191,201);
-    background: linear-gradient(90deg, rgba(244,191,201,1) 12%, rgba(237,216,219,0.8211659663865546) 37%, rgba(255,225,235,1) 78%);
+     padding: 2px;
+    background:transparent;
+    height:100%;
+    border:none;
+}
+.modal .modal-content .first-time{
+ background:#b8cedc;
+    height:100%;
+    max-height:100%;
+}
+.close-button{
+    position:absolute;
+    right:10px;
+    float: right;
+    width: 20px;
+    right: 5px;
+    font-size: 1.5rem;
+    top: 0;
 }
 
 .input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content {
@@ -346,6 +368,17 @@ nav {
 .app-item {
   cursor: pointer;
 }
+@media screen and (min-width:1100px){
+    .modal {
+        max-height: 315px;
+    }
+}
+
+@media screen and (max-width:1100px){
+    .modal{
+        max-width:90%;
+    }
+}
 @media screen and (max-width:997px){
 
     .welcome.d-inline{
@@ -355,6 +388,9 @@ nav {
 }
 
 @media screen and (max-width:768px){
+    nav .brand-logo {
+    font-size: 1rem;
+    }
     .user p{
         font-size: 1rem;
         font-weight: 700;
