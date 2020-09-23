@@ -1,7 +1,7 @@
    $(document).ready(function() {
         
   
-           $(".button-collapse").sideNav({edge:"right"});
+           $(".button-collapse").sideNav();
             //  $('.side-nav').sidenav();
                $('select').material_select();
 
