@@ -12,9 +12,17 @@ a {
     font-weight:700;
 }
 h1, h2, h3, h4, h5, h6{
-    font-family:'Merriweather', sans-serif;
-    font-weight:700;
-        color: #7b6157;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    color: #7b6157;
+}
+dl, ol, ul {
+    margin-bottom: 0;
+}
+h1{
+    font-size: 2rem;
+    margin: 0;
+    text-transform: uppercase;
 }
 nav .brand-logo{
     position:relative;
@@ -34,6 +42,10 @@ background-color: #4d6d9a ;
 .light-blue-text.text-darken-4, .side-nav li>a {
     color: #7b6157;
 }
+
+.side-nav li>a:hover , nav ul a:hover {
+    background-color: #ad81a4;
+    text-decoration: none;
 }
 
 .user p{
@@ -417,7 +429,13 @@ nav {
 }
 
 @media screen and (max-width:768px){
-    nav .brand-logo {
+.light-blue-text.text-darken-4 {
+    color: #fff!important;
+    padding: 20px 0;
+}
+
+
+nav .brand-logo {
     font-size: 1rem;
 }
     .user p{
@@ -448,7 +466,7 @@ nav {
     }
 
     .side-nav li>a {
-    color: rgba(0,0,0,0.87);
+    color: #fff;
     display: block;
     font-size: 14px;
     font-weight: 700;
@@ -458,11 +476,15 @@ nav {
     padding: 0 32px;
 }
 
-.side-nav li>a:hover {
-    background-color: #ad81a4;
-    text-decoration: none;
+
+
 }
 
+@media only screen and (min-width: 601px){
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        height: 34px;
+        line-height: 64px;
+    }
 }
 
 @media (min-width: 576px)
