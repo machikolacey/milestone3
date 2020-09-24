@@ -411,6 +411,21 @@ nav {
     .nav-extended.welcome.d-inline {
         display:none;
     }
+    .side-nav li>a {
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #7793bb;
+    padding: 0 32px;
+    }
+    .light-blue-text.text-darken-4 {
+        color: #fff!important;
+        padding: 20px 0;
+    }
+
 }
 
 
@@ -434,10 +449,6 @@ nav {
 }
 
 @media screen and (max-width:768px){
-.light-blue-text.text-darken-4 {
-    color: #fff!important;
-    padding: 20px 0;
-}
 
 
 nav .brand-logo {
@@ -470,17 +481,7 @@ nav .brand-logo {
         margin:0 0 20px 0;
     }
 
-    .side-nav li>a {
-    color: #fff;
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    height: 48px;
-    line-height: 48px;
-    border-bottom: 1px solid #7793bb;
-    padding: 0 32px;
-}
-
+    
 
 
 }
