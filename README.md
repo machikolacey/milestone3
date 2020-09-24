@@ -153,7 +153,7 @@ I have asked on Code Institute's peer review community to test this website and 
 <li>On the mobile phone menu there was no lines between links, and no effects on hover - fixed</li>
 <li>On registration process it wasn't displaying requirement for the username - fixed</li>
 <li>The 'Go back' button was on the front page - fixed</li>
-<li>On tablet size, the memory image was not 100% width - fixed<li>
+<li>On tablet size, the memory image was not 100% width - fixed</li>
 <li>On tablet size, the the header displayed 2 lines and took too much space - fixed</li>
 <li>When user photo was not presented, it was causing an error on memory submittion - fixed</li>
 </ol>
@@ -177,12 +177,12 @@ Also, this was run through these validators.
 <li>Click on 'Save' to go to "Your memories" page</li>
 <li>Click on 'Click here' to go to 'Add Your Cafe Memory' page </li>
 <li>Fill in the form - add 2 or more characters on 'cafe' field to see auto-complete is working</li>
-<li>Click on 'Date' field to see datepicker is working<li>
-<li>Submit the form to go to 'Your cafe memories' page<li>
-<li>On the top menu, click on 'Home' to go back to 'Everyone's memories' page<li>
+<li>Click on 'Date' field to see datepicker is working</li>
+<li>Submit the form to go to 'Your cafe memories' page</li>
+<li>On the top menu, click on 'Home' to go back to 'Everyone's memories' page</li>
 <li>Check pagenation is working by clicking on the page numbers</li>
 <li>Check 'Sort by' section to see sort is working</li>
-<li>Click on 'Your memories' button to see if you can go back to 'Your memories' page<li>
+<li>Click on 'Your memories' button to see if you can go back to 'Your memories' page</li>
 <li>Click on 'Everyone's memories' button to see if you can go back to 'Everyone's memories' page</li>
 <li>On the top menu, click on 'Add cafe' to go to 'Add Cafe' page</li>
 <li>Fill in the form - test if area auto complete is working</li>
