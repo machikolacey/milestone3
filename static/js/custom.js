@@ -31,6 +31,20 @@
     });
 }
 
+function autoCompleteArea(areanames){
+
+    let data = {};
+    areanames.forEach(function (areaname) {
+        console.log(areaname.name)
+       data[areaname.name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";  
+   });
+
+     $('input.autocomplete').autocomplete({
+      data: data
+    });
+
+}
+
         $('.datepicker').pickadate({
             selectMonths: true,
             selectYears: 10, 

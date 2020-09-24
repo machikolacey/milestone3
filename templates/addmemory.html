@@ -37,8 +37,6 @@
                 <label for="icon_telephone">Add the link to your photo</label>
             </div>
            </div> 
-
-
   <div class="row">
         <div class="col s12 ">
             <i class="material-icons prefix">rate_review</i>
@@ -54,8 +52,6 @@
                 {% endfor %}
         </div>
 </div>
-   
- 
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
@@ -67,10 +63,8 @@
                 <label for="icon_prefix">Date</label>
             </div>
         </div>
-          
         <div class="row">
             <div class="switch">
-            
                 <label>
                   <input id="is_private" name="is_private" type="checkbox">
                   <span class="lever"></span>
@@ -78,7 +72,6 @@
                 </label>
             </div>
         </div>
-
         <div class="row">
              <div class="input-field col s12">
                 <input type="hidden" name="user" value="{{ username }}"    />
@@ -92,8 +85,8 @@
     </div>
 </div>
 <script type="text/javascript">
+  // I left this code as this is includins Jinja code, which is generating json code.
     $(document).ready(function() {
-    // I left this code as this is includins Jinja code, which is generating json code.
     let cafenames = JSON.parse({{ cafenames|tojson|safe }}); 
      autoCompleteCafe (cafenames);
   });

@@ -55,6 +55,10 @@ background-color: #4d6d9a ;
     min-height: 0;
     padding-top: 10px;
 }
+.memory-card.cafe-card{
+    background:#544f4f;
+}
+
 .cafe-view-photo{
     width: 100%;
     height: 150px;
@@ -155,6 +159,13 @@ img {
 }
 .edit-memory .memory-photo-wrapper{
     max-width:470px;
+}
+.memory-card.cafe-card {
+    background: #c1bdbd;
+}
+.memory-card.cafe-card  .date {
+    background: #4d6d9a;
+
 }
 
 .main-content{
@@ -372,6 +383,20 @@ nav {
 .app-item {
   cursor: pointer;
 }
+@media screen and (max-width:1260px){
+    nav ul a {
+        padding: 0 8px;
+        font-size: 0.8rem;
+    }
+    nav .brand-logo {
+    font-size: 1.8rem;
+    }
+    .nav-extended.welcome.d-inline {
+        display:none;
+    }
+}
+
+
 @media screen and (min-width:1100px){
     .modal {
         max-height: 315px;
