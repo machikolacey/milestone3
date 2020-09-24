@@ -195,20 +195,32 @@ Also, this was run through these validators.
 
 ## Deployment
 
-My repository can be found on Github. I used HTML, CSS and javascript and no database.
+This project was developed on Github, using Gitpod as IDE. It has only master branch.
+This is pushed and deployed on to heroku.
 
-The page is deployed by Github pages. There is only master branch. 
-
-There is no past versions to look at so far. Deployed page is found here:
+Deployed project is found here:
 https://milestone3-data-centric-mlk.herokuapp.com/
 
-To run this reponsitory locally, you could
-<ul>
-<li>Follow the respository link above to the GitHub Dashboard, and click on "Clone" or "Download".</li>
-<li>If you "Clone", initialize git on your local environment's folder and clone the file by pasting the copied command on your command line.</li>
-<li>If you "Downlowd" expand and copy all the files downloaded into the folder in your chosen development environment.</li>
-</ul>
-
+## Local Deployment
+This project will be deployed following these steps:
+<ol>
+<li>On top-right corner of this page, click on "Clone or Download" button</li>
+<li>Choose either HTTPS, SSH, CLI</li>
+<li>Open a CLI on your computer</li>
+<li>Navigate to your folder you would like to clone the project</li>
+<li>Run the following command:</li>
+<div class="well">
+HTTPS:
+git clone https://github.com/mkthewlis/Milestone-Project-3.git
+SSH:
+git clone git@github.com:mkthewlis/Milestone-Project-3.git
+GitHub CLI
+gh repo clone mkthewlis/Milestone-Project-3
+</div>
+<li>Add non-relational database collection on your localhost</li>
+<li>Add these tables: cafes, users, areas, memories</li>
+</ol>
+## Remote Deployment
 
 ## Credits
 
