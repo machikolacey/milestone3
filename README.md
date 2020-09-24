@@ -168,29 +168,29 @@ Also, this was run through these validators.
 </ul>
 
 <h3>Testing Steps</h3>
-If register:
-<ol>
-<li>On the front page, a welcomo popup will be shown with buttons - press 'Register' button to go to register page</li>
-<li>It will navigate the user to "Edit your profile" page</li>
-<li>If they want to add their image, they can click on "Edit" button to go to "Edit your profile" page</li>
-<li>The user can add their image by adding link to their image</li>
-<li>Click on "Save" to go to "Everyone's memories" page</li>
-</ol>
-
-
- If login:
 
 <ol>
-<li>An user can fill in the form to go to "Your cafe memories" page</li>
-<li>It will navigate the user to "Edit your profile" page</li>
-<li>On the page, they can click on "Add your memory" button to fo to "Add your cafe memory" page</li>
-<li>On the page, they can add the cafe name, description, photo link, ratings, and date. Also they can choose if this memory is private(display to the user only)</li>
-<li>By clicking on "Save", go to "Your cafe memories" page</li>
-<li>The user can see their memory is added on the page</li>
-<li>The user can edit or delete the memory by clicking on the buttons</li>
-<li>The user can add or edit cafe information</li>
+<li>On the front page, a welcomo popup will be shown with buttons - press 'Get Started!' button to go to register page</li>
+<li>Fill in the form with a username and password, press 'Register' button</li>
+<li>It will redirect to "Your Account Information" page</li>
+<li>Click on 'Edit' button to display 'Edit your account information' page</li>
+<li>Click on 'Save' to go to "Your memories" page</li>
+<li>Click on 'Click here' to go to 'Add Your Cafe Memory' page </li>
+<li>Fill in the form - add 2 or more characters on 'cafe' field to see auto-complete is working</li>
+<li>Click on 'Date' field to see datepicker is working<li>
+<li>Submit the form to go to 'Your cafe memories' page<li>
+<li>On the top menu, click on 'Home' to go back to 'Everyone's memories' page<li>
+<li>Check pagenation is working by clicking on the page numbers</li>
+<li>Check 'Sort by' section to see sort is working</li>
+<li>Click on 'Your memories' button to see if you can go back to 'Your memories' page<li>
+<li>Click on 'Everyone's memories' button to see if you can go back to 'Everyone's memories' page</li>
+<li>On the top menu, click on 'Add cafe' to go to 'Add Cafe' page</li>
+<li>Fill in the form - test if area auto complete is working</li>
+<li>Click on 'Submit' button to go to 'Manage Cafes' to see if the cafe is added on the page</li>
+<li>Choose one of the cafes, click on 'Edit' button to edit cafe</li>
+<li>Choose one of the cafes, click on 'Delete' button to delete cafe</li>
+<li>Click on 'Logout' button to logout</li>
 </ol>
-
 
 
 ## Deployment
