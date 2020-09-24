@@ -42,6 +42,11 @@ background-color: #4d6d9a ;
 .light-blue-text.text-darken-4, .side-nav li>a {
     color: #7b6157;
 }
+.flashes{
+    padding: 10px;
+    background: #bde074;
+    margin: 20px 0 0 0;
+}
 
 .side-nav li>a:hover , nav ul a:hover {
     background-color: #ad81a4;

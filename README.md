@@ -97,7 +97,7 @@ The steps:
 <ul>
 <li><a href="https://www.python.org/" rel="nofollow">Python</a></li>
 <li><a href="https://flask.palletsprojects.com/en/1.1.x/" rel="nofollow">Flask</a> - For pagination, etc</li>
-<li><a href="https://pypi.org/project/dnspython/" rel="nofollow">Dnspython</a></li>
+<li><a href="https://www.dnspython.org/" rel="nofollow">Dnspython</a></li>
 <li><a href="https://www.heroku.com" rel="nofollow">Heroku</a> </li>
 <li><a href="https://www.mongodb.com/cloud/atlas" rel="nofollow">Mongo DB Atlas</a> - non relational, NO-SQL Database</li>
 </ul>
@@ -105,11 +105,15 @@ The steps:
 
 ###  Front-end 
 <ul>
-<li><a href="https://www.javascript.com/" rel="nofollow">Javascript</a></li>
-<li><a href="https://jquery.com/" rel="nofollow">Jquery</a></li>
-<li><a href="https://getbootstrap.com/" rel="nofollow">Bootstrap</a></li>
-<li><a href="https://materializecss.com/" rel="nofollow">Materialize</a> - for clean front-end design</li>
+<li><a href="https://www.javascript.com/" rel="nofollow">Javascript</a> - For auto-complete, navbar, etc</li>
+<li><a href="https://jquery.com/" rel="nofollow">Jquery</a> - For auto-complete, navbar, etc</li>
+<li><a href="https://materializecss.com/" rel="nofollow">Materialize</a> - for clean front-end design, and also icons</li>
+<li><a href="https://www.w3schools.com/howto/howto_css_modals.asp" rel="nofollow">W3C Modal Box</a> - The project uses W3c's Modal Box to display welcome text.</li>
 </ul>
+
+### Image Library
+
+This project is using images from <a href="https://cloudinary.com/" rel="nofollow">cloudinary.com</a>, which is used as alternative to image upload facility.
 
        
 ## Testing
@@ -131,16 +135,27 @@ I have tested on these browsers:
 ### Mobile 
 <ol>
 <li>Samsung A21</li>
+<li>iPhone 7</li>
 </ol>
+
+I also used Google Chrome's device emulator to test on all types of devices.
 
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
 
-### Issues 
+### Test Results
 <ol>
-<li> </li>
-<li> </li>
-<li> </li>
+<li>Responsive menu was too tall and hiding the content on tablet size - fixed</li>
+<li>The modal popup - the content was overflowing - fixed</li>
+<li>The overlay was hiding the mobile nav - fixed</li>
+<li>Auto Complete was not working on area search. Found the order of the javascript file was wrong - fixed</li>
+<li>The content of the memory card was overflowing depends on the description - fixed</li>
+<li>On the mobile phone menu there was no lines between links, and no effects on hover - fixed</li>
+<li>On registration process it wasn't displaying requirement for the username - fixed</li>
+<li>The 'Go back' button was on the front page - fixed</li>
+<li>On tablet size, the memory image was not 100% width - fixed<li>
+<li>On tablet size, the the header displayed 2 lines and took too much space - fixed</li>
+<li>When user photo was not presented, it was causing an error on memory submittion - fixed</li>
 </ol>
 
 
@@ -155,7 +170,7 @@ Also, this was run through these validators.
 <h3>Testing Steps</h3>
 If register:
 <ol>
-<li>The user can add username and password to register their account</li>
+<li>On the front page, a welcomo popup will be shown with buttons - press 'Register' button to go to register page</li>
 <li>It will navigate the user to "Edit your profile" page</li>
 <li>If they want to add their image, they can click on "Edit" button to go to "Edit your profile" page</li>
 <li>The user can add their image by adding link to their image</li>
@@ -208,10 +223,6 @@ https://www.facebook.com
 
 ### Media
 - The photos and texts used in this website are taken from:
-https://restaurantsbrighton.co.uk
-https://www.getawriggleon.com
-https://www.brighton-hove.gov.uk/
-https://www.atlasobscura.com/places/the-goldstone-hove-england
 https://www.facebook.com
 
 - The videos used in this website are taken from:

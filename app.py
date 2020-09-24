@@ -182,7 +182,9 @@ def get_memories(sort, order, is_yours):
     for memory in memories:
 
             user = mongo.db.users.find_one({"username":memory["user"]})            
-            memory["userphoto"] = user["photo"]
+            if "photo" in user:
+              memory["userphoto"] = user["photo"]
+            
 
             cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
             memory["area_name"] = cafe["area_name"]
@@ -235,7 +237,7 @@ def update_user(user_id):
         'username':request.form.get('username'),
         'photo':request.form.get('photo')
     }})
-    return redirect(url_for('your_account', username=session['user']))
+    return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='yes'))
 
 @app.route('/update_memory/<memory_id>/<page>', methods=["POST"])
 def update_memory(memory_id, page=''):
