@@ -201,24 +201,40 @@ This is pushed and deployed on to heroku.
 Deployed project is found here:
 https://milestone3-data-centric-mlk.herokuapp.com/
 
-## Local Deployment
+## Running this project locally
 This project will be deployed following these steps:
 <ol>
 <li>On top-right corner of this page, click on "Clone or Download" button</li>
 <li>Choose either HTTPS, SSH, CLI</li>
-<li>Open a CLI on your computer</li>
-<li>Navigate to your folder you would like to clone the project</li>
+<li>Open a CLI (such as Terminal, Microsoft Powershell, Gitbash) on your computer and navigate to your folder you would like to clone the project</li>
 <li>Run the following command:</li>
-<div class="well">
+```
 HTTPS:
 git clone https://github.com/mkthewlis/Milestone-Project-3.git
 SSH:
 git clone git@github.com:mkthewlis/Milestone-Project-3.git
 GitHub CLI
 gh repo clone mkthewlis/Milestone-Project-3
-</div>
-<li>Add non-relational database collection on your localhost</li>
-<li>Add these tables: cafes, users, areas, memories</li>
+```
+<li>Add MongoDB on your local server. Add a database 'Brightoncafes' collection on your localhost</li>
+<li>Add these tables: 
+   <ul>
+   <li>cafes</li>
+   <li>areas</li>
+   <li>users</li>
+    <li>memories</li>
+   </ul>
+</li>
+<li>Add env.py file on your root folder, add these lines:
+```
+import os
+
+os.environ['SECRET_KEY'] = '- YOUR SECRET KEY - '
+os.environ['MONGO_URI'] = '- YOUR MONGO URI -' 
+
+```
+</li>
+<li>Run the code on your browser<li>
 </ol>
 ## Remote Deployment
 
