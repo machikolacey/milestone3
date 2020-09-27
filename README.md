@@ -221,7 +221,7 @@ gh repo clone mkthewlis/Milestone-Project-3
 
 ```
 
-<li>Add MongoDB on your local server. Add a database 'Brightoncafes' collection on your localhost</li>
+<li>Add a database collection on MongoDB Atlas</li>
 <li>Add these tables: 
    <ul>
    <li>cafes</li>
@@ -240,7 +240,7 @@ os.environ['MONGO_URI'] = '- YOUR MONGO URI -'
 
 ```
 </li>
-<li>Run the code on your browser<li>
+<li>Run the code on your browser</li>
 </ol>
 ## Remote Deployment
 
