@@ -208,14 +208,20 @@ This project will be deployed following these steps:
 <li>Choose either HTTPS, SSH, CLI</li>
 <li>Open a CLI (such as Terminal, Microsoft Powershell, Gitbash) on your computer and navigate to your folder you would like to clone the project</li>
 <li>Run the following command:</li>
+ 
 ```
-HTTPS:
+<ul>
+<li>HTTPS:
 git clone https://github.com/mkthewlis/Milestone-Project-3.git
-SSH:
-git clone git@github.com:mkthewlis/Milestone-Project-3.git
-GitHub CLI
-gh repo clone mkthewlis/Milestone-Project-3
+</li>
+<li>SSH:
+git clone git@github.com:mkthewlis/Milestone-Project-3.git</li>
+<li>GitHub CLI
+gh repo clone mkthewlis/Milestone-Project-3</li>
+</ul>
+
 ```
+
 <li>Add MongoDB on your local server. Add a database 'Brightoncafes' collection on your localhost</li>
 <li>Add these tables: 
    <ul>
