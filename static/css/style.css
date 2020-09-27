@@ -296,7 +296,7 @@ nav {
 }
 .page-link:hover {
     background-color: transparent;
-    border-color: none;
+    border: none;
 }
 .page-item.active .page-link {
     background-color: transparent;
