@@ -168,7 +168,8 @@ Also, this was run through these validators.
 <li>On tablet size, the memory image was not 100% width - fixed</li>
 <li>On tablet size, the the header displayed 2 lines and took too much space - fixed</li>
 <li>When user photo was not presented, it was causing an error on memory submittion - fixed</li>
-<li>Background:none was not validated - used 'transparent' instead</li>
+<li>'background-color:none' was not validated - used 'background-color:transparent' instead</li>
+<li>'border-color:none' was not validated - used border:none instead</li>
 </ol>
 
 
