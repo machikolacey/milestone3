@@ -2,7 +2,7 @@
 
 This is a social network site for users to share memories of their cafes.
 
-<img src="https://res.cloudinary.com/machikolacey/image/upload/v1600814653/milestone3/my-cafe-memories_r3zfyz.jpg" style="width:100%;"/>
+<img src="https://res.cloudinary.com/machikolacey/image/upload/v1601223705/milestone3/MS3_emwjc6.png" style="width:100%;"/>
 
 The goal for the user is to share their cafe memories with other like-minded people, who would like to explore and find an ideal cafe for themselves.
 Also, they can look at their cafe memories, go back to their memories, and share memories of their cafes.
@@ -205,7 +205,7 @@ https://milestone3-data-centric-mlk.herokuapp.com/
 
 
 This project utilises Mongo DB to use NO-SQL (non-relational) database.
-Before cloning the project,
+Before cloning the project:
 
 <ol>
 <li>Add a database collection 'brightonCafes' on <a href="https://www.mongodb.com/cloud/atlas" target="_blank">MongoDB Atlas</a></li>
@@ -219,24 +219,17 @@ Before cloning the project,
 </li>
 </ol>
 
-## Local Deployment
+## To run this project on your local repository
 This project will be deployed following these steps:
 <ol>
-<li>On top-right corner of this page, click on "Clone or Download" button</li>
-<li>Choose either HTTPS, SSH, CLI</li>
-<li>Open a CLI (such as Terminal, Microsoft Powershell, Gitbash) on your computer and navigate to your folder you would like to clone the project</li>
-<li>Run the following command:</li>
+<li>Add your own repository on your Github account</li>
+<li>Click the green 'Gitpod' button on top-right corner of this repo(If you can't find the button, install 'Gitpod' extension on your Chrome browser</li>
+<li>Gitpod launches</li>
+<li>Run the following command (Replace the 'USERNAME' and 'REPO' to your username and repo name):</li>
  
 ```
 
-HTTPS:
-git clone https://github.com/mkthewlis/Milestone-Project-3.git
-
-SSH:
-git clone git@github.com:mkthewlis/Milestone-Project-3.git
-
-GitHub CLI
-gh repo clone mkthewlis/Milestone-Project-3
+git remote set-url origin https://github.com/USERNAME/REPO.git
 
 ```
 
@@ -251,19 +244,61 @@ os.environ['MONGO_URI'] = '- YOUR MONGO URI -'
 
 ```
 </li>
-<li>Install all the modules on requirements.txt file</li>
-<li>Run the code on your browser</li>
+<li>Run this command below to install all the modules on requirements.txt file:
+
+```
+
+pip3 install -r requirements.txt
+
+```
+</li>
+<li>Run the code by running this code below:
+ 
+```
+
+python3 app.py
+
+```
+
+</li>
 </ol>
 
 
 ## Remote Deployment (Run the project on Heroku.com)
+If you want to add it to your Heroku account, follow the instructions below:
 
 <ol>
 <li>Add an app for this project</li>
 <li>Add environment variables 'SECRET_KEY' and 'MONGO_URI' on your app</li> 
 <li>Add PORT on your app</li> 
-<li>On your CLI, login to heroku</li> 
-<li>Select your app</li>
+<li>On your Gitpod workspace, login to heroku by running this code below:
+ 
+ 
+```
+
+heroku login -i
+
+```
+
+</li> 
+<li>Select your app by running this code below (Replace 'YOURAPPNANE' to your own app name):
+ 
+```
+git init
+
+heroku git:remote -a YOURAPPNAME
+
+```
+
+</li>
+<li>Run this code below to push the code to your Heroku app:
+
+```
+git push heroku master
+
+```
+
+</li>
 <li>When the app is deployed, click on 'Open App' button to run your app </li>
 </ol>
 
