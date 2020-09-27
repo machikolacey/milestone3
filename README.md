@@ -5,10 +5,10 @@ This is a social network site for users to share memories of their cafes.
 <img src="https://res.cloudinary.com/machikolacey/image/upload/v1600814653/milestone3/my-cafe-memories_r3zfyz.jpg" style="width:100%;"/>
 
 The goal for the user is to share their cafe memories with other like-minded people, who would like to explore and find an ideal cafe for themselves.
-Also, they can look at their cafe memories, go back to their memories, and it's good to see good memories of their cafes.
+Also, they can look at their cafe memories, go back to their memories, and share memories of their cafes.
 They can choose either private or public for each memory, so they don't have to be worried about showing all the images they want to store for themselves.
 
-In the future, this will give me an opportunity to ask cafe owners to provide their information by themselves, and also coupon code for their customers.
+In the future, this will give me an opportunity to ask cafe owners to provide their information by themselves, and also coupon code available for their customers. And also the cafe owner will be able to give them a 'Thank you' coupon code for positive reviewers.
 
 
 <ul>
@@ -136,6 +136,7 @@ I have tested on these browsers:
 <ol>
 <li>Samsung A21</li>
 <li>iPhone 7</li>
+<li>HUAWEI Mate 20 lite</li>
 </ol>
 
 I also used Google Chrome's device emulator to test on all types of devices.
@@ -280,7 +281,9 @@ os.environ['MONGO_URI'] = '- YOUR MONGO URI -'
 </ul>
 </li>
 </ul>
+
 ### Media
+
 <ul>
 <li>- The photos and texts used in this website are taken from:
 https://www.facebook.com</li>
