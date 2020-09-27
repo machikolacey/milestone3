@@ -277,7 +277,7 @@ nav {
 }
 
 .page-link:hover {
-    background-color: none;
+    background-color: transparent;
     border-color: #506982;
 }
 
@@ -295,11 +295,11 @@ nav {
     color: #ab2727;
 }
 .page-link:hover {
-    background-color: none;
+    background-color: transparent;
     border-color: none;
 }
 .page-item.active .page-link {
-    background-color: none;
+    background-color: transparent;
     border: none;
 }
 
@@ -309,7 +309,7 @@ nav {
 
 
 .page-link:hover {
-    background-color: none;
+    background-color: transparent;
     border-color: #dee2e6;
     color: #544f4f;
 }
