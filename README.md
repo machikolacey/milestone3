@@ -201,7 +201,24 @@ This is pushed and deployed on to heroku.
 Deployed project is found here:
 https://milestone3-data-centric-mlk.herokuapp.com/
 
-## Running this project locally
+
+
+This project utilises Mongo DB to use NO-SQL (non-relational) database.
+Before cloning the project,
+
+<ol>
+<li>Add a database collection 'brightonCafes' on <a href="https://www.mongodb.com/cloud/atlas" target="_blank">MongoDB Atlas</a></li>
+<li>Create a database and these tables: 
+   <ul>
+   <li>cafes</li>
+   <li>areas</li>
+   <li>users</li>
+   <li>memories</li>
+   </ul>
+</li>
+</ol>
+
+## Local Deployment
 This project will be deployed following these steps:
 <ol>
 <li>On top-right corner of this page, click on "Clone or Download" button</li>
@@ -210,6 +227,7 @@ This project will be deployed following these steps:
 <li>Run the following command:</li>
  
 ```
+
 HTTPS:
 git clone https://github.com/mkthewlis/Milestone-Project-3.git
 
@@ -221,15 +239,7 @@ gh repo clone mkthewlis/Milestone-Project-3
 
 ```
 
-<li>Add a database collection on MongoDB Atlas</li>
-<li>Add these tables: 
-   <ul>
-   <li>cafes</li>
-   <li>areas</li>
-   <li>users</li>
-    <li>memories</li>
-   </ul>
-</li>
+
 <li>Add env.py file on your root folder, add these lines:
  
 ```
@@ -240,28 +250,42 @@ os.environ['MONGO_URI'] = '- YOUR MONGO URI -'
 
 ```
 </li>
+<li>Install all the modules on requirements.txt file</li>
 <li>Run the code on your browser</li>
 </ol>
-## Remote Deployment
+
+
+## Remote Deployment (Run the project on Heroku.com)
+
+<ol>
+<li>Add an app for this project</li>
+<li>Add environment variables 'SECRET_KEY' and 'MONGO_URI' on your app</li> 
+<li>Add PORT on your app</li> 
+<li>On your CLI, login to heroku</li> 
+<li>Select your app<li>
+<li>When the app is deployed, click on 'Open App' button to run your app </li>
+</ol>
 
 ## Credits
 
 ### Content
-- All the marker icons are made by Machiko Lacey-Kimura.
-
-- Descriptions, address, details are taken from:
-
-https://www.google.co.uk/maps
-https://www.facebook.com
-
+- Memory photos are taken by Machiko Lacey-Kimura.
+- This project is using icons from Materialize.
+- Cafe details, photos are taken from:
+<ul>
+<li>https://www.google.co.uk/maps</li>
+<li>https://www.facebook.com</li>
+</ul>
 
 ### Media
-- The photos and texts used in this website are taken from:
-https://www.facebook.com
+<ul>
+<li>- The photos and texts used in this website are taken from:
+https://www.facebook.com</li>
 
-- The videos used in this website are taken from:
-https://www.youtube.com/
+<li>- The videos used in this website are taken from:
+https://www.youtube.com/</li>
 
+</ul>
 
 
 ### Acknowledgements
