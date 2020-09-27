@@ -210,15 +210,14 @@ This project will be deployed following these steps:
 <li>Run the following command:</li>
  
 ```
-<ul>
-<li>HTTPS:
+HTTPS:
 git clone https://github.com/mkthewlis/Milestone-Project-3.git
-</li>
-<li>SSH:
-git clone git@github.com:mkthewlis/Milestone-Project-3.git</li>
-<li>GitHub CLI
-gh repo clone mkthewlis/Milestone-Project-3</li>
-</ul>
+
+SSH:
+git clone git@github.com:mkthewlis/Milestone-Project-3.git
+
+GitHub CLI
+gh repo clone mkthewlis/Milestone-Project-3
 
 ```
 
@@ -232,6 +231,7 @@ gh repo clone mkthewlis/Milestone-Project-3</li>
    </ul>
 </li>
 <li>Add env.py file on your root folder, add these lines:
+ 
 ```
 import os
 
