@@ -12,7 +12,7 @@ In the future, this will give me an opportunity to ask cafe owners to provide th
 
 
 <ul>
-<li>A non-user can browse this website to see everyone's cafe memories.</li>
+<li>An unregistered user can browse this website to see everyone's cafe memories.</li>
 <li>If they become an user, they will be able to add their cafe memories.</li>
 <li>They can add their memories from "Add memory" page. </li>
 <li>They can search the cafe names by auto complete. </li>
@@ -144,7 +144,18 @@ I also used Google Chrome's device emulator to test on all types of devices.
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
 
+
+Also, this was run through these validators.
+
+<ul>
+<li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validation Service</a></li>
+<li><a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a></li>
+<li><a href="https://jshint.com/" target="_blank">JS Hint</a></li>
+</ul>
+
+
 ### Test Results
+
 <ol>
 <li>Responsive menu was too tall and hiding the content on tablet size - fixed</li>
 <li>The modal popup - the content was overflowing - fixed</li>
@@ -157,18 +168,13 @@ I have asked on Code Institute's peer review community to test this website and 
 <li>On tablet size, the memory image was not 100% width - fixed</li>
 <li>On tablet size, the the header displayed 2 lines and took too much space - fixed</li>
 <li>When user photo was not presented, it was causing an error on memory submittion - fixed</li>
+<li>Background:none was not validated - used 'transparent' instead</li>
 </ol>
 
 
-Also, this was run through these validators.
 
-<ul>
-<li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validation Service</a></li>
-<li><a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a></li>
-<li><a href="https://jshint.com/" target="_blank">JS Hint</a></li>
-</ul>
 
-<h3>Testing Steps</h3>
+<h3>How to test this project</h3>
 
 <ol>
 <li>On the front page, a welcomo popup will be shown with buttons - press 'Get Started!' button to go to register page</li>
