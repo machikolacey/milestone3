@@ -281,12 +281,13 @@ heroku login -i
 ```
 
 </li> 
-<li>Select your app by running this code below (Replace 'YOURAPPNANE' to your own app name):
+<li>Select your app by running this code below (Replace '- YOUR APP NAME -' with your own app name):
  
 ```
+
 git init
 
-heroku git:remote -a YOURAPPNAME
+heroku git:remote -a  - YOUR APP NAME -
 
 ```
 
@@ -294,6 +295,7 @@ heroku git:remote -a YOURAPPNAME
 <li>Run this code below to push the code to your Heroku app:
 
 ```
+
 git push heroku master
 
 ```
@@ -307,21 +309,19 @@ git push heroku master
 ### Content
 
 <ul>
-<li>Memory photos are taken by Machiko Lacey-Kimura.</li>
+<li>Memory photos are taken by Machiko Lacey-Kimura, and uploaded to <a href="https://cloudinary.com/" rel="nofollow">https://cloudinary.com/</a></li>
 <li>This project is using icons from Materialize.</li>
-<li>Cafe details, photos are taken from:
-<ul>
-<li>https://www.google.co.uk/maps</li>
-<li>https://www.facebook.com</li>
-</ul>
-</li>
 </ul>
 
 ### Media
 
 <ul>
 <li>- The photos and texts used in this website are taken from:
-https://www.facebook.com</li>
+<ul>
+<li>https://www.google.co.uk/maps</li>
+<li>https://www.facebook.com</li>
+</ul>
+/li>
 
 <li>- The videos used in this website are taken from:
 https://www.youtube.com/</li>
