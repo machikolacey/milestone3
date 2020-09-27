@@ -199,8 +199,12 @@ This project was developed on Github, using Gitpod as IDE. It has only master br
 This is pushed and deployed on to heroku.
 
 Deployed project is found here:
+
+```
+
 https://milestone3-data-centric-mlk.herokuapp.com/
 
+```
 
 
 This project utilises Mongo DB to use NO-SQL (non-relational) database.
@@ -262,21 +266,24 @@ os.environ['MONGO_URI'] = '- YOUR MONGO URI -'
 <li>Add environment variables 'SECRET_KEY' and 'MONGO_URI' on your app</li> 
 <li>Add PORT on your app</li> 
 <li>On your CLI, login to heroku</li> 
-<li>Select your app<li>
+<li>Select your app</li>
 <li>When the app is deployed, click on 'Open App' button to run your app </li>
 </ol>
 
 ## Credits
 
 ### Content
-- Memory photos are taken by Machiko Lacey-Kimura.
-- This project is using icons from Materialize.
-- Cafe details, photos are taken from:
+
+<ul>
+<li>Memory photos are taken by Machiko Lacey-Kimura.</li>
+<li>This project is using icons from Materialize.</li>
+<li>Cafe details, photos are taken from:
 <ul>
 <li>https://www.google.co.uk/maps</li>
 <li>https://www.facebook.com</li>
 </ul>
-
+</li>
+</ul>
 ### Media
 <ul>
 <li>- The photos and texts used in this website are taken from:
