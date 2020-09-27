@@ -200,11 +200,7 @@ This is pushed and deployed on to heroku.
 
 Deployed project is found here:
 
-```
-
 https://milestone3-data-centric-mlk.herokuapp.com/
-
-```
 
 
 This project utilises Mongo DB to use NO-SQL (non-relational) database.
