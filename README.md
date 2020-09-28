@@ -72,14 +72,14 @@ The steps:
 ### Existing Features
 
 <ul>
-<li><b>Feature 1</b> - allows users browsing all the posted memories, by visiting home "Everyone's memories" page</li>
-<li><b>Feature 2</b> - allows users reading cafe information by clicking the image and name of the cafe </li>
-<li><b>Feature 3</b> - allows users adding & editing cafe information, cafe memory by filling in the forms</li>
-<li><b>Feature 4</b> - allows users adding & editing their cafe memory by filling 'Add memory' form</li>
-<li><b>Feature 5</b> - Auto complete - allows users to search for the area & cafe name by inserting text in the input</li>
-<li><b>Feature 6</b> - Photos - they can add their photos by adding a link from a photo cloud (such as https://cloudinary.com/)</li>
-<li><b>Feature 7</b> - Sort - users can sort by date, cafe name, and rating</li>
-<li><b>Feature 8</b> - Pagination - users can browse cafe memories and cafe informations using pagination, so they can easily navigate through the list</li>
+<li><b>Feature 1 : Browsing all memories</b> - allows users browsing all the posted memories, by visiting home "Everyone's memories" page</li>
+<li><b>Feature 2 : Cafe information</b> - allows users reading cafe information by clicking the image and name of the cafe </li>
+<li><b>Feature 3 : Add and edit cafes</b> - allows users adding & editing cafe information, cafe memory by filling in the forms</li>
+<li><b>Feature 4 : Add and edit memories</b> - allows users adding & editing their cafe memory by filling 'Add memory' form</li>
+<li><b>Feature 5 : Auto-complete</b> - Auto complete - allows users to search for the area & cafe name by inserting text in the input</li>
+<li><b>Feature 6 : Add photos using Cloudinary </b> - Photos - they can add their photos by adding a link from a photo cloud (such as https://cloudinary.com/)</li>
+<li><b>Feature 7 : Sorting</b> - Sort - users can sort by date, cafe name, and rating</li>
+<li><b>Feature 8 : Pagination</b> - Pagination - users can browse cafe memories and cafe informations using pagination, so they can easily navigate through the list</li>
 </ul>
 
 
@@ -90,16 +90,18 @@ The steps:
 - I would like to add a facility to give users more coupon code, when they contribute to this website by adding more memories. Hopefully we can provide subscriptions packages for them so they can benefit from sharing their memories.
 
 
+
+
 ## Technologies Used
 
 
 ###  Back-end 
 <ul>
 <li><a href="https://www.python.org/" rel="nofollow">Python</a></li>
-<li><a href="https://flask.palletsprojects.com/en/1.1.x/" rel="nofollow">Flask</a> - For pagination, etc</li>
-<li><a href="https://www.dnspython.org/" rel="nofollow">Dnspython</a></li>
-<li><a href="https://www.heroku.com" rel="nofollow">Heroku</a> </li>
-<li><a href="https://www.mongodb.com/cloud/atlas" rel="nofollow">Mongo DB Atlas</a> - non relational, NO-SQL Database</li>
+<li><a href="https://flask.palletsprojects.com/en/1.1.x/" rel="nofollow">Flask</a> - Python framework For pagination, etc</li>
+<li><a href="https://www.dnspython.org/" rel="nofollow">Dnspython</a>-  DNS toolkit for Python</li>
+<li><a href="https://www.heroku.com" rel="nofollow">Heroku</a> - Cloud application platform </li>
+<li><a href="https://www.mongodb.com/cloud/atlas" rel="nofollow">Mongo DB Atlas</a> - non relational, NO-SQL Database - Cloud based MongoDB server</li>
 </ul>
 
 
@@ -134,7 +136,7 @@ I have tested on these browsers:
 
 ### Mobile 
 <ol>
-<li>Samsung A21</li>
+<li>Samsung Galaxy A21s</li>
 <li>iPhone 7</li>
 <li>HUAWEI Mate 20 lite</li>
 </ol>
