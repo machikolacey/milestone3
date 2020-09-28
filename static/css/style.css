@@ -24,6 +24,9 @@ h1{
     margin: 0;
     text-transform: uppercase;
 }
+.no-margin-bottom{
+    margin-bottom:0;
+}
 nav .brand-logo{
     position:relative;
     font-family:'Merriweather', sans-serif;
@@ -143,6 +146,11 @@ img {
 }
 .flash h4{
     line-height:2;
+}
+.memories-button{
+    border: 1px solid;
+    padding: 8px;
+    border-radius: 5px;
 }
 .memory_photo{
     max-width:250px;
@@ -449,7 +457,15 @@ nav {
 }
 
 @media screen and (max-width:768px){
-
+.memories-button{
+    float:none !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.float-right {
+    float: none;
+    margin-bottom:20px;
+}
 
 nav .brand-logo {
     font-size: 1rem;

@@ -13,7 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </head>
 <body>
-
 <header>
  <div class="navbar-fixed">
      <nav class="nav-extended text-shadow light-blue darken-1">
@@ -36,8 +35,8 @@
         {% endif %}
       </ul>
       <ul class="side-nav" id="mobile-demo">
-      <li><h4 class="center-align light-blue-text text-darken-4">My Cafe Memories</h4></li>
-  <li><a href="/">Home</a></li>
+       <li><h4 class="center-align light-blue-text text-darken-4">My Cafe Memories</h4></li>
+       <li><a href="/">Home</a></li>
         {% if session.user %}
         <li><a href="{{ url_for('your_account', username=session['user']) }}">Account</a></li>
         <li><a href="{{ url_for('get_memories', sort='ratings', order='asc', is_yours='yes') }}">Your Memories</a></li>

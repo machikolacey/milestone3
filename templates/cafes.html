@@ -1,10 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-<html>
-    <head>
-
-    </head>
-    <body>
-
     <h1>Manage Cafes</h1>
     <div class="sorter">
     <div class="row">
@@ -21,8 +15,6 @@
 </div>
        {{ pagination.links }}
         <div class="row">
-        
-        
           {% for cafe in cafes %}
             <div class="col-lg-6 col-sm-12">
                 <div class="memory-card">
@@ -36,8 +28,6 @@
                                 <a href="{{url_for('cafe', cafe_id=cafe._id)}}" class="">
                                 <img src="{{ cafe.photo }}" alt="" class=" memory-photo">
                                 </a> 
-                         
-                
                     </div> 
             </div>
             <div class="col-sm-6"> 
@@ -51,13 +41,8 @@
             </div>           
           </div>      
        </div>
-
         </div>    
         {% endfor %}
-        
         </div>
        {{ pagination.links }}
-      
-    </body>
-</html>
 {% endblock %}

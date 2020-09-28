@@ -3,18 +3,18 @@
 <div class="row">
  <div class="col s12 form-wrapper">
     <form action="{{ url_for('insert_memory') }}" method="POST"  class="col s12" >
-            <div class="row">
+            <div class="row no-margin-bottom">
                 <div class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                    <i class="material-icons prefix">local_cafe</i>
-                    <input type="text" id="cafe_name" class="autocomplete validate" name="cafe_name" autocomplete="off" 
-                     required="" aria-required="true"
-                    oninvalid="this.setCustomValidity('Please enter name of the cafe.')"
-                    oninput="this.setCustomValidity('')">
-                    <label for="autocomplete-input">Cafe : Please start typing to find your cafe</label>
+                        <i class="material-icons prefix">local_cafe</i>
+                        <input type="text" id="cafe_name" class="autocomplete validate" name="cafe_name" autocomplete="off" 
+                        required="" aria-required="true"
+                        oninvalid="this.setCustomValidity('Please enter name of the cafe.')"
+                        oninput="this.setCustomValidity('')">
+                        <label for="autocomplete-input">Cafe : Please start typing to find your cafe</label>
                     </div>
-                <p>Can't find the cafe? Add it <a href="{{ url_for('add_cafe') }}">here</a></p>
+                     <p>Can't find the cafe? Add it <a href="{{ url_for('add_cafe') }}">here</a></p>
                 </div>
                 </div>
             </div>
@@ -35,21 +35,22 @@
                     oninvalid="this.setCustomValidity('Please enter link to the photo.')"
                     oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">Add the link to your photo</label>
+                 <span>Please add a link to your photo. (<a href='https://cloudinary.com/users/login' target="_blank">Login to your Cloudinary account</a>)</span>
             </div>
            </div> 
   <div class="row">
         <div class="col s12 ">
             <i class="material-icons prefix">rate_review</i>
                 {% for i in range(5) %}
-                {% set count = i+1 %}
-                    <input id="ratings{{ count }}" name="ratings" type="radio" value="{{ count }}"  
-                    {% if  count == 5  %} checked {% endif %}     />  
-                    <label for="ratings{{ count }}">  
-                        {% for i in range( count ) %}
-                            <i class="material-icons">star</i> 
-                            {% endfor %}
-                    </label>
-                {% endfor %}
+                    {% set count = i+1 %}
+                        <input id="ratings{{ count }}" name="ratings" type="radio" value="{{ count }}"  
+                        {% if  count == 5  %} checked {% endif %}     />  
+                        <label for="ratings{{ count }}">  
+                            {% for i in range( count ) %}
+                                <i class="material-icons">star</i> 
+                                {% endfor %}
+                        </label>
+                    {% endfor %}
         </div>
 </div>
         <div class="row">

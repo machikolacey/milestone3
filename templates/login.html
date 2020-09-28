@@ -8,7 +8,10 @@
             <div class="input-field col s6">
             <i class="material-icons prefix">account_box</i>  
             <input id="username" name="username" type="text" class="validate"
-             minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
+             minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required
+              oninvalid="this.setCustomValidity('Username have to be between 5 and 15 characters.')"
+               oninput="this.setCustomValidity('')"
+             >
             <label for="username">Username</label>
             </div>
         </div>

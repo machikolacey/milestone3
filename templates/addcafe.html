@@ -1,31 +1,32 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Add a Cafe</h3>
-<div class="row">
+<div class="row no-margin-bottom">
  <div class="col s12 form-wrapper">
     <form action="{{ url_for('insert_cafe') }}" method="POST"  class="col s12">
-       <div class="row">
+       <div class="row no-margin-bottom">
                 <div class="col s12">
-                <div class="row">
+                <div class="row no-margin-bottom">
                     <div class="input-field col s12">
                     <i class="material-icons prefix">map</i>
                     <input type="text" id="area_name" class="autocomplete validate" name="area_name" autocomplete="off" 
                          required="" aria-required="true" 
                          oninvalid="this.setCustomValidity('Please enter an area name.')"
-                　       oninput="this.setCustomValidity('')"
-                        >
+                　       oninput="this.setCustomValidity('')" >
                     <label for="autocomplete-input">Area Name : Start typing a name to find area</label>
                     </div>
                 </div>
                 </div>
             </div>
+        <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">local_cafe</i>
-                <input id="cafe_name"    name="cafe_name" type="text" class="validate" 
-                 required="" aria-required="true"
-                 oninvalid="this.setCustomValidity('Please enter a cafe name.')"
-                　oninput="this.setCustomValidity('')">
+                     <input id="cafe_name"    name="cafe_name" type="text" class="validate" 
+                       required="" aria-required="true"
+                        oninvalid="this.setCustomValidity('Please enter a cafe name.')"
+                      　oninput="this.setCustomValidity('')">
                 <label for="icon_prefix">Cafe name</label>
             </div>
+        </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">web</i>
@@ -62,6 +63,7 @@
                   oninvalid="this.setCustomValidity('Please enter link to the photo.')"
                   oninput="this.setCustomValidity('')">
                 <label for="icon_telephone">photo</label>
+                 <span>Please add a link to your photo. (<a href='https://cloudinary.com/users/login' target="_blank">Login to your Cloudinary account</a>)</span>
             </div>
         </div>
 
