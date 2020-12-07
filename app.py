@@ -38,7 +38,8 @@ def register():
             return redirect(url_for("register"))
         register = {
             "username" : request.form.get("username").lower(),
-            "password" : generate_password_hash(request.form.get("password"))            
+            "password" : generate_password_hash(request.form.get("password")),
+            "photo" : "https://res.cloudinary.com/machikolacey/image/upload/v1607383655/milestone3/coffee_wdl8h8.jpg"
         }    
  
         mongo.db.users.insert_one(register)
@@ -279,7 +280,6 @@ def login():
             #ensure hashed password matches user input
             if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"]    = request.form.get("username")
-              
   
                 session['logged_in'] = True
                 return redirect(url_for('get_memories', sort = 'date', order='asc', is_yours='yes'))

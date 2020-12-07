@@ -313,6 +313,17 @@ git push heroku master
 <li>When the app is deployed, click on 'Open App' button to run your app </li>
 </ol>
 
+
+
+## Defensive Features
+<ol>
+<li>A new user can not register with a username already taken by existing user. So it checks existing usernames, if there is, it displays a flash message to suggest a different username.</li>
+<li>We want a new user to understand that this is a social network service specialising in cafes. I added a popup to explain it and added buttons to choose wheather they register, or not to register.</li>
+<li>We didn't want duplicate entries for a single cafe with multiple names, so I added a javascript code to auto-suggest cafe names.</li>
+<li>We didn't want duplicate entries for an area, so I added a javascript code to auto-suggest area names.</li>
+</ol>
+
+
 ## Credits
 
 ### Content
