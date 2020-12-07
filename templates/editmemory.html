@@ -64,11 +64,10 @@
             <i class="material-icons prefix">rate_review</i>
                 {% for i in range(5) %}
                 {% set count = i+1 %}
-                    <input id="ratings{{ count }}" name="ratings" type="radio" value="{{ count }}"  
-                    {% if  count == 5  %} checked {% endif %}     />  
+                    <input id="ratings{{ count }}" name="ratings" type="radio" value="{{ count }}"  {% if  count == 5  %} checked {% endif %}     />  
                     <label for="ratings{{ count }}">  
-                        {% for i in range( count ) %}
-                            <i class="material-icons">star</i> 
+                            {% for i in range( count ) %}
+                              <i class="material-icons">star</i> 
                             {% endfor %}
                     </label>
                 {% endfor %}

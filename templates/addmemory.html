@@ -46,11 +46,11 @@
                         <input id="ratings{{ count }}" name="ratings" type="radio" value="{{ count }}"  
                         {% if  count == 5  %} checked {% endif %}     />  
                         <label for="ratings{{ count }}">  
-                            {% for i in range( count ) %}
-                                <i class="material-icons">star</i> 
+                                {% for i in range( count ) %}
+                                   <i class="material-icons">star</i> 
                                 {% endfor %}
                         </label>
-                    {% endfor %}
+                {% endfor %}
         </div>
 </div>
         <div class="row">
