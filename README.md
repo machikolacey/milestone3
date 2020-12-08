@@ -2,7 +2,7 @@
 
 This is a social network site for users to share memories of their cafes.
 
-<img src="https://res.cloudinary.com/machikolacey/image/upload/v1601223705/milestone3/MS3_emwjc6.png" style="width:100%;"/>
+<img src="https://res.cloudinary.com/machikolacey/image/upload/v1607468359/milestone3/my-cafe-memories-frontend_h1j2ou.png" style="width:100%;"/>
 
 The goal for the user is to share their cafe memories with other like-minded people, who would like to explore and find an ideal cafe for themselves.
 Also, they can look at their cafe memories, go back to their memories, and share memories of their cafes.
@@ -120,28 +120,30 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
        
 ## Testing
 
-### PC
-I have tested on these browsers:
+#User stories
 
-<ol>
-<li>Google Chrome</li>
-<li>Firefox</li>
-<li>Internet Explorer Edge</li>
-</ol>
+#First time user
+| User Story    | Expected Outcome  | Outcome | 
+| ------------- |:---------------:|:--------------------:|
+| I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.    | I could understand the information, and quickly navigate to register page, or choose to go back to the front page.                 |
+| I want to easily create an account.                                                                                                  | I expect I can choose my username easily, and create an account quickly.       |                  |
+| I want a user to add an image for their profile.                                                                                     | I expect the profile page to show the default image, and intuitively choose 'Edit' button.         |                  |
+| I want a user to log in with the new account.                                                                                        | I expect the page navigates to 'Your memories' page, and intuitively can choose 'Add your first memory' button        |                  |
+| I want a user to enjoy browsing memories page                                                                                        | I expect the sort section works and I can see the memory I want to see easily.           |                  |
+| I want a user to add a memory with ease.                                                                                             | I expect I can add a cafe name at ease, add photo from Cloudinary.           | text                 |
+| I want a user to add a cafe with ease.                                                                                               | I  expect I can add cafe information at ease.        | text                 |
 
-### Tablet
-<ol>
-<li>Kindle Fire 8 plus</li>
-</ol>
 
-### Mobile 
-<ol>
-<li>Samsung Galaxy A21s</li>
-<li>iPhone 7</li>
-<li>HUAWEI Mate 20 lite</li>
-</ol>
-
-I also used Google Chrome's device emulator to test on all types of devices.
+#Returning user
+| User Story    | Expected Outcome  | Outcome | 
+| ------------- |:---------------:|:--------------------:|
+| I want to land the page to browse everyone's memories at ease.  | I expect the popup not shown, sort section and pagins works well to browse the memories.   |                 |
+| I want to easily create an account.                                                                                                  | I expect I can choose my username easily, and create an account quickly.       |                  |
+| I want a user to add an image for their profile.                                                                                     | I expect the profile page to show the default image, and intuitively choose 'Edit' button.         |                  |
+| I want a user to log in with the new account.                                                                                        | I expect the page navigates to 'Your memories' page, and intuitively can choose 'Add your first memory' button        |                  |
+| I want a user to enjoy browsing memories page                                                                                        | I expect the sort section works and I can see the memory I want to see easily.           |                  |
+| I want a user to add a memory with ease.                                                                                             | I expect I can add a cafe name at ease, add photo from Cloudinary.           | text                 |
+| I want a user to add a cafe with ease.   
 
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
@@ -314,8 +316,9 @@ git push heroku master
 
 
 ## Data Integration
-I used MongoDB for this project as this is a non-relational, documentation database. It gives me more flexibility and ability to manipulate or change structure of the data when I update this website in the future.
-Only user_id, cafe_id, and memory_id need to be related, and it doesn't require complicated relations.
+I used MongoDB for this project as this is requirement for this project. This is a non-relational, documentation database.
+It gives me more flexibility and ability to manipulate or change structure of the data when I update this website in the future.
+Only user_id, cafe_id, and memory_id need to be related, and it doesn't require complicated relations. 
 
 In my database, I made 4 collections, which are areas, cafes, memories and users.
 
