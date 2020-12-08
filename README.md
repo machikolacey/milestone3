@@ -323,29 +323,32 @@ In my database, I made 4 collections, which are areas, cafes, memories and users
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
-| User Name     | username        | text                 | string    |
-| Password      | password        | text                 | string    |
-| Photo         | photo           | text                 | string    |
+| Id            | _id             | -                    | ObjectId  |
+| User Name     | username        | text                 | String    |
+| Password      | password        | text                 | String    |
+| Photo         | photo           | text                 | String    |
 
 
 #areas
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
-| Name          | name            | text                 | string    |
+| Id            | _id             | -                    | ObjectId  |
+| Name          | name            | text                 | String    |
 
 
 #cafes
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
-| Cafe Name     | cafe_name       | text                 | string    |
-| Website       | website         | text                 | string    |
-| Address       | address         | text                 | string    |
-| Postcode      | postcode        | text                 | string    |
-| Area Name     | area_name       | text                 | string    |
-| Photo         | photo           | text                 | string    |
-| Youtube Link  | youtube         | text                 | string    |
+| Id            | _id             | -                    | ObjectId  |
+| Cafe Name     | cafe_name       | text                 | String    |
+| Website       | website         | text                 | String    |
+| Address       | address         | text                 | String    |
+| Postcode      | postcode        | text                 | String    |
+| Area Name     | area_name       | text                 | String    |
+| Photo         | photo           | text                 | String    |
+| Youtube Link  | youtube         | text                 | String    |
 
 
 
@@ -353,15 +356,16 @@ In my database, I made 4 collections, which are areas, cafes, memories and users
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
-| Cafe Name     | cafe_name       | text                 | string    |
-| Description   | description     | text                 | string    |
-| Photo         | photo           | text                 | string    |
-| Date          | date            | text                 | string    |
-| User          | user            | text                 | string    |
-| User id       | user_id         | text                 | string    |
-| Ratings       | ratings         | text                 | string    |
-| Action        | action          | text                 | string    |
-| Cafe id       | cafe_id         | text                 | string    |
+| Id            | _id             | -                    | ObjectId  |
+| Cafe Name     | cafe_name       | text                 | String    |
+| Description   | description     | text                 | String    |
+| Photo         | photo           | text                 | String    |
+| Date          | date            | text                 | Date      |
+| User          | user            | text                 | String    |
+| User id       | user_id         | text                 | ObjectId  |
+| Ratings       | ratings         | text                 | String    |
+| Action        | action          | text                 | String    |
+| Cafe id       | cafe_id         | text                 | ObjectId  |
 
 
 
