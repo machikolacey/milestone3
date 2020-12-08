@@ -314,6 +314,13 @@ git push heroku master
 </ol>
 
 
+## Data Integration
+I used MongoDB for this project as this is a non-relational, documentation database. It gives me more flexibility and ability to manipulate or change structure of the data when I update this website in the future.
+Only user_id, cafe_id, and memory_id need to be related, and it doesn't require complicated relations.
+
+In my database, I made 4 collections, which are areas, cafes, memories and users.
+
+
 
 ## Defensive Features
 <ol>
@@ -321,6 +328,7 @@ git push heroku master
 <li>We want a new user to understand that this is a social network service specialising in cafes. I added a popup to explain it and added buttons to choose wheather they register, or not to register.</li>
 <li>We didn't want duplicate entries for a single cafe with multiple names, so I added a javascript code to auto-suggest cafe names.</li>
 <li>We didn't want duplicate entries for an area, so I added a javascript code to auto-suggest area names.</li>
+<li>We display a photo of the user on "Everyone's cafe memories" page. If a user choose not to upload their photo, it will display a default photo to avoid empty <img /> tag to be displayed.</li>
 </ol>
 
 
