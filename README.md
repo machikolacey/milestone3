@@ -320,39 +320,49 @@ Only user_id, cafe_id, and memory_id need to be related, and it doesn't require 
 In my database, I made 4 collections, which are areas, cafes, memories and users.
 
 #users
-| :---      | :---      | 
-| _id       | objectId | 
-| username  | string   | 
-| password  | hashed password   | 
-| photo     | string   | 
+
+| Title         | Key in MongoDB  | Form Validation Type | Data Type |
+| ------------- |:---------------:|:--------------------:| ---------:|
+| User Name     | username        | text                 | string    |
+| Password      | password        | text                 | string    |
+| Photo         | photo           | text                 | string    |
+
 
 #areas
-| :---      | :---      | 
-| _id       | objectId | 
-| name  | string   | 
 
-#cafes
-| :---      | :---      | 
-| _id       | objectId | 
-| cafe_name  | string   | 
-| website  | string  | 
-| address     | string   | 
-| postcode     | string  | 
-| area_name     | string  | 
-| photo     | string   | 
-| youtube     | string   | 
+| Title         | Key in MongoDB  | Form Validation Type | Data Type |
+| ------------- |:---------------:|:--------------------:| ---------:|
+| Name          | name            | text                 | string    |
 
 
 #cafes
-| :---      | :---      | 
-| _id       | objectId | 
-| cafe_name  | string   | 
-| website  | string  | 
-| address     | string   | 
-| postcode     | string  | 
-| area_name     | string  | 
-| photo     | string   | 
-| youtube     | string   | 
+
+| Title         | Key in MongoDB  | Form Validation Type | Data Type |
+| ------------- |:---------------:|:--------------------:| ---------:|
+| Cafe Name     | cafe_name       | text                 | string    |
+| Website       | website         | text                 | string    |
+| Address       | address         | text                 | string    |
+| Postcode      | postcode        | text                 | string    |
+| Area Name     | area_name       | text                 | string    |
+| Photo         | photo           | text                 | string    |
+| Youtube Link  | youtube         | text                 | string    |
+
+
+
+#memories
+
+| Title         | Key in MongoDB  | Form Validation Type | Data Type |
+| ------------- |:---------------:|:--------------------:| ---------:|
+| Cafe Name     | cafe_name       | text                 | string    |
+| Description   | description     | text                 | string    |
+| Photo         | photo           | text                 | string    |
+| Date          | date            | text                 | string    |
+| User          | user            | text                 | string    |
+| User id       | user_id         | text                 | string    |
+| Ratings       | ratings         | text                 | string    |
+| Action        | action          | text                 | string    |
+| Cafe id       | cafe_id         | text                 | string    |
+
 
 
 
