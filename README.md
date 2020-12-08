@@ -212,7 +212,6 @@ Deployed project is found here:
 
 https://milestone3-data-centric-mlk.herokuapp.com/
 
-
 This project utilises Mongo DB to use NO-SQL (non-relational) database.
 Before cloning the project:
 
@@ -319,6 +318,41 @@ I used MongoDB for this project as this is a non-relational, documentation datab
 Only user_id, cafe_id, and memory_id need to be related, and it doesn't require complicated relations.
 
 In my database, I made 4 collections, which are areas, cafes, memories and users.
+
+#users
+| :---      | :---      | 
+| _id       | objectId | 
+| username  | string   | 
+| password  | hashed password   | 
+| photo     | string   | 
+
+#areas
+| :---      | :---      | 
+| _id       | objectId | 
+| name  | string   | 
+
+#cafes
+| :---      | :---      | 
+| _id       | objectId | 
+| cafe_name  | string   | 
+| website  | string  | 
+| address     | string   | 
+| postcode     | string  | 
+| area_name     | string  | 
+| photo     | string   | 
+| youtube     | string   | 
+
+
+#cafes
+| :---      | :---      | 
+| _id       | objectId | 
+| cafe_name  | string   | 
+| website  | string  | 
+| address     | string   | 
+| postcode     | string  | 
+| area_name     | string  | 
+| photo     | string   | 
+| youtube     | string   | 
 
 
 
