@@ -40,12 +40,8 @@ This navigates an user to either registration page or login page, or if they dec
 
 The steps:
  
-
-
-
-
 | User Story    | Expected Outcome  |
-| ------------- |:---------------:|:--------------------:|
+| ------------- |:---------------:|
 | As a first tune user, I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.   | 
 | As a first tune user, I want to easily create an account.                                                                                                  | I expect I can create my account easily, and quickly navigated to 'profile' page  |
 | As a first tune user, After creating my account, I want a user to add my profile image.                                                                    | I expect I can see the profile page straight after creating account, and find 'edit' button for image upload.         | 
@@ -384,7 +380,7 @@ This collection is for storing area data related to cafes.
 <li>https://www.google.co.uk/maps</li>
 <li>https://www.facebook.com</li>
 </ul>
-/li>
+
 
 <li>- The videos used in this website are taken from:
 https://www.youtube.com/</li>
