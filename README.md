@@ -53,7 +53,7 @@ The steps:
 | As a returning user, I want to edit a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
 | As a returning user, I want to delete a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | 
 | As a returning user, I want to edit a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
-| As a returning user, I want to delete a cafe with ease.     
+| As a returning user, I want to delete a cafe with ease.     | I  expect 'Edit cafe memory' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | 
 
 
 
