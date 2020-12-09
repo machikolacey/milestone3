@@ -125,25 +125,20 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
 #First time user
 | User Story    | Expected Outcome  | Outcome | 
 | ------------- |:---------------:|:--------------------:|
-| I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.    | I could understand the information, and quickly navigate to register page, or choose to go back to the front page.                 |
-| I want to easily create an account.                                                                                                  | I expect I can choose my username easily, and create an account quickly.       |                  |
-| I want a user to add an image for their profile.                                                                                     | I expect the profile page to show the default image, and intuitively choose 'Edit' button.         |                  |
-| I want a user to log in with the new account.                                                                                        | I expect the page navigates to 'Your memories' page, and intuitively can choose 'Add your first memory' button        |                  |
-| I want a user to enjoy browsing memories page                                                                                        | I expect the sort section works and I can see the memory I want to see easily.           |                  |
-| I want a user to add a memory with ease.                                                                                             | I expect I can add a cafe name at ease, add photo from Cloudinary.           | text                 |
-| I want a user to add a cafe with ease.                                                                                               | I  expect I can add cafe information at ease.        | text                 |
+| I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.    | I could understand the information, and quickly navigate to register page, or choose to go back to the front page. |
+| I want to easily create an account.                                                                                                  | I expect I can create my account easily, and quickly navigated to 'profile' page  | I could easily add an account, and it promptly redirected to 'Profile' page.                 |
+| After creating my account, I want a user to add my profile image.                                                                    | I expect I can see the profile page straight after creating account, and find 'edit' button for image upload.         | Straight after account creation, I was navigated to the profile page, and found 'edit' button.|
+| After adding my profile image, I would like to add a cafe memory at ease.  | I expect to see an intuitive button to 'Add your first cafe memory' button       |   After adding an image, it redirected to 'Your cafe memories' page, and I could find 'Add your first memory' button easily.              |
 
 
 #Returning user
 | User Story    | Expected Outcome  | Outcome | 
 | ------------- |:---------------:|:--------------------:|
 | I want to land the page to browse everyone's memories at ease.  | I expect the popup not shown, sort section and pagins works well to browse the memories.   |                 |
-| I want to easily create an account.                                                                                                  | I expect I can choose my username easily, and create an account quickly.       |                  |
-| I want a user to add an image for their profile.                                                                                     | I expect the profile page to show the default image, and intuitively choose 'Edit' button.         |                  |
 | I want a user to log in with the new account.                                                                                        | I expect the page navigates to 'Your memories' page, and intuitively can choose 'Add your first memory' button        |                  |
 | I want a user to enjoy browsing memories page                                                                                        | I expect the sort section works and I can see the memory I want to see easily.           |                  |
-| I want a user to add a memory with ease.                                                                                             | I expect I can add a cafe name at ease, add photo from Cloudinary.           | text                 |
-| I want a user to add a cafe with ease.   
+| I want a user to add a memory with ease.                                                                                             | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    | The auto-suggest is working and displayed suggestions, there was a link to Cloudinary so I can login and copy a link to my cafe image. The datepicker was working.               |
+| I want a user to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | There was a validation error on address and postcode field.                 |
 
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
