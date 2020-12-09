@@ -40,29 +40,25 @@ This navigates an user to either registration page or login page, or if they dec
 
 The steps:
  
- If register:
-
-<ol>
-<li>The user can add username and password to register their account</li>
-<li>It will navigate the user to "Edit your profile" page</li>
-<li>If they want to add their image, they can click on "Edit" button to go to "Edit your profile" page</li>
-<li>The user can add their image by adding link to their image</li>
-<li>Click on "Save" to go to "Everyone's memories" page</li>
-</ol>
 
 
- If login:
 
-<ol>
-<li>An user can fill in the form to go to "Your cafe memories" page</li>
-<li>It will navigate the user to "Edit your profile" page</li>
-<li>On the page, they can click on "Add your memory" button to fo to "Add your cafe memory" page</li>
-<li>On the page, they can add the cafe name, description, photo link, ratings, and date. Also they can choose if this memory is private(display to the user only)</li>
-<li>By clicking on "Save", go to "Your cafe memories" page</li>
-<li>The user can see their memory is added on the page</li>
-<li>The user can edit or delete the memory by clicking on the buttons</li>
-<li>The user can add or edit cafe information</li>
-</ol>
+
+| User Story    | Expected Outcome  |
+| ------------- |:---------------:|:--------------------:|
+| As a first tune user, I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.   | 
+| As a first tune user, I want to easily create an account.                                                                                                  | I expect I can create my account easily, and quickly navigated to 'profile' page  |
+| As a first tune user, After creating my account, I want a user to add my profile image.                                                                    | I expect I can see the profile page straight after creating account, and find 'edit' button for image upload.         | 
+| As a first tune user, After adding my profile image, I would like to add a cafe memory at ease.  | I expect to see an intuitive button to 'Add your first cafe memory' button       |   
+| As a returning user, I want to browse everyone's memories at ease.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
+| As a returning user, I want to login.    | I expect the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.     I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in.        |    
+| As a returning user, I want to add a memory with ease.                                                                                             | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    |
+| As a returning user,  I want to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | 
+| As a returning user, I want to edit a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
+| As a returning user, I want to delete a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | 
+| As a returning user, I want to edit a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
+| As a returning user, I want to delete a cafe with ease.     
+
 
 
 
@@ -120,9 +116,9 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
        
 ## Testing
 
-#User stories
-
-#First time user
+# User stories
+ 
+# First time user
 | User Story    | Expected Outcome  | Outcome | 
 | ------------- |:---------------:|:--------------------:|
 | I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.    | I could understand the information, and quickly navigate to register page, or choose to go back to the front page. |
@@ -131,15 +127,17 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
 | After adding my profile image, I would like to add a cafe memory at ease.  | I expect to see an intuitive button to 'Add your first cafe memory' button       |   After adding an image, it redirected to 'Your cafe memories' page, and I could find 'Add your first memory' button easily.              |
 
 
-#Returning user
+# Returning user
 | User Story    | Expected Outcome  | Outcome | 
 | ------------- |:---------------:|:--------------------:|
 | I want to browse everyone's memories at ease.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
 | I want to login.    | I expect the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.     I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in.        |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page.             |
-| I want a user to enjoy browsing memories page  | I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in.        |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page.             |
-| I want a user to add a memory with ease.                                                                                             | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    | The auto-suggest is working and displayed suggestions, there was a link to Cloudinary so I can login and copy a link to my cafe image. The datepicker was working.               |
-| I want a user to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | The form works as expected, easy to follow.               |
-
+| I want to add a memory with ease.                                                                                             | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    | The auto-suggest is working and displayed suggestions, there was a link to Cloudinary so I can login and copy a link to my cafe image. The datepicker was working.               |
+| I want to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | The form works as expected, easy to follow.               |
+| I want to edit a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | The 'edit' button is found easily. The form works as expected, easy to follow.               |
+| I want to delete a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | The 'delete' button is found easily. The form works as expected, easy to follow.               |
+| I want to edit a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | The 'edit' button is found easily. The form works as expected, easy to follow.               |
+| I want to delete a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the cafe easily.   | The 'delete' button is found easily. The form works as expected, easy to follow.               |
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
 
@@ -156,48 +154,38 @@ Also, this was run through these validators.
 ### Test Results
 
 <ol>
-<li>Responsive menu was too tall and hiding the content on tablet size - fixed</li>
-<li>The modal popup - the content was overflowing - fixed</li>
-<li>The overlay was hiding the mobile nav - fixed</li>
-<li>Auto Complete was not working on area search. Found the order of the javascript file was wrong - fixed</li>
-<li>The content of the memory card was overflowing depends on the description - fixed</li>
-<li>On the mobile phone menu there was no lines between links, and no effects on hover - fixed</li>
-<li>On registration process it wasn't displaying requirement for the username - fixed</li>
-<li>The 'Go back' button was on the front page - fixed</li>
-<li>On tablet size, the memory image was not 100% width - fixed</li>
-<li>On tablet size, the the header displayed 2 lines and took too much space - fixed</li>
-<li>When user photo was not presented, it was causing an error on memory submittion - fixed</li>
-<li>'background-color:none' was not validated - used 'background-color:transparent' instead</li>
-<li>'border-color:none' was not validated - used border:none instead</li>
+<li>Responsive menu was too tall and hiding the content on tablet size 
+<p>I reduced the height of the menu by adding media query on CSS.</p>
+</li>
+<li>The modal popup - the content was overflowing
+<p>I added a CSS code to fix the issue.</p>
+</li>
+<li>On small devices, the overlay was hiding the mobile nav
+<p>This was Materialize's overlay. I corrected z-index and it's fixed.</p>
+</li>
+<li>Auto Complete was not working on area search.
+<p>Fixed the order of the javascript file.</p></li>
+<li>The content of the memory card was overflowing depends on the description
+<p>I have added media query to reduce the size on mobile phones, also reduced the size of the description.</p></li>
+<li>On the mobile phone menu there was no lines between links, and no effects on hover
+<p>I have added hover effect on CSS.</p></li>
+<li>On registration process it wasn't displaying requirement for the username.
+<p>Added the requirement on the 'Registration' page.</p></li>
+<li>The 'Go back' button was on the front page.
+<p>I have added CSS code to remove it on the front page.</p></li>
+<li>On tablet size, the memory image was not 100% width.
+<p>I have added minimum width for these images to make sure it always covers the area.</p></li>
+<li>On tablet size, the the header displayed 2 lines and took too much space.
+<p>I have added a CSS code to add martgin top.</p></li>
+<li>When user photo was not presented, it was causing an error on memory submittion.
+<p>I have dded default photo when an user registers, so there will be an photo displayed by default.</p></li>
+<li>'background-color:none' was not validated.
+<p>used 'background-color:transparent' instead</p></li>
+<li>'border-color:none' was not validated<p>used border:none instead</p></li>
 </ol>
 
 
 
-
-<h3>How to test this project</h3>
-
-<ol>
-<li>On the front page, a welcomo popup will be shown with buttons - press 'Get Started!' button to go to register page</li>
-<li>Fill in the form with a username and password, press 'Register' button</li>
-<li>It will redirect to "Your Account Information" page</li>
-<li>Click on 'Edit' button to display 'Edit your account information' page</li>
-<li>Click on 'Save' to go to "Your memories" page</li>
-<li>Click on 'Click here' to go to 'Add Your Cafe Memory' page </li>
-<li>Fill in the form - add 2 or more characters on 'cafe' field to see auto-complete is working</li>
-<li>Click on 'Date' field to see datepicker is working</li>
-<li>Submit the form to go to 'Your cafe memories' page</li>
-<li>On the top menu, click on 'Home' to go back to 'Everyone's memories' page</li>
-<li>Check pagenation is working by clicking on the page numbers</li>
-<li>Check 'Sort by' section to see sort is working</li>
-<li>Click on 'Your memories' button to see if you can go back to 'Your memories' page</li>
-<li>Click on 'Everyone's memories' button to see if you can go back to 'Everyone's memories' page</li>
-<li>On the top menu, click on 'Add cafe' to go to 'Add Cafe' page</li>
-<li>Fill in the form - test if area auto complete is working</li>
-<li>Click on 'Submit' button to go to 'Manage Cafes' to see if the cafe is added on the page</li>
-<li>Choose one of the cafes, click on 'Edit' button to edit cafe</li>
-<li>Choose one of the cafes, click on 'Delete' button to delete cafe</li>
-<li>Click on 'Logout' button to logout</li>
-</ol>
 
 
 ## Deployment
@@ -317,7 +305,7 @@ Only user_id, cafe_id, and memory_id need to be related, and it doesn't require 
 
 In my database, I made 4 collections, which are areas, cafes, memories and users.
 
-#users
+# users
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
@@ -327,7 +315,8 @@ In my database, I made 4 collections, which are areas, cafes, memories and users
 | Photo         | photo           | text                 | String    |
 
 
-#areas
+# areas
+This collection is for storing area data related to cafes.
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
@@ -405,5 +394,5 @@ https://www.youtube.com/</li>
 
 ### Acknowledgements
 
-- I received inspiration for this project from a resume project provided by Code Institute.
+- I received inspiration for this project from several peer student's projects.
 
