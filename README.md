@@ -134,11 +134,11 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
 #Returning user
 | User Story    | Expected Outcome  | Outcome | 
 | ------------- |:---------------:|:--------------------:|
-| I want to land the page to browse everyone's memories at ease.  | I expect the popup not shown, sort section and pagins works well to browse the memories.   |                 |
-| I want a user to log in with the new account.                                                                                        | I expect the page navigates to 'Your memories' page, and intuitively can choose 'Add your first memory' button        |                  |
-| I want a user to enjoy browsing memories page                                                                                        | I expect the sort section works and I can see the memory I want to see easily.           |                  |
+| I want to browse everyone's memories at ease.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
+| I want to login.    | I expect the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.     I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in.        |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page.             |
+| I want a user to enjoy browsing memories page  | I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in.        |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page.             |
 | I want a user to add a memory with ease.                                                                                             | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    | The auto-suggest is working and displayed suggestions, there was a link to Cloudinary so I can login and copy a link to my cafe image. The datepicker was working.               |
-| I want a user to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | There was a validation error on address and postcode field.                 |
+| I want a user to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | The form works as expected, easy to follow.               |
 
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
