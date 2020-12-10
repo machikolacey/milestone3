@@ -1,8 +1,4 @@
 {% extends 'base.html' %} {% block content %}
-<html>
-<head>
-</head>
-<body>
 <h1 class="d-inline">Your Cafe Memories  </h1>
 <button class="float-right d-inline memories-button">
 <a href="{{url_for('get_memories', sort = 'date', order='desc', is_yours='no')}}">Everyone's Memories<i class="tiny material-icons">arrow_forward</i></a>
@@ -88,6 +84,4 @@
 {% endif %}
 </div>  
  {{ pagination.links }}
-</body>
-</html>
 {% endblock %}
