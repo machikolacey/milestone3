@@ -1,9 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}
-<html>
-<head>
-</head>
-<body>
+
 <h1 class="d-inline">Everyone's Cafe memories</h1>
 {% if session.user %}
     <button class="float-right d-inline memories-button">
@@ -113,9 +110,5 @@
 {% endfor %}
 
 </div>
-
- {{ pagination.links }}
-
-    </body>
-</html>
+{{ pagination.links }}
 {% endblock %}
