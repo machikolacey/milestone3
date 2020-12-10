@@ -112,9 +112,9 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
        
 ## Testing
 
-# User stories
+## User stories
  
-# First time user
+### First time user
 | User Story    | Expected Outcome  | Actual Outcome | 
 | ------------- |:---------------:|:--------------------:|
 | I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.    | I could understand the information, and quickly navigate to register page, or choose to go back to the front page. |
@@ -123,20 +123,30 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
 | After adding my profile image, I would like to add a cafe memory at ease.  | I expect to see an intuitive button to 'Add your first cafe memory' button       |   After adding an image, it redirected to 'Your cafe memories' page, and I could find 'Add your first memory' button easily.              |
 
 
-# Returning user
+### Returning user
 | User Story    | Expected Outcome  | Actual Outcome | 
 | ------------- |:---------------:|:--------------------:|
 | I want to browse everyone's memories at ease, find my favourite cafe, and enjoy looking at images.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
 | I want to browse everyone's memories at ease, find my favourite cafe, and enjoy looking at images.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
-| I want to login.    | I expect the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.     I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in.        |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page. |
-| I want to add a memory with ease.                                                                                             | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    | The auto-suggest is working and displayed suggestions, there was a link to Cloudinary so I can login and copy a link to my cafe image. The datepicker was working.               |
-| I want to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | The form works as expected, easy to follow.               |
-| I want to edit a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | The 'edit' button is found easily. The form works as expected, easy to follow.               |
-| I want to delete a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | The 'delete' button is found easily. The form works as expected, easy to follow.               |
-| I want to edit a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | The 'edit' button is found easily. The form works as expected, easy to follow.               |
-| I want to delete a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the cafe easily.   | The 'delete' button is found easily. The form works as expected, easy to follow.               |
+| I want to login with no issues, and find 'Add memory' form swiftly.    | I expect I can easily find 'Login' button. After login, the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.         |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page. |
+| I want to add a memory with ease on 'Add memory' page.  | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    | The auto-suggest is working and displayed suggestions, there was a link to Cloudinary so I can login and copy a link to my cafe image. The datepicker was easy to pick the date. |
+| I want to add a cafe with ease on 'Add cafe' page.   | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | The form works as expected, easy to follow.               |
+| I want to edit a memory with ease.   | I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | The 'edit' button is found easily. The form works as expected, easy to follow.  |
+| I want to delete a memory with ease.   | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | The 'delete' button is found easily. The form works as expected, easy to follow.  |
+| I want to edit a cafe with ease.  | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | The 'edit' button is found easily. The form works as expected, easy to follow.               |
+| I want to delete a cafe with ease. | I  expect 'Manage cafes' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the cafe easily.   | The 'delete' button is found easily. The form works as expected, easy to follow.               |
+
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
+## Issues mentioned by code reviews
+<ol>
+<li>Responsive menu was too tall and hiding the content on tablet size 
+<p>I reduced the height of the menu by adding media query on CSS.</p>
+</li>
+<li>The modal popup - the content was overflowing
+<p>I added a CSS code to fix the issue.</p>
+</li>
+</ol>
 
 
 Also, this was run through these validators.
@@ -151,12 +161,7 @@ Also, this was run through these validators.
 ### Test Results
 
 <ol>
-<li>Responsive menu was too tall and hiding the content on tablet size 
-<p>I reduced the height of the menu by adding media query on CSS.</p>
-</li>
-<li>The modal popup - the content was overflowing
-<p>I added a CSS code to fix the issue.</p>
-</li>
+
 <li>On small devices, the overlay was hiding the mobile nav
 <p>This was Materialize's overlay. I corrected z-index and it's fixed.</p>
 </li>
@@ -322,6 +327,7 @@ This collection is for storing area data related to cafes.
 
 
 #cafes
+This collection is for storing details of cafes.
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
@@ -337,7 +343,7 @@ This collection is for storing area data related to cafes.
 
 
 #memories
-
+This collection is for storing cafe memories.
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
 | Id            | _id             | -                    | ObjectId  |
@@ -352,7 +358,7 @@ This collection is for storing area data related to cafes.
 | Cafe id       | cafe_id         | text                 | ObjectId  |
 
 
-
+I started this project relating collections with names of cafes and users, however I found we can use ObjectIds rather than names. I thought it was a good idea to use unique Ids, to avoid duplicated data with difference cases and variations of cafe names. I still left off cafe_name in the memories collection, but in the future, I would like to remove the column and use cafe_id to relate to cafe collection.
 
 ## Defensive Features
 <ol>
