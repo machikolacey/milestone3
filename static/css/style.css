@@ -121,7 +121,7 @@ ul.inlineblock li a {
     background-color: #e21948;
 }
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
-    border: 2px solid #e21948;
+    border: 2px solid #e21946;
 }
 
 .sorter{
