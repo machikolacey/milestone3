@@ -56,26 +56,28 @@
  
 </header>
 <div class="container">
-<section>
+
 {% with messages = get_flashed_messages() %}
  {% if messages %}
     {% for message in messages %}
-    <div class="row flashes">
-     <h4 class="light-blue-ligten-4 center-align">{{ message }}</h4>
-    </div>
+        <section>
+            <div class="row flashes">
+            <h4 class="light-blue-ligten-4 center-align">{{ message }}</h4>
+            </div>
+        </section>
     {% endfor %}
   {% endif %}
 {% endwith %}
-</section>
+
 <section class="main-content">
     {% block content %} {% endblock %}    
 
 </section>    
 </div> <!-- /-container -->
-<script  type="text/javascript" src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
- <script  type="text/javascript" src="/static/js/custom.js" ></script>  
+<script    src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
+ <script   src="/static/js/custom.js" ></script>  
 {% if not session.user %}            
-<script  type="text/javascript" src="/static/js/custom-nouser.js" ></script>
+<script   src="/static/js/custom-nouser.js" ></script>
 {% endif %}
 </body>
 </html>

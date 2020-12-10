@@ -177,6 +177,8 @@ Also, this was run through these validators.
 |Empty 'section' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
 |Duplicated 'body' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
 |The element button must not appear as a descendant of the a element.|A 'button' tag was directly inside 'a' tag. I removed 'button' tag.|
+|There was an empty 'section' tag | The section tag was including if statement. I moved the tag inside if statement.|
+|The type attribute is unnecessary for JavaScript resources. | I removed 'type' tags from Fontawesome's javascript tag.|
 
 
 ## Deployment
