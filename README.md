@@ -148,13 +148,6 @@ I have asked on Code Institute's peer review community to test this website and 
 
 
 
-Also, this was run through these validators.
-
-<ul>
-<li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validation Service</a></li>
-<li><a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a></li>
-<li><a href="https://jshint.com/" target="_blank">JS Hint</a></li>
-</ul>
 
 
 ### Test Results
@@ -171,6 +164,19 @@ Also, this was run through these validators.
 |On tablet size, the memory image was not 100% width.|I have added minimum width for these images to make sure it always covers the area.|
 |On tablet size, the the header displayed 2 lines and took too much space.|I have added a CSS code to add martgin top.|
 |When user photo was not presented, it was causing an error on memory submittion.|I have dded default photo when an user registers, so there will be an photo displayed by default.|
+
+
+Also, this was run through these validators.
+
+<ul>
+<li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validation Service</a></li>
+<li><a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a></li>
+<li><a href="https://jshint.com/" target="_blank">JS Hint</a></li>
+</ul>
+
+### Validation errors
+| Issue    | How I fixed it  |
+| ------------- |:---------------|
 |'background-color:none' was not validated.|used 'background-color:transparent' instead|
 |'border-color:none' was not validated|used border:none instead|
 |Empty 'head' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
@@ -180,6 +186,10 @@ Also, this was run through these validators.
 |There was an empty 'section' tag | The section tag was including if statement. I moved the tag inside if statement.|
 |The type attribute is unnecessary for JavaScript resources. | I removed 'type' tags from Fontawesome's javascript tag.|
 
+
+After fixing validation issues, these validators had no errors.
+
+<img src="https://res.cloudinary.com/machikolacey/image/upload/v1607641801/milestone3/w3c-html-check_wludpb.jpg" style="max-width:100%:" />
 
 ## Deployment
 
