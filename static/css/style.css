@@ -408,6 +408,15 @@ nav {
 .app-item {
   cursor: pointer;
 }
+
+
+
+.memory-card-container a{
+padding: 10px;
+padding: 16px;
+margin: 10px auto;
+}
+
 @media screen and (max-width:1260px){
     nav ul a {
         padding: 0 8px;
@@ -497,9 +506,9 @@ nav .brand-logo {
         margin:0 0 20px 0;
     }
 
-    
-
-
+    .memory-card-container a{
+        display:block;
+    }
 }
 
 @media only screen and (min-width: 601px){

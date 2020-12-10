@@ -176,8 +176,7 @@ Also, this was run through these validators.
 |Empty 'head' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
 |Empty 'section' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
 |Duplicated 'body' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
-
-|The element button must not appear as a descendant of the a element.|A 'button' tag was directly inside 'a' tag. I used a tag to style as a button.|
+|The element button must not appear as a descendant of the a element.|A 'button' tag was directly inside 'a' tag. I removed 'button' tag.|
 
 
 ## Deployment
