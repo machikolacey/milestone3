@@ -161,6 +161,7 @@ Also, this was run through these validators.
 
 
 | Issue    | How I fixed it  |
+| ------------- |:---------------|
 |On small devices, the overlay was hiding the mobile nav|This was Materialize's overlay. I corrected z-index and it's fixed.|
 |Auto Complete was not working on area search.|Fixed the order of the javascript file.|
 |The content of the memory card was overflowing depends on the description|I have added media query to reduce the size on mobile phones, also reduced the size of the description.|
