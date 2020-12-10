@@ -41,18 +41,18 @@ This navigates an user to either registration page or login page, or if they dec
 The steps:
  
 | User Story    | Expected Outcome  |
-| ------------- |:---------------:|
+| ------------- |:---------------|
 | As a first tune user, I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.   | 
-| As a first tune user, I want to easily create an account.                                                                                                  | I expect I can create my account easily, and quickly navigated to 'profile' page  |
-| As a first tune user, After creating my account, I want a user to add my profile image.                                                                    | I expect I can see the profile page straight after creating account, and find 'edit' button for image upload.         | 
+| As a first tune user, I want to easily create an account.| I expect I can create my account easily, and quickly navigated to 'profile' page  |
+| As a first tune user, After creating my account, I want a user to add my profile image.| I expect I can see the profile page straight after creating account, and find 'edit' button for image upload.         | 
 | As a first tune user, After adding my profile image, I would like to add a cafe memory at ease.  | I expect to see an intuitive button to 'Add your first cafe memory' button       |   
 | As a returning user, I want to browse everyone's memories at ease.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
-| As a returning user, I want to login.    | I expect the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.     I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in.        |    
-| As a returning user, I want to add a memory with ease.                                                                                             | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    |
-| As a returning user,  I want to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | 
-| As a returning user, I want to edit a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
-| As a returning user, I want to delete a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | 
-| As a returning user, I want to edit a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
+| As a returning user, I want to login.    | I expect the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.     I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in. |    
+| As a returning user, I want to add a memory with ease. | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    |
+| As a returning user,  I want to add a cafe with ease.  | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | 
+| As a returning user, I want to edit a memory with ease.| I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
+| As a returning user, I want to delete a memory with ease.  | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | 
+| As a returning user, I want to edit a cafe with ease. | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
 | As a returning user, I want to delete a cafe with ease.     | I  expect 'Edit cafe memory' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | 
 
 
@@ -116,7 +116,7 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
  
 ### First time user
 | User Story    | Expected Outcome  | Actual Outcome | 
-| ------------- |:---------------:|:--------------------:|
+| ------------- |:---------------|:--------------------|
 | I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.    | I could understand the information, and quickly navigate to register page, or choose to go back to the front page. |
 | I want to easily create an account.                                                                                                  | I expect I can create my account easily, and quickly navigated to 'profile' page  | I could easily add an account, and it promptly redirected to 'Profile' page.                 |
 | After creating my account, I want a user to add my profile image.                                                                    | I expect I can see the profile page straight after creating account, and find 'edit' button for image upload.         | Straight after account creation, I was navigated to the profile page, and found 'edit' button.|
@@ -125,7 +125,7 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
 
 ### Returning user
 | User Story    | Expected Outcome  | Actual Outcome | 
-| ------------- |:---------------:|:--------------------:|
+| ------------- |:---------------|:--------------------|
 | I want to browse everyone's memories at ease, find my favourite cafe, and enjoy looking at images.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
 | I want to browse everyone's memories at ease, find my favourite cafe, and enjoy looking at images.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
 | I want to login with no issues, and find 'Add memory' form swiftly.    | I expect I can easily find 'Login' button. After login, the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.         |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page. |
@@ -138,15 +138,14 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
 
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
+
 ## Issues mentioned by code reviews
-<ol>
-<li>Responsive menu was too tall and hiding the content on tablet size 
-<p>I reduced the height of the menu by adding media query on CSS.</p>
-</li>
-<li>The modal popup - the content was overflowing
-<p>I added a CSS code to fix the issue.</p>
-</li>
-</ol>
+
+| Issue    | How I fixed it  |
+| ------------- |:---------------|
+|Responsive menu was too tall and hiding the content on tablet size |I reduced the height of the menu by adding media query on CSS.|
+|The modal popup - the content was overflowing|I added a CSS code to fix the issue.|
+
 
 
 Also, this was run through these validators.
@@ -160,33 +159,19 @@ Also, this was run through these validators.
 
 ### Test Results
 
-<ol>
 
-<li>On small devices, the overlay was hiding the mobile nav
-<p>This was Materialize's overlay. I corrected z-index and it's fixed.</p>
-</li>
-<li>Auto Complete was not working on area search.
-<p>Fixed the order of the javascript file.</p></li>
-<li>The content of the memory card was overflowing depends on the description
-<p>I have added media query to reduce the size on mobile phones, also reduced the size of the description.</p></li>
-<li>On the mobile phone menu there was no lines between links, and no effects on hover
-<p>I have added hover effect on CSS.</p></li>
-<li>On registration process it wasn't displaying requirement for the username.
-<p>Added the requirement on the 'Registration' page.</p></li>
-<li>The 'Go back' button was on the front page.
-<p>I have added CSS code to remove it on the front page.</p></li>
-<li>On tablet size, the memory image was not 100% width.
-<p>I have added minimum width for these images to make sure it always covers the area.</p></li>
-<li>On tablet size, the the header displayed 2 lines and took too much space.
-<p>I have added a CSS code to add martgin top.</p></li>
-<li>When user photo was not presented, it was causing an error on memory submittion.
-<p>I have dded default photo when an user registers, so there will be an photo displayed by default.</p></li>
-<li>'background-color:none' was not validated.
-<p>used 'background-color:transparent' instead</p></li>
-<li>'border-color:none' was not validated<p>used border:none instead</p></li>
-</ol>
-
-
+| Issue    | How I fixed it  |
+|On small devices, the overlay was hiding the mobile nav|This was Materialize's overlay. I corrected z-index and it's fixed.|
+|Auto Complete was not working on area search.|Fixed the order of the javascript file.|
+|The content of the memory card was overflowing depends on the description|I have added media query to reduce the size on mobile phones, also reduced the size of the description.|
+|On the mobile phone menu there was no lines between links, and no effects on hover|I have added hover effect on CSS.|
+|On registration process it wasn't displaying requirement for the username.|Added the requirement on the 'Registration' page.|
+|The 'Go back' button was on the front page.|I have added CSS code to remove it on the front page.|
+|On tablet size, the memory image was not 100% width.|I have added minimum width for these images to make sure it always covers the area.|
+|On tablet size, the the header displayed 2 lines and took too much space.|I have added a CSS code to add martgin top.|
+|When user photo was not presented, it was causing an error on memory submittion.|I have dded default photo when an user registers, so there will be an photo displayed by default.|
+|'background-color:none' was not validated.|used 'background-color:transparent' instead|
+|'border-color:none' was not validated|used border:none instead|
 
 
 
@@ -397,5 +382,5 @@ https://www.youtube.com/</li>
 
 ### Acknowledgements
 
-- I received inspiration for this project from several peer student's projects.
+- I received inspiration for this project from several peer student's projects to improve 'Testing' section.
 
