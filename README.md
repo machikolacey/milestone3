@@ -5,7 +5,6 @@ This is a social network site for users to share memories of their cafes.
 <img src="https://res.cloudinary.com/machikolacey/image/upload/v1607468359/milestone3/my-cafe-memories-frontend_h1j2ou.png" style="width:100%;"/>
 
 The goal for the user is to share their cafe memories with other like-minded people, who would like to explore and find an ideal cafe for themselves.
-Also, they can look at their cafe memories, go back to their memories, and share memories of their cafes.
 They can choose either private or public for each memory, so they don't have to be worried about showing all the images they want to store for themselves.
 
 In the future, this will give me an opportunity to ask cafe owners to provide their information by themselves, and also coupon code available for their customers. And also the cafe owner will be able to give them a 'Thank you' coupon code for positive reviewers.
@@ -171,7 +170,6 @@ Also, this was run through these validators.
 <ul>
 <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validation Service</a></li>
 <li><a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a></li>
-<li><a href="https://jshint.com/" target="_blank">JS Hint</a></li>
 </ul>
 
 ### Validation errors
@@ -186,10 +184,25 @@ Also, this was run through these validators.
 |There was an empty 'section' tag | The section tag was including if statement. I moved the tag inside if statement.|
 |The type attribute is unnecessary for JavaScript resources. | I removed 'type' tags from Fontawesome's javascript tag.|
 
+### Issues could not be resoved because the css file was third-party's CDN.
+| Tag | Issue    | The third party  |
+| ------------- |:---------------|:---------------|
+|.table-of-contents a | letter-spacing only 0 can be a unit. You must put a unit after your number |Materialize|
+|.picker__day--today|  letter-spacing only 0 can be a unit. You must put a unit after your number  |Materialize|
+|abbr[data-original-title], abbr[title]| Property text-decoration-skip-ink doesn't exist  |Bootstrap|
+|.accordion| Property overflow-anchor doesn't exist |Bootstrap|
 
-After fixing validation issues, these validators had no errors.
 
-<img src="https://res.cloudinary.com/machikolacey/image/upload/v1607641801/milestone3/w3c-html-check_wludpb.jpg" style="max-width:100%:" />
+After fixing validation issues, these validators had no errors on HTML validator.
+
+<img src="https://res.cloudinary.com/machikolacey/image/upload/v1607641801/milestone3/w3c-html-check_wludpb.jpg" />
+
+On CSS Validator, it only shows errors coming from recommended third-party by Code Institute, and as I am using CDN I am unable to fix these issues.
+There is an warning on style.css, by researching on this issue I've found most of the developers leave this as this is not fixable at the moment. 
+All the other warnings are from recommended third-party by Code Institute, and as I am using CDN I am unable to fix these issues.
+
+<img src="https://res.cloudinary.com/machikolacey/image/upload/v1607642632/milestone3/w3c-css-check_tu7r5f.jpg" />
+
 
 ## Deployment
 
