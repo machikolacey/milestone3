@@ -126,14 +126,8 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
 # Returning user
 | User Story    | Expected Outcome  | Outcome | 
 | ------------- |:---------------:|:--------------------:|
-| I want to browse everyone's memories at ease.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
-| I want to login.    | I expect the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.     I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in.        |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page.             |
-| I want to add a memory with ease.                                                                                             | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    | The auto-suggest is working and displayed suggestions, there was a link to Cloudinary so I can login and copy a link to my cafe image. The datepicker was working.               |
-| I want to add a cafe with ease.                                                                                               | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | The form works as expected, easy to follow.               |
-| I want to edit a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | The 'edit' button is found easily. The form works as expected, easy to follow.               |
-| I want to delete a memory with ease.                                                                                          | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | The 'delete' button is found easily. The form works as expected, easy to follow.               |
-| I want to edit a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | The 'edit' button is found easily. The form works as expected, easy to follow.               |
-| I want to delete a cafe with ease.                                                                                          | I  expect 'Manage cafes' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the cafe easily.   | The 'delete' button is found easily. The form works as expected, easy to follow.               |
+| I want to browse everyone's memories at ease, find my favourite cafe, and enjoy looking at images.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
+
 
 I have asked on Code Institute's peer review community to test this website and received feedbacks:
 
