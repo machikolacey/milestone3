@@ -173,7 +173,11 @@ Also, this was run through these validators.
 |When user photo was not presented, it was causing an error on memory submittion.|I have dded default photo when an user registers, so there will be an photo displayed by default.|
 |'background-color:none' was not validated.|used 'background-color:transparent' instead|
 |'border-color:none' was not validated|used border:none instead|
+|Empty 'head' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
+|Empty 'section' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
+|Duplicated 'body' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
 
+|The element button must not appear as a descendant of the a element.|A 'button' tag was directly inside 'a' tag. I used a tag to style as a button.|
 
 
 ## Deployment
