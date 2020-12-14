@@ -40,7 +40,7 @@ This navigates an user to either registration page or login page, or if they dec
 The steps:
  
 | User Story    | 
-| ------------- |
+| :------------- |
 | As a first tune user, I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | 
 | As a first tune user, I want to easily create an account.| 
 | As a first tune user, After creating my account, I want a user to add my profile image.| 
@@ -115,7 +115,7 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
  
 ### First time user
 | User Story    | Expected Outcome  | Actual Outcome | 
-| ------------- |:---------------|:--------------------|
+|:------------- |:---------------|:--------------------|
 | I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.    | I could understand the information, and quickly navigate to register page, or choose to go back to the front page. |
 | I want to easily create an account.                                                                                                  | I expect I can create my account easily, and quickly navigated to 'profile' page  | I could easily add an account, and it promptly redirected to 'Profile' page.                 |
 | After creating my account, I want a user to add my profile image.                                                                    | I expect I can see the profile page straight after creating account, and find 'edit' button for image upload.         | Straight after account creation, I was navigated to the profile page, and found 'edit' button.|
@@ -124,7 +124,7 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
 
 ### Returning user
 | User Story    | Expected Outcome  | Actual Outcome | 
-| ------------- |:---------------|:--------------------|
+|:------------- |:---------------|:--------------------|
 | I want to browse everyone's memories at ease, find my favourite cafe, and enjoy looking at images.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
 | I want to browse everyone's memories at ease, find my favourite cafe, and enjoy looking at images.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
 | I want to login with no issues, and find 'Add memory' form swiftly.    | I expect I can easily find 'Login' button. After login, the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.         |    I could find 'Login' button. After loggin in, it's directed to 'Your cafe memories' page. |
@@ -141,7 +141,7 @@ I have asked on Code Institute's peer review community to test this website and 
 ## Issues mentioned by code reviews
 
 | Issue    | How I fixed it  |
-| ------------- |:---------------|
+|:------------- |:---------------|
 |Responsive menu was too tall and hiding the content on tablet size |I reduced the height of the menu by adding media query on CSS.|
 |The modal popup - the content was overflowing|I added a CSS code to fix the issue.|
 
@@ -153,7 +153,7 @@ I have asked on Code Institute's peer review community to test this website and 
 
 
 | Issue    | How I fixed it  |
-| ------------- |:---------------|
+|:------------- |:---------------|
 |On small devices, the overlay was hiding the mobile nav|This was Materialize's overlay. I corrected z-index and it's fixed.|
 |Auto Complete was not working on area search.|Fixed the order of the javascript file.|
 |The content of the memory card was overflowing depends on the description|I have added media query to reduce the size on mobile phones, also reduced the size of the description.|
@@ -174,7 +174,7 @@ Also, this was run through these validators.
 
 ### Validation errors
 | Issue    | How I fixed it  |
-| ------------- |:---------------|
+|:------------- |:---------------|
 |'background-color:none' was not validated.|used 'background-color:transparent' instead|
 |'border-color:none' was not validated|used border:none instead|
 |Empty 'head' tag found |There was duplicated html tags on base.html and other templates. Removed them from other template files.|
@@ -186,7 +186,7 @@ Also, this was run through these validators.
 
 ### Issues could not be resoved because the css file was third-party's CDN.
 | Tag | Issue    | The third party  |
-| ------------- |:---------------|:---------------|
+|:------------- |:---------------|:---------------|
 |.table-of-contents a | letter-spacing only 0 can be a unit. You must put a unit after your number |Materialize|
 |.picker__day--today|  letter-spacing only 0 can be a unit. You must put a unit after your number  |Materialize|
 |abbr[data-original-title], abbr[title]| Property text-decoration-skip-ink doesn't exist  |Bootstrap|
@@ -199,11 +199,18 @@ After fixing validation issues, these validators had no errors on HTML validator
 
 On CSS Validator, it only shows errors coming from recommended third-party by Code Institute, and as I am using CDN I am unable to fix these issues.
 There is an warning on style.css, by researching on this issue I've found most of the developers leave this as this is not fixable at the moment. 
+
+-webkit-box is an unknown vendor extension
+-webkit-line-clamp is an unknown vendor extension
+-webkit-box-orient is an unknown vendor extension
+
+<img src="https://res.cloudinary.com/machikolacey/image/upload/v1607980144/milestone3/w3c-warnings-webkit_puvyw6.jpg" />
+
+
 All the other warnings are from recommended third-party by Code Institute, and as I am using CDN I am unable to fix these issues.
 
+
 <img src="https://res.cloudinary.com/machikolacey/image/upload/v1607642632/milestone3/w3c-css-check_tu7r5f.jpg" />
-
-
 ## Deployment
 
 This project was developed on Github, using Gitpod as IDE. It has only master branch.
