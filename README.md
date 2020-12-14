@@ -39,20 +39,20 @@ This navigates an user to either registration page or login page, or if they dec
 
 The steps:
  
-| User Story    | Expected Outcome  |
-| ------------- |:---------------|
-| As a first tune user, I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | I expect the popup explains well and buttons to be prominent.   | 
-| As a first tune user, I want to easily create an account.| I expect I can create my account easily, and quickly navigated to 'profile' page  |
-| As a first tune user, After creating my account, I want a user to add my profile image.| I expect I can see the profile page straight after creating account, and find 'edit' button for image upload.         | 
-| As a first tune user, After adding my profile image, I would like to add a cafe memory at ease.  | I expect to see an intuitive button to 'Add your first cafe memory' button       |   
-| As a returning user, I want to browse everyone's memories at ease.  | I expect 'Sorting' section and 'Paging' section works well   | Both sections are working well. |
-| As a returning user, I want to login.    | I expect the page direct to 'Your memories' page, and intuitively can choose 'Add your first memory' button.     I expect 'Login' button to be easily found, redirect to 'Your cafe memories' page straight after logging in. |    
-| As a returning user, I want to add a memory with ease. | I expect 'add memory' form is easy to follow. On 'Cafe name', by entering  1 or more letters, it suggests cafes to choose from. The 'photo' section should explain how to add an image. The 'date' section it should open a date picker by clickin on the input field.    |
-| As a returning user,  I want to add a cafe with ease.  | I  expect 'add cafe' form is easy to follow.  Auto-suggest on 'Area name',  the photo section has a link to Cloudinary.   | 
-| As a returning user, I want to edit a memory with ease.| I  expect 'Your memories' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
-| As a returning user, I want to delete a memory with ease.  | I  expect 'Your memories' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | 
-| As a returning user, I want to edit a cafe with ease. | I  expect 'Manage cafes' page has 'Edit' button, on 'Edit cafe memory' page, I can edit text or the image easily.   | 
-| As a returning user, I want to delete a cafe with ease.     | I  expect 'Edit cafe memory' page has 'Delete' button, on 'Edit cafe memory' page, I can delete the memory easily.   | 
+| User Story    | 
+| ------------- |
+| As a first tune user, I want to quickly understand the purpose of the website, and easily navigate to either 'Register' page or go back to the home page.  | 
+| As a first tune user, I want to easily create an account.| 
+| As a first tune user, After creating my account, I want a user to add my profile image.| 
+| As a first tune user, After adding my profile image, I would like to add a cafe memory at ease.  | 
+| As a returning user, I want to browse everyone's memories at ease.  | 
+| As a returning user, I want to login.    | 
+| As a returning user, I want to add a memory with ease. | 
+| As a returning user,  I want to add a cafe with ease.  | 
+| As a returning user, I want to edit a memory with ease.| 
+| As a returning user, I want to delete a memory with ease.  |
+| As a returning user, I want to edit a cafe with ease. | 
+| As a returning user, I want to delete a cafe with ease.     | 
 
 
 
