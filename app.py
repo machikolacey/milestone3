@@ -286,7 +286,7 @@ def login():
              
             else:
             #Invalid password match
-                flash("Incorrect username annd/or password")
+                flash("Incorrect username and/or password")
                 return redirect(url_for("login"))   
         else:
             #user doesn't exist
