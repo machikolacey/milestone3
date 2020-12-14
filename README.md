@@ -199,10 +199,9 @@ After fixing validation issues, these validators had no errors on HTML validator
 
 On CSS Validator, it only shows errors coming from recommended third-party by Code Institute, and as I am using CDN I am unable to fix these issues.
 There is an warning on style.css, by researching on this issue I've found most of the developers leave this as this is not fixable at the moment. 
+(Reference:https://stackoverflow.com/questions/30607832/w3c-css-validation-error-using-calc-and-vendor-extensions/
+ https://www.sitepoint.com/community/t/css-validation-unknown-vendor-extensions/125616)
 
--webkit-box is an unknown vendor extension
--webkit-line-clamp is an unknown vendor extension
--webkit-box-orient is an unknown vendor extension
 
 <img src="https://res.cloudinary.com/machikolacey/image/upload/v1607980144/milestone3/w3c-warnings-webkit_puvyw6.jpg" />
 
@@ -211,6 +210,7 @@ All the other warnings are from recommended third-party by Code Institute, and a
 
 
 <img src="https://res.cloudinary.com/machikolacey/image/upload/v1607642632/milestone3/w3c-css-check_tu7r5f.jpg" />
+
 ## Deployment
 
 This project was developed on Github, using Gitpod as IDE. It has only master branch.
@@ -328,7 +328,7 @@ Only user_id, cafe_id, and memory_id need to be related, and it doesn't require 
 
 In my database, I made 4 collections, which are areas, cafes, memories and users.
 
-# users
+### users
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
@@ -338,7 +338,7 @@ In my database, I made 4 collections, which are areas, cafes, memories and users
 | Photo         | photo           | text                 | String    |
 
 
-# areas
+### areas
 This collection is for storing area data related to cafes.
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
@@ -347,7 +347,7 @@ This collection is for storing area data related to cafes.
 | Name          | name            | text                 | String    |
 
 
-#cafes
+### cafes
 This collection is for storing details of cafes.
 
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
@@ -363,7 +363,7 @@ This collection is for storing details of cafes.
 
 
 
-#memories
+### memories
 This collection is for storing cafe memories.
 | Title         | Key in MongoDB  | Form Validation Type | Data Type |
 | ------------- |:---------------:|:--------------------:| ---------:|
