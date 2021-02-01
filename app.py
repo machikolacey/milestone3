@@ -185,8 +185,6 @@ def get_memories(sort, order, is_yours):
             user = mongo.db.users.find_one({"username":memory["user"]})            
             if "photo" in user:
               memory["userphoto"] = user["photo"]
-            
-
             cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
             try:
                 memory["area_name"] = cafe["area_name"]
