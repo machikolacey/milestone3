@@ -188,7 +188,11 @@ def get_memories(sort, order, is_yours):
             
 
             cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
-            memory["area_name"] = cafe["area_name"]
+            try:
+                memory["area_name"] = cafe["area_name"]
+            except TypeError:
+                memory["area_name"] = ""
+
             memory["ukdate"] = memory["date"].strftime('%d/%m/%Y')
             mems.append(memory)        
 
