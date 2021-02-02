@@ -170,6 +170,7 @@ Also, this was run through these validators.
 <ul>
 <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validation Service</a></li>
 <li><a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a></li>
+<li><a href="http://pep8online.com/" target="_blank">PEP8 Omline Checker</a></li>
 </ul>
 
 ### Validation errors
@@ -183,6 +184,9 @@ Also, this was run through these validators.
 |The element button must not appear as a descendant of the a element.|A 'button' tag was directly inside 'a' tag. I removed 'button' tag.|
 |There was an empty 'section' tag | The section tag was including if statement. I moved the tag inside if statement.|
 |The type attribute is unnecessary for JavaScript resources. | I removed 'type' tags from Fontawesome's javascript tag.|
+|Local variable 'term' is assigned to but never used | Checked this variable is not used and removed the line|
+|Comparison to True should be 'if cond is not True:' or 'if not cond | I used 'not' instead of '!= True'|
+
 
 ### Issues could not be resoved because the css file was third-party's CDN.
 | Tag | Issue    | The third party  |
