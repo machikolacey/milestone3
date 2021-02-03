@@ -16,7 +16,6 @@
  function autoCompleteCafe (cafenames){
     let data = {};
     cafenames.forEach(function (cafename) {
-        console.log(cafename.cafe_name)
        data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
     });
 
@@ -26,12 +25,10 @@
 }
 
 function autoCompleteArea(areanames){
-
     let data = {};
     areanames.forEach(function (areaname) {
-        console.log(areaname.name)
        data[areaname.name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";  
-   });
+    });
 
      $('input.autocomplete').autocomplete({
       data: data
@@ -55,7 +52,7 @@ $('.datepicker').on('mousedown',function(event){
 });
 
 $('.sort').click(function(event) {
-return $.getJSON(
+ return $.getJSON(
     '/sort_memories/'+$(this).val(), 
         function (data) {
         return process(data);
@@ -81,7 +78,7 @@ function getCookie(cname) {
   }
   return "";
 }
- function checkCookie(cname) {
+function checkCookie(cname) {
   var val=getCookie(cname);
   if (val != "") {
    return true;

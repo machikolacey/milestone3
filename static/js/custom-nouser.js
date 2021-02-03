@@ -3,7 +3,7 @@ $('.modal').modal({
         preventScrolling : false,
         complete: function() { 
             setCookie("popup", true, 240);
-            } 
+        } 
 });
 
 if(checkCookie("popup") == false ){
