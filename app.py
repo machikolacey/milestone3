@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, flash, session, jsonify
+from flask import (Flask, render_template, redirect,
+                   request, url_for, flash, session, jsonify)
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId

@@ -1,24 +1,18 @@
-   $(document).ready(function() {
-        
-  
-           $(".button-collapse").sideNav();
-            //  $('.side-nav').sidenav();
-               $('select').material_select();
+  $(document).ready(function() {
 
-
+        $(".button-collapse").sideNav();
+        $('select').material_select();
 
         $('.searchcafe').keyup(function(event) {
-        return $.getJSON(
-            '/cafe_autocomplete/'+$('.searchcafe').attr('sortvalue'), 
-             function (data) {
-                console.log(data) ; 
-                return process(data);
-             });
-        });  
+            return $.getJSON(
+                '/cafe_autocomplete/'+$('.searchcafe').attr('sortvalue'), 
+                function (data) {
+                    console.log(data) ; 
+                    return process(data);
+                });
+            });  
+  });
 
-
-
-        });
  function autoCompleteCafe (cafenames){
     let data = {};
     cafenames.forEach(function (cafename) {
@@ -45,37 +39,34 @@ function autoCompleteArea(areanames){
 
 }
 
-        $('.datepicker').pickadate({
-            selectMonths: true,
-            selectYears: 10, 
-            max: new Date(),
-            selectMonths: true, 
-            close: 'Ok',
-            today: 'Today',
-            clear: 'Clear',
-            format: 'dd/mm/yyyy'
+$('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 10, 
+    max: new Date(),
+    selectMonths: true, 
+    close: 'Ok',
+    today: 'Today',
+    clear: 'Clear',
+    format: 'dd/mm/yyyy'
+});
+
+$('.datepicker').on('mousedown',function(event){
+    event.preventDefault();
+});
+
+$('.sort').click(function(event) {
+return $.getJSON(
+    '/sort_memories/'+$(this).val(), 
+        function (data) {
+        return process(data);
         });
-
-        $('.datepicker').on('mousedown',function(event){
-            event.preventDefault();
-        });
-
-        $('.sort').click(function(event) {
-        return $.getJSON(
-            '/sort_memories/'+$(this).val(), 
-             function (data) {
-                return process(data);
-             });
-        });  
-
-
+});  
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   var expires = "expires="+d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-
 function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');
@@ -98,4 +89,3 @@ function getCookie(cname) {
    return false;
   }
 }
-
