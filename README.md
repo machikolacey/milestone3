@@ -214,7 +214,7 @@ All the other warnings are from recommended third-party by Code Institute, and a
 
 
 
-## Python Testing
+###  Python Testing
 To test Python code, I used flake 8, using these codes:
 
 ```
@@ -222,7 +222,8 @@ pip install flake8
 
 flake8 app.py
 ```
-# Typical Issues
+###  Typical Validation Errors
+
 | Issue    | How I fixed it  |
 |:------------- |:---------------|
 |Local variable 'term' is assigned to but never used | Checked this variable is not used and removed the line|
