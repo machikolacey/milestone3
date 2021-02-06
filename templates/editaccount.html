@@ -7,14 +7,14 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">face</i>
-                 <input type="text" name="username"  alt="username" value="{{user.username}}" />
+                 <input type="text" name="username"  alt="username" value="{{user.username}}"   class="validate"  required="" aria-required="true"  />
                 <label for="username">username</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                 <input type="text" name="photo"  alt="photo" value="{{user.photo}}" />
+                 <input type="text" name="photo"  alt="photo" value="{{user.photo}}"   class="validate"  required="" aria-required="true"  />
                 <span>Please add a link to your photo. (<a href='https://cloudinary.com/users/login' target="_blank">Login to your Cloudinary account</a>)</span>
                 {% if user.photo %}
                     <img src="{{user.photo}}" alt="" class="profile-photo">
