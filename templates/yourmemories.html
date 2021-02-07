@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 <h1 class="d-inline">Your Cafe Memories  </h1>
-<button class="float-right d-inline memories-button">
-<a href="{{url_for('get_memories', sort = 'date', order='desc', is_yours='no')}}">Everyone's Memories<i class="tiny material-icons">arrow_forward</i></a>
-</button> 
+<a href="{{url_for('get_memories', sort = 'date', order='desc', is_yours='no')}}"
+ class="float-right d-inline memories-button">Everyone's Memories<i class="tiny material-icons">arrow_forward</i>
+</a>
 <div class="row">
 {% if memories|length == 0 %}
 <div class="sorter">
