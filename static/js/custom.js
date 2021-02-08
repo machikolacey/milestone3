@@ -1,63 +1,42 @@
   $(document).ready(function() {
 
-        $(".button-collapse").sideNav();
-        $('select').material_select();
+    $(".button-collapse").sideNav();
+    $('select').material_select();
 
-        $('.searchcafe').keyup(function(event) {
-            return $.getJSON(
-                '/cafe_autocomplete/'+$('.searchcafe').attr('sortvalue'), 
-                function (data) {
-                    console.log(data) ; 
-                    return process(data);
-                });
-            });  
+    $('.searchcafe').keyup(function(event) {
+        return $.getJSON(
+            '/cafe_autocomplete/'+$('.searchcafe').attr('sortvalue'), 
+            function (data) {
+                console.log(data) ; 
+                return process(data);
+            });
+    });  
+
+    $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 10, 
+        max: new Date(),
+        selectMonths: true, 
+        close: 'Ok',
+        today: 'Today',
+        clear: 'Clear',
+        format: 'dd/mm/yyyy'
+    });
+
+    $('.datepicker').on('mousedown',function(event){
+        event.preventDefault();
+    });
+
+    $('.sort').click(function(event) {
+    return $.getJSON(
+        '/sort_memories/'+$(this).val(), 
+            function (data) {
+            return process(data);
+            });
+    });  
+
   });
 
- function autoCompleteCafe (cafenames){
-    let data = {};
-    cafenames.forEach(function (cafename) {
-       data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
-    });
-
-    $('input.autocomplete').autocomplete({
-      data: data
-    });
-}
-
-function autoCompleteArea(areanames){
-    let data = {};
-    areanames.forEach(function (areaname) {
-       data[areaname.name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";  
-    });
-
-     $('input.autocomplete').autocomplete({
-      data: data
-    });
-
-}
-
-$('.datepicker').pickadate({
-    selectMonths: true,
-    selectYears: 10, 
-    max: new Date(),
-    selectMonths: true, 
-    close: 'Ok',
-    today: 'Today',
-    clear: 'Clear',
-    format: 'dd/mm/yyyy'
-});
-
-$('.datepicker').on('mousedown',function(event){
-    event.preventDefault();
-});
-
-$('.sort').click(function(event) {
- return $.getJSON(
-    '/sort_memories/'+$(this).val(), 
-        function (data) {
-        return process(data);
-        });
-});  
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -85,4 +64,28 @@ function checkCookie(cname) {
   } else {
    return false;
   }
+}
+
+
+ function autoCompleteCafe (cafenames){
+    let data = {};
+    cafenames.forEach(function (cafename) {
+       data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
+    });
+
+    $('input.autocomplete').autocomplete({
+      data: data
+    });
+}
+
+function autoCompleteArea(areanames){
+    let data = {};
+    areanames.forEach(function (areaname) {
+       data[areaname.name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";  
+    });
+
+     $('input.autocomplete').autocomplete({
+      data: data
+    });
+
 }

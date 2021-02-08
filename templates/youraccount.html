@@ -4,25 +4,24 @@
     <div class="col s12 m8 offset-m2" >
     <div class="memory-card">
        <div class="date text-center">
-     <p>   {{ user.username }}</p>
-
+         <p>{{ user.username }}</p>
        </div>
-    <div class="row">
-        <div class="col-sm-6 text-center">
-            <div class="memory-photo-wrapper">
-            {% if user.photo %}
-            <img src="{{ user.photo }}" alt="{{ user.username }} photo" class="profile-photo" />
-            {% else %}
-            <img src="https://res.cloudinary.com/machikolacey/image/upload/v1599862901/milestone3/no-image_f3sttx.png" alt="">
-            {% endif %}
-            </div> 
-        </div>
-        <div class="col-sm-6"> 
-            <div class="cafe-description">
-            </div> 
-        <a href="{{url_for('edit_account', user_id=user._id)}}" class="waves-effect waves-light btn btn_small ">Edit</a>  
-        </div>           
-    </div>       
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <div class="memory-photo-wrapper">
+                    {% if user.photo %}
+                    <img src="{{ user.photo }}" alt="{{ user.username }} photo" class="profile-photo" />
+                    {% else %}
+                    <img src="https://res.cloudinary.com/machikolacey/image/upload/v1599862901/milestone3/no-image_f3sttx.png" alt="">
+                    {% endif %}
+                </div> 
+            </div>
+            <div class="col-sm-6"> 
+                <div class="cafe-description">
+                </div> 
+                <a href="{{url_for('edit_account', user_id=user._id)}}" class="waves-effect waves-light btn btn_small ">Edit</a>  
+            </div>           
+        </div>       
     </div>
     </div>
 </div>

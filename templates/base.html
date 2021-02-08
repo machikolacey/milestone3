@@ -21,33 +21,31 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse sudenav-trigger right"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         {% if session.user %}
-        <li><a href="{{ url_for('your_account', username=session['user']) }}">Account</a></li>
-        <li><a href="{{ url_for('get_memories', sort='ratings', order='asc', is_yours='yes') }}">Your Memories</a></li>
-        <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
-        <li><a href="{{ url_for('add_memory') }}">Add Memory</a></li> 
-  
-        <li><a href="{{ url_for('get_cafes' , sort='cafe_name', order='asc') }}">Manage Cafes</a></li>
-        <li><a href="{{ url_for('logout') }}">Log Out</a></li>   
+            <li><a href="{{ url_for('your_account', username=session['user']) }}">Account</a></li>
+            <li><a href="{{ url_for('get_memories', sort='ratings', order='asc', is_yours='yes') }}">Your Memories</a></li>
+            <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
+            <li><a href="{{ url_for('add_memory') }}">Add Memory</a></li> 
+            <li><a href="{{ url_for('get_cafes' , sort='cafe_name', order='asc') }}">Manage Cafes</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>   
         {% else %}
-        <li><a href="{{ url_for('login') }}">Log In</a></li>        
-        <li><a href="{{ url_for('register') }}">Register</a></li>   
+            <li><a href="{{ url_for('login') }}">Log In</a></li>        
+            <li><a href="{{ url_for('register') }}">Register</a></li>   
         {% endif %}
       </ul>
       <ul class="side-nav" id="mobile-demo">
-       <li><h4 class="center-align light-blue-text text-darken-4">My Cafe Memories</h4></li>
-       <li><a href="/">Home</a></li>
-        {% if session.user %}
-        <li><a href="{{ url_for('your_account', username=session['user']) }}">Account</a></li>
-        <li><a href="{{ url_for('get_memories', sort='ratings', order='asc', is_yours='yes') }}">Your Memories</a></li>
-        <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
-        <li><a href="{{ url_for('add_memory') }}">Add Memory</a></li> 
-  
-        <li><a href="{{ url_for('get_cafes' , sort='cafe_name', order='asc') }}">Manage Cafes</a></li>
-        <li><a href="{{ url_for('logout') }}">Log Out</a></li>   
-        {% else %}
-        <li><a href="{{ url_for('login') }}">Log In</a></li>        
-        <li><a href="{{ url_for('register') }}">Register</a></li>   
-        {% endif %}
+        <li><h4 class="center-align light-blue-text text-darken-4">My Cafe Memories</h4></li>
+        <li><a href="/">Home</a></li>
+            {% if session.user %}
+                <li><a href="{{ url_for('your_account', username=session['user']) }}">Account</a></li>
+                <li><a href="{{ url_for('get_memories', sort='ratings', order='asc', is_yours='yes') }}">Your Memories</a></li>
+                <li><a href="{{ url_for('add_cafe') }}">Add Cafe</a></li>
+                <li><a href="{{ url_for('add_memory') }}">Add Memory</a></li> 
+                <li><a href="{{ url_for('get_cafes' , sort='cafe_name', order='asc') }}">Manage Cafes</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>   
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>        
+                <li><a href="{{ url_for('register') }}">Register</a></li>   
+            {% endif %}
       </ul>
     </div>
   </nav>
@@ -67,10 +65,9 @@
   {% endif %}
 {% endwith %}
 
-    <section class="main-content">
-        {% block content %} {% endblock %}    
-
-    </section>    
+<section class="main-content">
+    {% block content %} {% endblock %}    
+</section>    
 </div> <!-- /-container -->
     <script    src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
     <script   src="/static/js/custom.js" ></script>  
