@@ -235,6 +235,13 @@ Also I tested app.py on PEP8 checker. (http://pep8online.com/)
 
 ###  Javascript 
 To test javascript code, I used JsHint, an online validator.
+
+| Issue    | How I fixed it  |
+|:------------- |:---------------|
+|Duplicate key 'selectMonths'| Removed one of the keys on datepicker function |
+	
+
+
 This code below on addmemory.html received some errors, 	Expected '}' to match '{' from line 2 and instead saw '{'.such as ''
 However this is coming from Jinja code within Javascript code and we don't have things we can do to it.
 
