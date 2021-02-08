@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <title>My Cafe Memories :: Your new SNS site!</title>
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}?v=1565156" type="text/css"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}?v=1565156" type="text/css"/>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -16,11 +16,10 @@
 <header>
  <div class="navbar-fixed">
      <nav class="nav-extended text-shadow light-blue darken-1">
-    <div class="nav-wrapper">
+      <div class="nav-wrapper">
       <a href="/" class="brand-logo"><i class="material-icons dp48">cake</i>My Cafe Memories</a>  {% if session.user %} <span class="welcome d-inline">Hello, {{ session.user }} !!</span>      {% endif %}
       <a href="#" data-activates="mobile-demo" class="button-collapse sudenav-trigger right"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
         {% if session.user %}
         <li><a href="{{ url_for('your_account', username=session['user']) }}">Account</a></li>
         <li><a href="{{ url_for('get_memories', sort='ratings', order='asc', is_yours='yes') }}">Your Memories</a></li>
@@ -53,7 +52,6 @@
     </div>
   </nav>
   </div>
- 
 </header>
 <div class="container">
 
@@ -69,15 +67,15 @@
   {% endif %}
 {% endwith %}
 
-<section class="main-content">
-    {% block content %} {% endblock %}    
+    <section class="main-content">
+        {% block content %} {% endblock %}    
 
-</section>    
+    </section>    
 </div> <!-- /-container -->
-<script    src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
- <script   src="/static/js/custom.js" ></script>  
-{% if not session.user %}            
-<script   src="/static/js/custom-nouser.js" ></script>
-{% endif %}
+    <script    src="https://kit.fontawesome.com/6019d8e6c9.js" crossorigin="anonymous"></script>
+    <script   src="/static/js/custom.js" ></script>  
+    {% if not session.user %}            
+    <script   src="/static/js/custom-nouser.js" ></script>
+    {% endif %}
 </body>
 </html>

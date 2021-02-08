@@ -13,6 +13,7 @@ if os.path.exists("env.py"):
     import env  # noqa: F401
 
 app = Flask(__name__)
+
 app.config["MONGO_DBNAME"] = 'brightonCafes'
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -21,6 +22,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+
+@app.route('/')
+def home():
+    return redirect("/memories/date/asc/no")
+    
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -174,11 +180,6 @@ def filter_cafe():
         x.append(cafe)
 
         return jsonify(x)
-
-
-@app.route('/')
-def home():
-    return redirect("/memories/date/asc/no")
 
 
 @app.route('/memories/<sort>/<order>/<is_yours>')
