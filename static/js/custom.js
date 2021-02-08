@@ -12,21 +12,6 @@
             });
     });  
 
-    $('.datepicker').pickadate({
-        selectMonths: true,
-        selectYears: 10, 
-        max: new Date(),
-        selectMonths: true, 
-        close: 'Ok',
-        today: 'Today',
-        clear: 'Clear',
-        format: 'dd/mm/yyyy'
-    });
-
-    $('.datepicker').on('mousedown',function(event){
-        event.preventDefault();
-    });
-
     $('.sort').click(function(event) {
     return $.getJSON(
         '/sort_memories/'+$(this).val(), 
