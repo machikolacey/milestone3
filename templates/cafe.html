@@ -1,8 +1,10 @@
  {% extends 'base.html' %} {% block content %}
               <div class="memory-card cafe-card">
                         <div class="date text-center">
-                            <p class="d-inline">{{ cafe.cafe_name }}</p>
-                            <p class="d-inline float-right">{{cafe.area_name}}</p>
+                                 <p class="d-inline">{{ cafe.cafe_name }}</p>
+                            {% if cafe.area_name: %}
+                                 <p class="d-inline float-right">{{cafe.area_name}}</p>
+                            {% endif %}
                         </div>
                 <div class="row">
                 <div class="col-sm-6 text-center">

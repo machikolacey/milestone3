@@ -117,11 +117,6 @@ def update_cafe(cafe_id):
     return redirect(url_for('get_cafes', sort='cafe_name', order='asc'))
 
 
-@app.route('/delete_cafe/<cafe_id>')
-def delete_cafe(cafe_id):
-    mongo.db.cafes.remove({'_id': ObjectId(cafe_id)})
-    return redirect(url_for('get_cafes', sort='cafe_name', order='asc'))
-
 
 @app.route('/insert_cafe', methods=["POST"])
 def insert_cafe():
@@ -332,7 +327,7 @@ def cafe(cafe_id):
     youtube = ""
     cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
     memories = mongo.db.memories.find({"cafe_id": ObjectId(cafe_id)})
-
+   
     try:
         if cafe['youtube']:
             youtube = cafe['youtube'].replace("watch?v=", "/embed/")
