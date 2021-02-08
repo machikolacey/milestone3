@@ -171,6 +171,7 @@ Also, this was run through these validators.
 <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validation Service</a></li>
 <li><a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a></li>
 <li><a href="http://pep8online.com/" target="_blank">PEP8 Online Checker</a></li>
+<li><a href="http://jshint.com/" target="_blank">JSHint, A Static Code Analysis Tool for JavaScript</a></li>
 </ul>
 
 ### Validation errors
@@ -214,7 +215,7 @@ All the other warnings are from recommended third-party by Code Institute, and a
 
 
 
-###  Python Testing
+###  Python 
 To test Python code, I used flake 8, using these codes:
 
 ```
@@ -230,6 +231,19 @@ flake8 app.py
 |Comparison to True should be 'if cond is not True:' or 'if not cond | I used 'not' instead of '!= True'|
 
 Also I tested app.py on PEP8 checker. (http://pep8online.com/)
+
+
+###  Javascript 
+To test javascript code, I used JsHint, an online validator.
+This code below on addmemory.html received some errors, 	Expected '}' to match '{' from line 2 and instead saw '{'.such as ''
+However this is coming from Jinja code within Javascript code and we don't have things we can do to it.
+
+```
+  $(document).ready(function() {
+    let cafenames = JSON.parse({{ cafenames|tojson|safe }}); 
+     autoCompleteCafe (cafenames);
+    });
+```
 
 
 ## Deployment
