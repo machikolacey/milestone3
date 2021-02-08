@@ -251,7 +251,14 @@ However this is coming from Jinja code within Javascript code and we don't have 
      autoCompleteCafe (cafenames);
     });
 ```
+There were four unused variables:
+- setCookie
+- checkCookie
+- autoCompleteCafe
+- autoCompleteArea
 
+
+However, these variables are used in the template, such as addmemory.html
 
 ## Deployment
 
