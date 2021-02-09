@@ -26,7 +26,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 @app.route('/')
 def home():
     return redirect("/memories/date/asc/no")
-    
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -42,8 +42,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "photo": "https://res.cloudinary.com/machikolacey/image/upload/" +
-                     "v1607383655/milestone3/coffee_wdl8h8.jpg"
+            "photo": os.environ.get("DEFAULT_PIC")
         }
 
         mongo.db.users.insert_one(register)
@@ -115,7 +114,6 @@ def update_cafe(cafe_id):
         'youtube': request.form.get('youtube')
     })
     return redirect(url_for('get_cafes', sort='cafe_name', order='asc'))
-
 
 
 @app.route('/insert_cafe', methods=["POST"])
@@ -194,7 +192,7 @@ def get_memories(sort, order, is_yours):
         try:
             memory["userphoto"] = user["photo"]
         except TypeError:
-            memory["userphoto"] = "https://res.cloudinary.com/machikolacey/image/upload/v1607383655/milestone3/coffee_wdl8h8.jpg"
+            memory["userphoto"] = os.environ.get("DEFAULT_PIC")
 
         cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
         try:
@@ -331,7 +329,7 @@ def cafe(cafe_id):
     youtube = ""
     cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
     memories = mongo.db.memories.find({"cafe_id": ObjectId(cafe_id)})
-   
+
     try:
         if cafe['youtube']:
             youtube = cafe['youtube'].replace("watch?v=", "/embed/")
