@@ -6,38 +6,40 @@
     <form action="{{ url_for('update_cafe', cafe_id=cafe._id) }}" method="POST"  class="col s12">
      <div class="row">
         <div class="input-field col s12">
-            <i class="material-icons prefix">poll</i>
-        <select id="area" name="area_name"    class="validate"  required="" aria-required="true"   >
-            <option value="" disabled selected  >Choose Area</option>
-            {% for area in areas %}
-            {% if cafe.area_name == area.name%}
-                <option value="{{area.name}}" selected >{{area.name}}</option>
-                {% else %}
-                <option value="{{area.name}}">{{area.name}}</option>
-            {% endif %}          
-            {% endfor %}
-        </select>
+            <i class="material-icons prefix">map</i>
+                <select id="area" name="area_name"    class="validate"  required="" aria-required="true"   >
+                    <option value="" disabled selected  >Choose Area</option>
+                    {% for area in areas %}
+                    {% if cafe.area_name == area.name%}
+                        <option value="{{area.name}}" selected >{{area.name}}</option>
+                        {% else %}
+                        <option value="{{area.name}}">{{area.name}}</option>
+                    {% endif %}          
+                    {% endfor %}
+                </select>
             <label>Area</label>
         </div>
     </div>
-    <div class="input-field col s12">
-        <i class="material-icons prefix">assignment</i>
-        <input id="cafe_name" name="cafe_name" type="text" value="{{cafe.cafe_name}}"
-            class="validate"  required="" aria-required="true"
-            oninvalid="this.setCustomValidity('Please enter a cafe name.')"
-            oninput="this.setCustomValidity('')">
-        <label for="icon_prefix">Cafe name</label>
+     <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">local_cafe</i>
+            <input id="cafe_name" name="cafe_name" type="text" value="{{cafe.cafe_name}}"
+                class="validate"  required="" aria-required="true"
+                oninvalid="this.setCustomValidity('Please enter a cafe name.')"
+                oninput="this.setCustomValidity('')">
+            <label for="icon_prefix">Cafe name</label>
+        </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <i class="material-icons prefix">subject</i>
+            <i class="material-icons prefix">web</i>
                 <input id="website" name="website" type="text" value="{{cafe.website}}">
             <label for="icon_telephone">Website</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <i class="material-icons prefix">subject</i>
+            <i class="material-icons prefix">location_city</i>
                 <input id="address" name="address" type="text" value="{{cafe.address}}"
                 class="validate"  required="" aria-required="true"
                 oninvalid="this.setCustomValidity('Please enter an address.')"
@@ -47,7 +49,7 @@
     </div>
    <div class="row">
     <div class="input-field col s12">
-        <i class="material-icons prefix">subject</i>
+        <i class="material-icons prefix">local_post_office</i>
             <input id="postcode" name="postcode" type="text" value="{{cafe.postcode}}"
             class="validate"  required="" aria-required="true"
             oninvalid="this.setCustomValidity('Please enter a postcode.')"
@@ -57,9 +59,10 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <i class="material-icons prefix">subject</i>
+            <i class="material-icons prefix">monochrome_photos</i>
                 <input id="photo" name="photo" type="text" value="{{cafe.photo}}"
                 class="validate"  required="" aria-required="true"
+                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
                 oninvalid="this.setCustomValidity('Please enter link to the photo.')"
                 oninput="this.setCustomValidity('')">
             <label for="icon_telephone">photo</label>
@@ -67,7 +70,7 @@
      </div>
         <div class="row">
         <div class="input-field col s12">
-            <i class="material-icons prefix">subject</i>
+            <i class="material-icons prefix">movie</i>
                 <input id="youtube" name="youtube" type="text" value="{{cafe.youtube}}">
             <label for="icon_telephone">Youtube Link</label>
         </div>

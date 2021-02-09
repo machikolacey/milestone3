@@ -142,7 +142,9 @@ def insert_memory():
         {"cafe_name": memory["cafe_name"]})["_id"]
 
     memory["cafe_id"] = cafe_id
-    memory["user_id"] = ObjectId(request.form.get("user_id"))
+
+    if(memory["user_id"]):
+        memory["user_id"] = ObjectId(request.form.get("user_id"))
     memories = mongo.db.memories
     memories.insert_one(memory)
     return redirect(url_for('get_memories', sort='date',
