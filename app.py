@@ -143,11 +143,6 @@ def insert_memory():
 
     memory["cafe_id"] = cafe_id
 
-    try:
-        memory["user_id"] = ObjectId(request.form.get("user_id"))
-    except TypeError:
-        memory["user_id"] = ""
-
     memories = mongo.db.memories
     memories.insert_one(memory)
     return redirect(url_for('get_memories', sort='date',
