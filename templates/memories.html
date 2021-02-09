@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<h1 class="d-inline">Everyone's Cafe memories</h1>
+<h1 class="d-inline page-title">Everyone's Cafe memories</h1>
 {% if session.user %}
     <a  class="float-right d-inline memories-button"
      href="{{url_for('get_memories', sort = 'date', order='desc', is_yours='yes')}}">Your Memories<i class="tiny material-icons">arrow_forward</i>

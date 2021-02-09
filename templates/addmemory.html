@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Add Your Cafe Memory</h3>
+<h1 class="page-title  page-title">Add Your Cafe Memory</h1>
 <div class="row">
  <div class="col s12 form-wrapper">
     <form action="{{ url_for('insert_memory') }}" method="POST"  class="col s12" >
@@ -21,10 +21,10 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                 <textarea id="description" name="description"  class="validate" 
+                 <textarea id="description" name="description"  class="materialize-textarea validate" 
                   required="" aria-required="true"
                   oninvalid="this.setCustomValidity('Please enter description')"
-                    oninput="this.setCustomValidity('')"></textarea>
+                  oninput="this.setCustomValidity('')"></textarea>
                 <label for="icon_telephone">Description</label>
             </div>
         </div>
