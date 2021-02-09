@@ -143,8 +143,11 @@ def insert_memory():
 
     memory["cafe_id"] = cafe_id
 
-    if(memory["user_id"]):
+    try:
         memory["user_id"] = ObjectId(request.form.get("user_id"))
+    except TypeError:
+        memory["user_id"] = ""
+
     memories = mongo.db.memories
     memories.insert_one(memory)
     return redirect(url_for('get_memories', sort='date',
@@ -192,8 +195,12 @@ def get_memories(sort, order, is_yours):
     for memory in memories:
 
         user = mongo.db.users.find_one({"username": memory["user"]})
-        if "photo" in user:
+
+        try:
             memory["userphoto"] = user["photo"]
+        except TypeError:
+            memory["userphoto"] = "https://res.cloudinary.com/machikolacey/image/upload/v1607383655/milestone3/coffee_wdl8h8.jpg"
+
         cafe = mongo.db.cafes.find_one({'_id': ObjectId(memory["cafe_id"])})
         try:
             memory["area_name"] = cafe["area_name"]
