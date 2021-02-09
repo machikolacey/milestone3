@@ -14,7 +14,13 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                 <input type="text" name="photo"  alt="photo" value="{{user.photo}}"   class="validate"  required="" aria-required="true"  />
+                 <input type="text" name="photo"  alt="photo" value="{{user.photo}}"   
+                    class="validate"  required="" aria-required="true"  
+                    pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)"
+                    oninvalid="this.setCustomValidity('Please enter link to the photo.')"
+                    oninput="this.setCustomValidity('')"
+                    />
+                 
                 <span>Please add a link to your photo. (<a href='https://cloudinary.com/users/login' target="_blank">Login to your Cloudinary account</a>)</span>
                 {% if user.photo %}
                     <img src="{{user.photo}}" alt="" class="profile-photo">
