@@ -29,7 +29,7 @@ http://milestone3-data-centric-mlk.herokuapp.com/
 
 ## Wireframe
 
-https://github.com/machikolacey/milestone3/blob/master/pdf/wireframe-ny-cafe-memories.pdf
+https://github.com/machikolacey/milestone3/blob/master/wireframes/wireframe-my-cafe-memories.pdf
 
 
 ## UX
