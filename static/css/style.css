@@ -87,6 +87,11 @@ background-color: #4d6d9a ;
     background:#544f4f;
 }
 
+.memory-card .btn{
+    width:100%;
+    margin:0 0 5px 0;
+}
+
 .cafe-view-photo{
     width: 100%;
     height: 150px;

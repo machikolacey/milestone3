@@ -278,12 +278,15 @@ def update_memory(memory_id, page=''):
                                 order='asc', is_yours='no'))
 
 
-@app.route('/delete_memory/<memory_id>/<page>')
+@app.route('/delete_memory/<memory_id>/<page>', methods=["POST"])
 def delete_memory(memory_id, page):
-    mongo.db.memories.remove({'_id': ObjectId(memory_id)})
-    if request.method == "DELETE":
+
+    the_memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
+    if (the_memory["user"] == session["user"]):
+        mongo.db.memories.remove({'_id': ObjectId(memory_id)})
         return redirect(url_for('get_memories', sort='date',
                                 order='asc', is_yours='yes'))
+
     return redirect(url_for('get_memories', sort='date',
                             order='asc', is_yours='no'))
 
