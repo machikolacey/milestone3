@@ -281,7 +281,7 @@ def update_memory(memory_id, page=''):
 @app.route('/delete_memory/<memory_id>/<page>')
 def delete_memory(memory_id, page):
     mongo.db.memories.remove({'_id': ObjectId(memory_id)})
-    if (page == 'yourmemories'):
+    if request.method == "DELETE":
         return redirect(url_for('get_memories', sort='date',
                                 order='asc', is_yours='yes'))
     return redirect(url_for('get_memories', sort='date',
