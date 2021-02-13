@@ -61,10 +61,10 @@ function checkCookie(cname) {
 
    var instances =  $('input.autocomplete').autocomplete({
       data: data,
-      minLength: 0
+      minLength: 4
     });
 
-   $('input.autocomplete').on('keyup',function(){
+   $('input.autocomplete').on('blur',function(){
         if ( instances.data[0] === undefined ) {
             $(this).val('');
         }
