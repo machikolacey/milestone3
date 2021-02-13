@@ -59,16 +59,12 @@ function checkCookie(cname) {
        data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
     });
 
-   var instances =  $('input.autocomplete').autocomplete({
+  $('input.autocomplete').autocomplete({
       data: data,
-      minLength: 4
+      minLength: 0
     });
 
-   $('input.autocomplete').on('blur',function(){
-        if ( instances.data[0] === undefined ) {
-            $(this).val('');
-        }
-    });
+ 
  
 }
 
