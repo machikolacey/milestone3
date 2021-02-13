@@ -437,6 +437,7 @@ I started this project relating collections with names of cafes and users, howev
 <li>We didn't want duplicate entries for a single cafe with multiple names, so I added a javascript code to auto-suggest cafe names.</li>
 <li>We didn't want duplicate entries for an area, so I added a javascript code to auto-suggest area names.</li>
 <li>We display a photo of the user on "Everyone's cafe memories" page. If a user choose not to upload their photo, it will display a default photo to avoid empty <img /> tag to be displayed.</li>
+<li>We didn't want a user to type a random name on auto-complete input, so I added a function to check if the data is in the list, on blur</li>
 </ol>
 
 
