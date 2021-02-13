@@ -55,15 +55,28 @@ function checkCookie(cname) {
 
  function autoCompleteCafe (cafenames){
     let data = {};
+    let dataArray = [];
+
     cafenames.forEach(function (cafename) {
        data[cafename.cafe_name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";
+       dataArray.push(cafename.cafe_name.toLowerCase());
     });
+
+
 
   $('input.autocomplete').autocomplete({
       data: data,
       minLength: 0
     });
+    $('input.autocomplete').on('blur', function(){
 
+        if (dataArray.includes($(this).val().toLowerCase()) ){
+         console.log('in the list');
+        } else {
+         console.log('not in the list');
+         $(this).val('');
+        }
+    });
  
  
 }
@@ -72,13 +85,24 @@ function checkCookie(cname) {
 
 function autoCompleteArea(areanames){
     let data = {};
+    let dataArray = [];
     areanames.forEach(function (areaname) {
        data[areaname.name] = "https://res.cloudinary.com/machikolacey/image/upload/v1597350037/milestone3/Julien-Plumart-Cafe_oztqap.jpg";  
+       dataArray.push(areaname.name.toLowerCase());
     });
 
      $('input.autocomplete').autocomplete({
       data: data,
       minLength: 0
+    });
+      $('input.autocomplete').on('blur', function(){
+
+        if (dataArray.includes($(this).val().toLowerCase()) ){
+         console.log('in the list');
+        } else {
+         console.log('not in the list');
+         $(this).val('');
+        }
     });
 
 }
