@@ -62,26 +62,9 @@ function checkCookie(cname) {
        dataArray.push(cafename.cafe_name.toLowerCase());
     });
 
+ actionAutoComplete(data, dataArray);
 
-
-  $('input.autocomplete').autocomplete({
-      data: data,
-      minLength: 0
-    });
-    $('input.autocomplete').on('blur', function(){
-
-        if (dataArray.includes($(this).val().toLowerCase()) ){
-         console.log('in the list');
-        } else {
-         console.log('not in the list');
-         $(this).val('');
-        }
-    });
- 
- 
 }
-
-
 
 function autoCompleteArea(areanames){
     let data = {};
@@ -91,19 +74,23 @@ function autoCompleteArea(areanames){
        dataArray.push(areaname.name.toLowerCase());
     });
 
-     $('input.autocomplete').autocomplete({
-      data: data,
-      minLength: 0
-    });
-      $('input.autocomplete').on('blur', function(){
-
-        if (dataArray.includes($(this).val().toLowerCase()) ){
-         console.log('in the list');
-        } else {
-         console.log('not in the list');
-         $(this).val('');
-        }
-    });
+    actionAutoComplete(data, dataArray);
 
 }
 
+
+
+function actionAutoComplete(data, dataArray ){
+
+  $('input.autocomplete').autocomplete({
+      data: data,
+      minLength: 0
+    });
+    $('input.autocomplete').on('blur', function(){
+        if (!dataArray.includes($(this).val().toLowerCase()) ){
+         $(this).val('');
+        }
+    });
+ 
+ 
+}
