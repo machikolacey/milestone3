@@ -11,7 +11,8 @@
                             <input type="text" id="cafe_name" class="autocomplete validate" name="cafe_name" autocomplete="off" 
                             required="" aria-required="true"
                             oninvalid="this.setCustomValidity('Please enter name of the cafe.')"
-                            oninput="this.setCustomValidity('')">
+                            oninput="this.setCustomValidity('')"
+                            disabled>
                             <label for="autocomplete-input">Cafe : Please start typing to find your cafe</label>
                         </div>
                         <p>Can't find the cafe? Add it <a href="{{ url_for('add_cafe') }}">here</a></p>

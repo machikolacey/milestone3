@@ -59,8 +59,10 @@ function checkCookie(cname) {
     });
 
     $('input.autocomplete').autocomplete({
-      data: data
+      data: data,
+      minLength: 0
     });
+    
 }
 
 function autoCompleteArea(areanames){
@@ -70,7 +72,8 @@ function autoCompleteArea(areanames){
     });
 
      $('input.autocomplete').autocomplete({
-      data: data
+      data: data,
+      minLength: 0
     });
 
 }

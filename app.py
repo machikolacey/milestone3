@@ -178,8 +178,8 @@ def add_memory():
         cafes = mongo.db.cafes.find()
         cafenames = mongo.db.cafes.find({}, {"cafe_name": 1, "area": 1})
         user = mongo.db.users.find_one({"username": session.get("user")})
-    except ValueError:
-        print("Value error : add memory")
+    except ValueError as e:
+        print("Value error : add memory " + e)
     cafenamesjson = dumps(cafenames)
     return render_template('addmemory.html',
                            cafes=cafes,
@@ -195,8 +195,8 @@ def filter_cafe():
 
     try:
         cafes = mongo.db.cafes.find()
-    except ValueError:
-        print("Value error : filter cafe")
+    except ValueError as e:
+        print("Value error : filter cafe " + e)
 
     for cafe in cafes:
         x.append(cafe)
@@ -213,16 +213,16 @@ def get_memories(sort, order, is_yours):
         else:
             memories = mongo.db.memories.find()
 
-    except ValueError:
-        print("Value error : get memories : memories")
+    except ValueError as e:
+        print("Value error : get memories : memories "+ e)
 
     mems = []
 
     for memory in memories:
         try:
             user = mongo.db.users.find_one({"username": memory["user"]})
-        except ValueError:
-            print("Value error : get memories : user")
+        except ValueError as e:
+            print("Value error : get memories " + e)
 
         try:
             memory["userphoto"] = user["photo"]
@@ -271,8 +271,8 @@ def edit_memory(memory_id, page):
         all_cafes = mongo.db.cafes.find()
         cafenames = mongo.db.cafes.find({}, {"cafe_name": 1, "area": 1})
         cafenamesjson = dumps(cafenames)
-    except ValueError:
-        print("Value error : edit memory")
+    except ValueError as e:
+        print("Value error : edit memory" + e)
 
     return render_template('editmemory.html', memory=the_memory,
                            cafes=all_cafes, page=page, cafenames=cafenamesjson)
@@ -282,8 +282,8 @@ def edit_memory(memory_id, page):
 def edit_account(user_id):
     try:
         the_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    except ValueError:
-        print("Value error : edit account")
+    except ValueError as e:
+        print("Value error : edit account " + e)
     return render_template('editaccount.html', user=the_user)
 
 
@@ -296,8 +296,8 @@ def update_user(user_id):
                         'username': request.form.get('username'),
                         'photo': request.form.get('photo')
                      }})
-    except ValueError:
-        print("Value error : update user")
+    except ValueError as e:
+        print("Value error : update user " + e)
 
     return redirect(url_for('get_memories', sort='date',
                             order='asc', is_yours='yes'))
@@ -321,8 +321,8 @@ def update_memory(memory_id, page=''):
                                 }
                          }
                         )
-    except ValueError:
-        print("Value error : update memory")
+    except ValueError as e:
+        print("Value error : update memory" + e)
 
     if(page == "yourmemories"):
         return redirect(url_for('get_memories', sort='date',
@@ -337,8 +337,8 @@ def delete_memory(memory_id, page):
         the_memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
         if (the_memory["user"] == session["user"]):
             mongo.db.memories.remove({'_id': ObjectId(memory_id)})
-    except ValueError:
-        print("Value error : delete memory")
+    except ValueError as e:
+        print("Value error : delete memory" + e)
         return redirect(url_for('get_memories', sort='date',
                                 order='asc', is_yours='yes'))
 
@@ -352,8 +352,8 @@ def login():
         try:
             existing_user = mongo.db.users.find_one(
                 {"username": request.form.get("username").lower()})
-        except ValueError:
-            print("Value error : login")
+        except ValueError as e:
+            print("Value error : login " + e)
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
@@ -392,8 +392,8 @@ def cafe(cafe_id):
     try:
         cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
         memories = mongo.db.memories.find({"cafe_id": ObjectId(cafe_id)})
-    except ValueError:
-        print("ValueError: cafe")
+    except ValueError as e:
+        print("ValueError: /cafe/<cafe_id> " + e)
 
     try:
         if cafe['youtube']:
