@@ -63,7 +63,10 @@ def get_cafes(sort, order):
     else:
         ord = -1
 
-    cafes = mongo.db.cafes.find().sort(sort, ord)
+    try:
+        cafes = mongo.db.cafes.find().sort(sort, ord)
+    except ValueError:
+        print("Value error")
 
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
@@ -82,11 +85,17 @@ def get_cafes(sort, order):
 def add_cafe():
     if not session.get('logged_in'):
         return redirect("/login")
-    areanames = mongo.db.areas.find()
+
+    try:
+        areanames = mongo.db.areas.find()
+        areas = mongo.db.areas.find()
+    except ValueError:
+        print("Value error : add cafe")
+
     areanamesjson = dumps(areanames)
 
     return render_template('addcafe.html',
-                           areas=mongo.db.areas.find(),
+                           areas=areas,
                            areanames=areanamesjson,
                            username=session["user"])
 
@@ -95,36 +104,46 @@ def add_cafe():
 def edit_cafe(cafe_id):
     if not session.get('logged_in'):
         return redirect("/login")
-    the_cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
-    all_areas = mongo.db.areas.find()
+    try:
+        the_cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
+        all_areas = mongo.db.areas.find()
+    except ValueError:
+        print("Value error : edit cafe")
+
     return render_template('editcafe.html', cafe=the_cafe, areas=all_areas)
 
 
 @app.route('/update_cafe/<cafe_id>', methods=['POST'])
 def update_cafe(cafe_id):
-    cafes = mongo.db.cafes
-    cafes.update({'_id': ObjectId(cafe_id)},
-                 {
-        'cafe_name': request.form.get('cafe_name'),
-        'website': request.form.get('website'),
-        'address': request.form.get('address'),
-        'postcode': request.form.get('postcode'),
-        'area_name': request.form.get('area_name'),
-        'photo': request.form.get('photo'),
-        'youtube': request.form.get('youtube')
-    })
-    return redirect(url_for('get_cafes', sort='cafe_name', order='asc'))
+    try:
+        cafes = mongo.db.cafes
+        cafes.update_one({'_id': ObjectId(cafe_id)}, {
+                'cafe_name': request.form.get('cafe_name'),
+                'website': request.form.get('website'),
+                'address': request.form.get('address'),
+                'postcode': request.form.get('postcode'),
+                'area_name': request.form.get('area_name'),
+                'photo': request.form.get('photo'),
+                'youtube': request.form.get('youtube')
+            })
+    except ValueError:
+        print("Value error : update cafe")
+
+        return redirect(url_for('get_cafes', sort='cafe_name', order='asc'))
 
 
 @app.route('/insert_cafe', methods=["POST"])
 def insert_cafe():
+    try:
+        area_id = mongo.db.areas.find_one(
+            {"name": request.form.get('area_name')})["_id"]
+        cafe = request.form.to_dict()
+        cafe["area_id"] = area_id
+        cafes = mongo.db.cafes
+        cafes.insert_one(cafe)
+    except ValueError:
+        print("Value error : insert cafe")
 
-    area_id = mongo.db.areas.find_one(
-        {"name": request.form.get('area_name')})["_id"]
-    cafe = request.form.to_dict()
-    cafe["area_id"] = area_id
-    cafes = mongo.db.cafes
-    cafes.insert_one(cafe)
     return redirect(url_for('get_cafes', sort='cafe_name', order='asc'))
 
 
@@ -135,14 +154,18 @@ def insert_memory():
 
     date_object = datetime.strptime(memory["date"], '%d/%m/%Y')
     memory["date"] = date_object
+    try:
+        cafe_id = mongo.db.cafes.find_one(
+            {"cafe_name": memory["cafe_name"]})["_id"]
 
-    cafe_id = mongo.db.cafes.find_one(
-        {"cafe_name": memory["cafe_name"]})["_id"]
+        memory["cafe_id"] = cafe_id
 
-    memory["cafe_id"] = cafe_id
+        memories = mongo.db.memories
+        memories.insert_one(memory)
 
-    memories = mongo.db.memories
-    memories.insert_one(memory)
+    except ValueError:
+        print("Value error : insert memory")
+
     return redirect(url_for('get_memories', sort='date',
                             order='asc', is_yours='yes'))
 
@@ -151,10 +174,12 @@ def insert_memory():
 def add_memory():
     if not session.get('logged_in'):
         return redirect("/login")
-    cafes = mongo.db.cafes.find()
-    cafenames = mongo.db.cafes.find({}, {"cafe_name": 1, "area": 1})
-    user = mongo.db.users.find_one({"username": session.get("user")})
-
+    try:
+        cafes = mongo.db.cafes.find()
+        cafenames = mongo.db.cafes.find({}, {"cafe_name": 1, "area": 1})
+        user = mongo.db.users.find_one({"username": session.get("user")})
+    except ValueError:
+        print("Value error : add memory")
     cafenamesjson = dumps(cafenames)
     return render_template('addmemory.html',
                            cafes=cafes,
@@ -167,7 +192,11 @@ def add_memory():
 @app.route('/filter_cafe', methods=['POST', 'GET'])
 def filter_cafe():
     x = []
-    cafes = mongo.db.cafes.find()
+
+    try:
+        cafes = mongo.db.cafes.find()
+    except ValueError:
+        print("Value error : filter cafe")
 
     for cafe in cafes:
         x.append(cafe)
@@ -178,16 +207,22 @@ def filter_cafe():
 @app.route('/memories/<sort>/<order>/<is_yours>')
 def get_memories(sort, order, is_yours):
 
-    if is_yours == 'yes':
-        memories = mongo.db.memories.find({"user": session.get("user")})
-    else:
-        memories = mongo.db.memories.find()
+    try:
+        if is_yours == 'yes':
+            memories = mongo.db.memories.find({"user": session.get("user")})
+        else:
+            memories = mongo.db.memories.find()
+
+    except ValueError:
+        print("Value error : get memories : memories")
 
     mems = []
 
     for memory in memories:
-
-        user = mongo.db.users.find_one({"username": memory["user"]})
+        try:
+            user = mongo.db.users.find_one({"username": memory["user"]})
+        except ValueError:
+            print("Value error : get memories : user")
 
         try:
             memory["userphoto"] = user["photo"]
@@ -227,13 +262,17 @@ def get_memories(sort, order, is_yours):
 
 @app.route('/edit_memory/<memory_id>/<page>')
 def edit_memory(memory_id, page):
-    the_memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
 
-    the_memory["ukdate"] = the_memory["date"].strftime('%d/%m/%Y')
+    try:
+        the_memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
 
-    all_cafes = mongo.db.cafes.find()
-    cafenames = mongo.db.cafes.find({}, {"cafe_name": 1, "area": 1})
-    cafenamesjson = dumps(cafenames)
+        the_memory["ukdate"] = the_memory["date"].strftime('%d/%m/%Y')
+
+        all_cafes = mongo.db.cafes.find()
+        cafenames = mongo.db.cafes.find({}, {"cafe_name": 1, "area": 1})
+        cafenamesjson = dumps(cafenames)
+    except ValueError:
+        print("Value error : edit memory")
 
     return render_template('editmemory.html', memory=the_memory,
                            cafes=all_cafes, page=page, cafenames=cafenamesjson)
@@ -241,18 +280,25 @@ def edit_memory(memory_id, page):
 
 @app.route('/edit_account/<user_id>')
 def edit_account(user_id):
-    the_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    try:
+        the_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    except ValueError:
+        print("Value error : edit account")
     return render_template('editaccount.html', user=the_user)
 
 
 @app.route('/update_user/<user_id>', methods=["POST"])
 def update_user(user_id):
-    users = mongo.db.users
-    users.update({'_id': ObjectId(user_id)},
-                 {"$set": {
-                     'username': request.form.get('username'),
-                     'photo': request.form.get('photo')
-                 }})
+    try:
+        users = mongo.db.users
+        users.update({'_id': ObjectId(user_id)},
+                     {"$set": {
+                        'username': request.form.get('username'),
+                        'photo': request.form.get('photo')
+                     }})
+    except ValueError:
+        print("Value error : update user")
+
     return redirect(url_for('get_memories', sort='date',
                             order='asc', is_yours='yes'))
 
@@ -262,15 +308,18 @@ def update_memory(memory_id, page=''):
     memories = mongo.db.memories
 
     date_object = datetime.strptime(request.form.get('date'), '%d/%m/%Y')
+    try:
+        memories.update({'_id': ObjectId(memory_id)},
+            {"$set": {
+                'cafe_name': request.form.get('cafe_name'),
+                'description': request.form.get('description'),
+                'photo': request.form.get('photo'),
+                'is_private': request.form.get('is_private'),
+                'date': date_object
+            }})
+    except ValueError:
+        print("Value error : update memory")
 
-    memories.update({'_id': ObjectId(memory_id)},
-                    {"$set": {
-                        'cafe_name': request.form.get('cafe_name'),
-                        'description': request.form.get('description'),
-                        'photo': request.form.get('photo'),
-                        'is_private': request.form.get('is_private'),
-                        'date': date_object
-                    }})
     if(page == "yourmemories"):
         return redirect(url_for('get_memories', sort='date',
                                 order='asc', is_yours='yes'))
@@ -280,10 +329,12 @@ def update_memory(memory_id, page=''):
 
 @app.route('/delete_memory/<memory_id>/<page>', methods=["POST"])
 def delete_memory(memory_id, page):
-
-    the_memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
-    if (the_memory["user"] == session["user"]):
-        mongo.db.memories.remove({'_id': ObjectId(memory_id)})
+    try:
+        the_memory = mongo.db.memories.find_one({"_id": ObjectId(memory_id)})
+        if (the_memory["user"] == session["user"]):
+            mongo.db.memories.remove({'_id': ObjectId(memory_id)})
+    except ValueError:
+        print("Value error : delete memory")
         return redirect(url_for('get_memories', sort='date',
                                 order='asc', is_yours='yes'))
 
@@ -294,8 +345,11 @@ def delete_memory(memory_id, page):
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+        try:
+            existing_user = mongo.db.users.find_one(
+                {"username": request.form.get("username").lower()})
+        except ValueError:
+            print("Value error : login")
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
@@ -330,9 +384,13 @@ def sort_memories(request):
 def cafe(cafe_id):
     mems = []
     youtube = ""
-    cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
-    memories = mongo.db.memories.find({"cafe_id": ObjectId(cafe_id)})
-
+    
+    try:
+        cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
+        memories = mongo.db.memories.find({"cafe_id": ObjectId(cafe_id)})
+    except ValueError:
+        print("ValueError: cafe")
+        
     try:
         if cafe['youtube']:
             youtube = cafe['youtube'].replace("watch?v=", "/embed/")
@@ -341,7 +399,11 @@ def cafe(cafe_id):
 
     for memory in memories:
         user = mongo.db.users.find_one({"username": memory["user"]})
-        memory["userphoto"] = user["photo"]
+        try:
+            memory["userphoto"] = user["photo"]
+        except TypeError:
+            memory["userphoto"] = os.environ.get("DEFAULT_PIC")
+
         mems.append(memory)
     return render_template("cafe.html", cafe=cafe,
                            youtube=youtube, memories=mems)
