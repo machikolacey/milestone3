@@ -384,13 +384,13 @@ def sort_memories(request):
 def cafe(cafe_id):
     mems = []
     youtube = ""
-    
+
     try:
         cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
         memories = mongo.db.memories.find({"cafe_id": ObjectId(cafe_id)})
     except ValueError:
         print("ValueError: cafe")
-        
+
     try:
         if cafe['youtube']:
             youtube = cafe['youtube'].replace("watch?v=", "/embed/")
@@ -404,6 +404,7 @@ def cafe(cafe_id):
         except TypeError:
             memory["userphoto"] = os.environ.get("DEFAULT_PIC")
 
+        memory["ukdate"] = memory["date"].strftime('%d/%m/%Y')
         mems.append(memory)
     return render_template("cafe.html", cafe=cafe,
                            youtube=youtube, memories=mems)
