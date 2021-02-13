@@ -310,13 +310,17 @@ def update_memory(memory_id, page=''):
     date_object = datetime.strptime(request.form.get('date'), '%d/%m/%Y')
     try:
         memories.update({'_id': ObjectId(memory_id)},
-            {"$set": {
-                'cafe_name': request.form.get('cafe_name'),
-                'description': request.form.get('description'),
-                'photo': request.form.get('photo'),
-                'is_private': request.form.get('is_private'),
-                'date': date_object
-            }})
+                        {"$set": {
+                                    'cafe_name': request.form.get('cafe_name'),
+                                    'description':
+                                    request.form.get('description'),
+                                    'photo': request.form.get('photo'),
+                                    'is_private':
+                                    request.form.get('is_private'),
+                                    'date': date_object
+                                }
+                         }
+                        )
     except ValueError:
         print("Value error : update memory")
 

@@ -219,7 +219,7 @@ All the other warnings are from recommended third-party by Code Institute, and a
 To test Python code, I used flake 8, using these codes:
 
 ```
-pip install flake8
+pip3 install flake8
 
 flake8 app.py
 ```
