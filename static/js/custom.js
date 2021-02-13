@@ -20,6 +20,7 @@
             });
     });  
 
+    
   });
 
 function setCookie(cname, cvalue, exdays) {
@@ -62,14 +63,16 @@ function checkCookie(cname) {
       data: data,
       minLength: 0
     });
-    $('input.autocomplete').on('keyup',function(){
-    console.log('autocomplete keyup');
-        if ( instances[0].count === 0 ) {
-            console.log('no matches');
+
+   $('input.autocomplete').on('keyup',function(){
+        if ( instances.data[0] === undefined ) {
             $(this).val('');
         }
     });
+ 
 }
+
+
 
 function autoCompleteArea(areanames){
     let data = {};
