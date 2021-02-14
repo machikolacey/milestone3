@@ -214,7 +214,7 @@ def get_memories(sort, order, is_yours):
             memories = mongo.db.memories.find()
 
     except ValueError as e:
-        print("Value error : get memories : memories "+ e)
+        print("Value error : get memories : memories " + e)
 
     mems = []
 
