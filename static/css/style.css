@@ -8,6 +8,13 @@ background: linear-gradient(90deg, rgba(244,191,201,1) 12%, rgba(237,216,219,0.8
 
 }
 
+#flash-message{
+    border: 1px solid #b0daae;
+    padding: 10px;
+    background: #e0dddd;
+    color: #666;
+    display:none;
+}
 
 .container > .main-content > .row{
     width:100%;

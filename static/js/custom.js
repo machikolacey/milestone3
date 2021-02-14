@@ -89,6 +89,12 @@ function actionAutoComplete(data, dataArray ){
     $('input.autocomplete').on('blur', function(){
         if (!dataArray.includes($(this).val().toLowerCase()) ){
          $(this).val('');
+         $('#flash-message')
+         .slideDown(function() {
+                setTimeout(function() {
+                $('#flash-message').slideUp();
+                }, 3000);
+            });
         }
     });
  

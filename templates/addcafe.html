@@ -7,13 +7,15 @@
                 <div class="col s12">
                 <div class="row no-margin-bottom">
                     <div class="input-field col s12">
-                    <i class="material-icons prefix">map</i>
-                    <input type="text" id="area_name" class="autocomplete validate" name="area_name" autocomplete="off" 
-                         required="" aria-required="true" 
-                         oninvalid="this.setCustomValidity('Please enter an area name.')"
-                　       oninput="this.setCustomValidity('')" >
-                    <label for="autocomplete-input">Area Name : Start typing a name to find area</label>
+                        <i class="material-icons prefix">map</i>
+                        <input type="text" id="area_name" class="autocomplete validate" name="area_name" autocomplete="off" 
+                            required="" aria-required="true" 
+                            oninvalid="this.setCustomValidity('Please enter an area name.')"
+                    　       oninput="this.setCustomValidity('')" >
+                        <label for="autocomplete-input">Area Name : Start typing a name to find area</label>
+                        <div id="flash-message">Please select a area from the list. To see the list, start typing a name.</div>
                     </div>
+                
                 </div>
                 </div>
             </div>
