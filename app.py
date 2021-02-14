@@ -315,6 +315,7 @@ def update_memory(memory_id, page=''):
                                     'description':
                                     request.form.get('description'),
                                     'photo': request.form.get('photo'),
+                                    'ratings': request.form.get('ratings'),
                                     'is_private':
                                     request.form.get('is_private'),
                                     'date': date_object
