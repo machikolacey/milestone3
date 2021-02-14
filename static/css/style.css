@@ -196,11 +196,12 @@ img {
 }
 
 .edit-memory .memory-photo{
-    width:450px;
-    height:350px;
+    width:250px;
+    height:150px;
 }
 .edit-memory .memory-photo-wrapper{
-    max-width:470px;
+    max-width:280px;
+    margin: 0 0 0 50px;
 }
 .memory-card.cafe-card {
     background: #c1bdbd;
