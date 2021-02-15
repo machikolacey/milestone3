@@ -111,7 +111,7 @@ This project is using images from <a href="https://cloudinary.com/" rel="nofollo
        
 ## Testing
 
-## User stories
+### User stories
  
 ### First time user
 | User Story    | Expected Outcome  | Actual Outcome | 
