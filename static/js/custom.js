@@ -7,7 +7,6 @@
         return $.getJSON(
             '/cafe_autocomplete/'+$('.searchcafe').attr('sortvalue'), 
             function (data) {
-                console.log(data) ; 
                 return process(data);
             });
     });  
