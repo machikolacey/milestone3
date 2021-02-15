@@ -65,8 +65,8 @@ def get_cafes(sort, order):
 
     try:
         cafes = mongo.db.cafes.find().sort(sort, ord)
-    except ValueError:
-        print("Value error")
+    except ValueError as e:
+        print("Value error" + e)
 
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
@@ -89,8 +89,8 @@ def add_cafe():
     try:
         areanames = mongo.db.areas.find()
         areas = mongo.db.areas.find()
-    except ValueError:
-        print("Value error : add cafe")
+    except ValueError as e:
+        print("Value error : add cafe " + e)
 
     areanamesjson = dumps(areanames)
 
@@ -107,8 +107,8 @@ def edit_cafe(cafe_id):
     try:
         the_cafe = mongo.db.cafes.find_one({"_id": ObjectId(cafe_id)})
         all_areas = mongo.db.areas.find()
-    except ValueError:
-        print("Value error : edit cafe")
+    except ValueError as e:
+        print("Value error : edit cafe " + e)
 
     return render_template('editcafe.html', cafe=the_cafe, areas=all_areas)
 
@@ -126,8 +126,8 @@ def update_cafe(cafe_id):
                 'photo': request.form.get('photo'),
                 'youtube': request.form.get('youtube')
             })
-    except ValueError:
-        print("Value error : update cafe")
+    except ValueError as e:
+        print("Value error : update cafe " + e)
 
         return redirect(url_for('get_cafes', sort='cafe_name', order='asc'))
 
@@ -141,8 +141,8 @@ def insert_cafe():
         cafe["area_id"] = area_id
         cafes = mongo.db.cafes
         cafes.insert_one(cafe)
-    except ValueError:
-        print("Value error : insert cafe")
+    except ValueError as e:
+        print("Value error : insert cafe " + e)
 
     return redirect(url_for('get_cafes', sort='cafe_name', order='asc'))
 
@@ -163,8 +163,8 @@ def insert_memory():
         memories = mongo.db.memories
         memories.insert_one(memory)
 
-    except ValueError:
-        print("Value error : insert memory")
+    except ValueError as e:
+        print("Value error : insert memory " + e)
 
     return redirect(url_for('get_memories', sort='date',
                             order='asc', is_yours='yes'))

@@ -66,6 +66,10 @@ background-color: #4d6d9a ;
     margin: 20px 0 0 0;
 }
 
+.memory-card i.tiny{
+    margin-right:5px;
+}
+
 .side-nav li>a:hover , nav ul a:hover {
     background-color: #ad81a4;
     text-decoration: none;
@@ -386,10 +390,19 @@ nav {
     border:none;
 }
 .modal .modal-content .first-time{
- background:#b8cedc;
+    background:#b8cedc;
     height:100%;
     max-height:100%;
 }
+.not-now, .get-started{
+    color: #7b6157;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+ 
+}
+
+
 .close-button{
     position:absolute;
     right:10px;
@@ -430,11 +443,17 @@ nav {
 
 
 .memory-card-container a{
-padding: 10px;
 padding: 16px;
 margin: 10px auto;
 background-color: #cec88a;
 }
+
+
+
+.memory-card-container a.get-started, .memory-card-container a.login{
+    padding:8px ;
+}
+
 
 @media screen and (max-width:1260px){
     nav ul a {
@@ -501,36 +520,47 @@ background-color: #cec88a;
 nav .brand-logo {
     font-size: 1rem;
 }
-    .user p{
-        font-size: 1rem;
-        font-weight: 700;
-    }
-    .user_photo{
-        margin:0 0 20px 0;
-    }
-    .memory-card > .row {
-        margin-bottom: 0;
-        width: 100%;
-        margin: 0;
-    }
-  
-    ul.inlineblock li {
-        padding: 0 8px;
-        margin: 0 0 5px 0;
-    }
-    h1{
-        font-size:2rem;
-    }
-    .row{
-        display:block;
-    }
-    .btn{
-        margin:0 0 20px 0;
-    }
+.user p{
+    font-size: 1rem;
+    font-weight: 700;
+}
+.user_photo{
+    margin:0 0 20px 0;
+}
+.memory-card > .row {
+    margin-bottom: 0;
+    width: 100%;
+    margin: 0;
+}
 
-    .memory-card-container a{
-        display:block;
-    }
+ul.inlineblock li {
+    padding: 0 8px;
+    margin: 0 0 5px 0;
+}
+h1{
+    font-size:2rem;
+}
+.row{
+    display:block;
+}
+.btn{
+    margin:0 0 20px 0;
+}
+
+.memory-card-container a{
+    display:block;
+}
+
+.not-now{
+    width:100%;
+}
+.memory-card-container a.get-started, .memory-card-container a.login {
+    text-align: center;
+}
+
+.memory-card-container a.login {
+ margin:20px 0;
+}
 }
 
 @media only screen and (min-width: 601px){
